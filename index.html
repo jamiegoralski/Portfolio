@@ -629,6 +629,13 @@ footer{border-top:1px solid #d7d8d0;padding:40px 0 20px}footer h2{font-size:clam
 .headshot-crop .about-headshot{object-fit:contain;object-position:center}
 @media(max-width:700px){.brand-logo{width:40px;height:40px}.brand-home{gap:8px}}
 @media(max-width:520px){nav{flex-wrap:wrap;gap:18px}.nav-links{flex-basis:100%;justify-content:space-between}.brand-logo{width:38px;height:38px}}
+
+/* A standalone footer signature lets the logo keep its own visual identity. */
+.footer-signature{display:flex;justify-content:center;margin-top:42px;padding:30px 0 10px;border-top:1px solid #d7d8d0}
+.footer-signature[hidden]{display:none}
+.footer-signature a{display:inline-flex;padding:8px}
+.signature-logo{display:block;width:76px;height:76px;object-fit:contain}
+@media(max-width:520px){.signature-logo{width:64px;height:64px}}
 </style>
 </head>
 
@@ -636,7 +643,7 @@ footer{border-top:1px solid #d7d8d0;padding:40px 0 20px}footer h2{font-size:clam
   <div class="top">
     <div class="container">
       <nav aria-label="Main navigation">
-        <a class="name brand-home" href="#home" aria-label="Jamie Goralski — home"><img class="brand-logo" src="images/jg-logo.png" alt="" width="52" height="52" onerror="if (!this.dataset.retried) { this.dataset.retried = '1'; this.src = 'jg-logo.png'; } else { this.hidden = true; }"><span>JAMIE GORALSKI</span></a>
+        <a class="name" href="#home">JAMIE GORALSKI</a>
 
         <div class="nav-links">
           <a href="#work">Selected Work</a>
@@ -816,7 +823,7 @@ footer{border-top:1px solid #d7d8d0;padding:40px 0 20px}footer h2{font-size:clam
 
         <a href="#home">Back to top ↑</a>
       </div>
-      <div class="footer-wordmark" aria-hidden="true">JAMIE GORALSKI</div>
+      <div class="footer-signature"><a href="#home" aria-label="Jamie Goralski — back to top"><img class="signature-logo" src="images/jg-logo.png" alt="JG monogram" width="76" height="76" loading="lazy" onerror="if (!this.dataset.retried) { this.dataset.retried = '1'; this.src = 'jg-logo.png'; } else { this.closest('.footer-signature').hidden = true; }"></a></div>
     </div>
   </footer>
 </body>
