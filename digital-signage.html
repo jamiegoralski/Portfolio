@@ -40,6 +40,14 @@ footer{border-top:1px solid #d7d8d0;margin-top:70px;padding:30px 0 20px}
 .facts{grid-template-columns:1fr 1fr}.facts>div:last-child{grid-column:1/-1}.brand,.story-grid,.steps{grid-template-columns:1fr;gap:24px}.section{padding:40px 0}.outcome{padding:28px}.brand{margin-top:25px}.footer-bottom{flex-direction:column}.footer-wordmark{margin-top:35px}}
 @media(max-width:520px){.name{font-size:13px}.nav-links{gap:12px}.nav-links a{font-size:12px}h1{font-size:38px}.facts{grid-template-columns:1fr}.facts>div:last-child{grid-column:auto}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+.image-lightbox{border:0;padding:64px 24px 24px;background:#f5f5f2;color:#141512;border-radius:18px;width:min(1200px,94vw);max-width:94vw;max-height:94dvh;overflow:auto}
+.image-lightbox::backdrop{background:rgba(12,16,12,.82)}
+.image-lightbox img{display:block;width:100%;height:auto;max-height:72dvh;object-fit:contain}
+.lightbox-close{position:absolute;right:14px;top:12px;width:44px;height:44px;border:1px solid #d7d8d0;border-radius:50%;background:#fff;color:#141512;font-size:30px;line-height:1;cursor:pointer}
+.lightbox-caption{font-size:15px;line-height:1.5;margin:16px 0 0;max-width:none;color:#55584f}
+body.lightbox-open{overflow:hidden}
+.lightbox-close:focus-visible{outline:3px solid #436844;outline-offset:3px}
 </style>
 </head>
 <body>
@@ -58,13 +66,12 @@ footer{border-top:1px solid #d7d8d0;margin-top:70px;padding:30px 0 20px}
 <div class="jump-links"><a href="#selected-work">View the designs ↓</a><a href="#workflow">See my workflow ↓</a><a href="#outcome">Read the outcome ↓</a></div>
 </header>
 <section class="section" id="selected-work" aria-labelledby="work-heading">
-<div class="section-heading"><p class="eyebrow">Selected work</p><h2>Two brands. One coordinated network.</h2>
-<p>Menu boards and promotions designed for each food concept, then scheduled and maintained through OptiSigns. Select an image to view the original at full size.</p></div>
+<div class="section-heading"><p class="eyebrow">Selected work</p><h2>Three brands. One coordinated network.</h2>
+<p>Digital signage across Phoenix Convention Center, Orpheum Theatre, and Symphony Hall. The examples below feature food concepts at Phoenix Convention Center, with content scheduled and maintained through OptiSigns. Select an image to enlarge it.</p></div>
 <div class="brand">
 <div class="brand-copy"><p class="tag">01 / PHX Wok</p><h3>Promotion + menu</h3><p>Bold food photography draws attention. A companion menu organizes items, descriptions, and prices within the same visual identity.</p></div>
 <div class="brand-images"><figure>
-        <a href="images/phx-wok-promo.png"
-           target="_blank" rel="noopener noreferrer">
+        <a class="image-preview" href="images/phx-wok-promo.png" aria-haspopup="dialog">
           <img src="images/phx-wok-promo.png"
                width="1920" height="1080"
                alt="PHX Wok egg roll promotion with bold white typography,
@@ -76,8 +83,7 @@ footer{border-top:1px solid #d7d8d0;margin-top:70px;padding:30px 0 20px}
           
         </figcaption>
       </figure><figure>
-          <a href="images/phx-wok-menu.png"
-             target="_blank" rel="noopener noreferrer">
+          <a class="image-preview" href="images/phx-wok-menu.png" aria-haspopup="dialog">
             <img src="images/phx-wok-menu.png"
                  width="1920" height="1080" loading="lazy"
                  alt="PHX Wok digital menu with a dark green background,
@@ -92,8 +98,7 @@ footer{border-top:1px solid #d7d8d0;margin-top:70px;padding:30px 0 20px}
 <div class="brand john">
 <div class="brand-copy"><p class="tag">02 / John Dough Pizza Co.</p><h3>A consistent menu system</h3><p>Coordinated boards carry the same typography and layout approach from pizza selections to sides and beverages.</p></div>
 <div class="brand-images pair"><figure>
-          <a href="images/john-dough-pizza.png"
-             target="_blank" rel="noopener noreferrer">
+          <a class="image-preview" href="images/john-dough-pizza.png" aria-haspopup="dialog">
             <img src="images/john-dough-pizza.png"
                  width="1920" height="1080" loading="lazy"
                  alt="John Dough Pizza Co. menu displaying four pizza
@@ -104,8 +109,7 @@ footer{border-top:1px solid #d7d8d0;margin-top:70px;padding:30px 0 20px}
             presents four pizza varieties in a consistent format.
           </figcaption>
         </figure><figure>
-          <a href="images/john-dough-menu.png"
-             target="_blank" rel="noopener noreferrer">
+          <a class="image-preview" href="images/john-dough-menu.png" aria-haspopup="dialog">
             <img src="images/john-dough-menu.png"
                  width="1920" height="1080" loading="lazy"
                  alt="John Dough Pizza Co. sides and drinks menu
@@ -139,4 +143,45 @@ footer{border-top:1px solid #d7d8d0;margin-top:70px;padding:30px 0 20px}
 <p>The new workflow allows menus, promotions, and guest communications to be updated more efficiently across the venues.</p><p>By managing both creative production and deployment, I connect the original request with what guests ultimately see on screen.</p>
 </section>
 </main><footer><div class="footer-bottom"><a href="index.html#work">← Back to selected work</a><span>Marketing &amp; Design · Phoenix, AZ</span></div><div class="footer-wordmark" aria-hidden="true">JAMIE GORALSKI</div></footer>
-</div></body></html>
+</div>
+<dialog class="image-lightbox" aria-label="Enlarged project image">
+<button class="lightbox-close" type="button" aria-label="Close image preview">×</button>
+<img class="lightbox-image" alt="">
+<p class="lightbox-caption"></p>
+</dialog>
+<script>
+(function () {
+  const dialog = document.querySelector('.image-lightbox');
+  const image = dialog.querySelector('.lightbox-image');
+  const caption = dialog.querySelector('.lightbox-caption');
+  const closeButton = dialog.querySelector('.lightbox-close');
+  let trigger;
+  document.querySelectorAll('.image-preview').forEach(function (link) {
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+      trigger = link;
+      const original = link.querySelector('img');
+      image.src = link.getAttribute('href');
+      image.alt = original.alt;
+      const description = link.closest('figure').querySelector('figcaption');
+      caption.textContent = description ? description.textContent.trim() : '';
+      dialog.showModal();
+      document.body.classList.add('lightbox-open');
+      closeButton.focus();
+    });
+  });
+  closeButton.addEventListener('click', function () { dialog.close(); });
+  dialog.addEventListener('click', function (event) {
+    if (event.target !== dialog) return;
+    const box = dialog.getBoundingClientRect();
+    if (event.clientX < box.left || event.clientX > box.right ||
+        event.clientY < box.top || event.clientY > box.bottom) dialog.close();
+  });
+  dialog.addEventListener('close', function () {
+    document.body.classList.remove('lightbox-open');
+    image.removeAttribute('src');
+    if (trigger) trigger.focus();
+  });
+})();
+</script>
+</body></html>
