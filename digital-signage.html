@@ -49,11 +49,31 @@ footer{border-top:1px solid #d7d8d0;margin-top:70px;padding:30px 0 20px}
 body.lightbox-open{overflow:hidden}
 .lightbox-close:focus-visible{outline:3px solid #436844;outline-offset:3px}
 .project-credit{font-size:15px;line-height:1.6;color:#62645c;max-width:85ch;margin:0 0 28px}
+
+/* Match the homepage navigation, content width, and logo signature. */
+:root{--text:#211f20;--accent:#436844}
+.container{width:min(1280px,86%)}
+nav{width:100%;display:flex;flex-direction:row;align-items:center;justify-content:flex-start;gap:0;padding:32px 0;border-bottom:0}
+.nav-links{display:flex;flex:0 1 auto;align-items:center;justify-content:flex-start;flex-wrap:nowrap;gap:38px;width:auto}
+.nav-links a,.nav-links a:visited{display:inline-flex;align-items:center;min-height:44px;margin:0;padding:0;color:var(--text);font-family:inherit;font-size:16px;font-weight:600;line-height:1.25;white-space:nowrap;text-decoration:none;border:0}
+.nav-links a:hover{color:var(--accent);text-decoration:none}
+.footer-signature{display:flex;justify-content:center;margin-top:42px;padding:30px 0 10px;border-top:1px solid #d7d8d0}
+.footer-signature a{display:inline-flex;padding:8px}
+.signature-logo{display:block;width:76px;height:auto;object-fit:contain}
+@media(max-width:700px){nav{padding:24px 0}.nav-links{gap:24px}.nav-links a,.nav-links a:visited{font-size:14px}}
+@media(max-width:520px){.container{width:90%}.nav-links{width:100%;justify-content:space-between;gap:8px}.nav-links a,.nav-links a:visited{font-size:12px}.signature-logo{width:64px}}
 </style>
 </head>
 <body>
 <div class="container">
-<nav aria-label="Main navigation"><a class="name" href="index.html">JAMIE GORALSKI</a><div class="nav-links"><a href="index.html#work">Selected Work</a><a href="index.html#about">About</a><a href="index.html#contact">Connect</a></div></nav>
+<nav aria-label="Main navigation">
+        <div class="nav-links">
+          <a href="index.html#work">Selected Work</a>
+          <a href="https://jamiegoralski.myportfolio.com/work" target="_blank" rel="noopener noreferrer">Photography</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Connect</a>
+        </div>
+      </nav>
 <main>
 <header class="hero">
 <p class="eyebrow">(Selected Work / Digital Signage &amp; Content Operations)</p>
@@ -144,7 +164,7 @@ body.lightbox-open{overflow:hidden}
 <p class="eyebrow">The outcome</p><h2 id="outcome-heading">Coordinated content across 55+ displays.</h2>
 <p>The new workflow allows menus, promotions, and guest communications to be updated more efficiently across the venues.</p><p>By managing both creative production and deployment, I connect the original request with what guests ultimately see on screen.</p>
 </section>
-</main><footer><div class="footer-bottom"><a href="index.html#work">← Back to selected work</a><span>Marketing &amp; Design · Phoenix, AZ</span></div><div class="footer-wordmark" aria-hidden="true">JAMIE GORALSKI</div></footer>
+</main><footer><div class="footer-bottom"><a href="index.html#work">← Back to selected work</a><span>Marketing &amp; Design · Phoenix, AZ</span></div><div class="footer-signature"><a href="index.html" aria-label="Jamie Goralski — home"><img class="signature-logo" src="images/jg-monogram.png" alt="JG monogram" width="76" height="80" loading="lazy"></a></div></footer>
 </div>
 <dialog class="image-lightbox" aria-label="Enlarged project image">
 <button class="lightbox-close" type="button" aria-label="Close image preview">×</button>
