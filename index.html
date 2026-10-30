@@ -662,7 +662,8 @@ nav{flex-direction:row;justify-content:flex-start;align-items:center;padding:32p
 .motion-identity h1{font-size:clamp(30px,4.5vw,64px);font-weight:700;letter-spacing:-.065em;white-space:normal;text-align:center;margin:0;line-height:1.1}
 .identity-video{display:none;width:min(850px,100%);height:auto;max-height:340px;object-fit:contain}
 .motion-ready .identity-video{display:block}
-.motion-ready h1{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.motion-identity h1{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.motion-fallback h1{position:static;width:auto;height:auto;overflow:visible;clip-path:none}
 .motion-control{position:absolute;right:0;bottom:0;border:1px solid #d7d8d0;border-radius:20px;background:#ffffff;color:#62645c;padding:7px 12px;font:inherit;font-size:11px;cursor:pointer}
 .motion-control:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 .hero-intro{display:block}
@@ -672,7 +673,7 @@ nav{flex-direction:row;justify-content:flex-start;align-items:center;padding:32p
 .section-heading{font-size:17px}
 @media(max-width:700px){nav{padding:24px 0}.nav-links{gap:24px;flex-wrap:wrap}.nav-links a{font-size:14px}.motion-identity{min-height:260px;margin-bottom:28px}.hero{padding-bottom:48px}.hero-description{letter-spacing:-.6px}.hero-links{gap:24px}}
 @media(max-width:520px){.container{width:90%}nav{flex-direction:row;gap:0}.nav-links{flex:1;width:100%;justify-content:space-between;gap:10px}.nav-links a{font-size:12px}.motion-identity{min-height:220px}.identity-video{width:100%}.hero-links{font-size:14px;gap:20px}}
-@media(prefers-reduced-motion:reduce){.identity-video,.motion-control{display:none!important}.motion-ready h1{position:static;width:auto;height:auto;overflow:visible;clip-path:none}}
+@media(prefers-reduced-motion:reduce){.identity-video,.motion-control{display:none!important}.motion-identity h1{position:static;width:auto;height:auto;overflow:visible;clip-path:none}}
 
 /* Consistent navigation baselines and shared content alignment. */
 nav{width:100%;align-items:center}
@@ -688,7 +689,10 @@ nav{width:100%;align-items:center}
 :root{--background:#ffffff;--surface:#ffffff}
 html,body,.top,footer{background-color:#ffffff}
 .identity-video{mix-blend-mode:multiply}
+/* Leave breathing room after the PHX Wok sign within the card crop. */
+.signage.project-photo img{object-position:60% center}
 </style>
+<noscript><style>.motion-identity h1{position:static;width:auto;height:auto;overflow:visible;clip-path:none}</style></noscript>
 </head>
 
 <body id="home">
@@ -888,18 +892,29 @@ html,body,.top,footer{background-color:#ffffff}
   const video=stage.querySelector('video');
   const button=stage.querySelector('button');
   const preference=window.matchMedia('(prefers-reduced-motion: reduce)');
+  function showFallback(){
+    stage.classList.remove('motion-ready');
+    stage.classList.add('motion-fallback');
+    button.hidden=true;
+  }
   function start(){
-    if(preference.matches)return;
+    if(preference.matches){showFallback();return;}
+    stage.classList.remove('motion-fallback');
     video.muted=true;
-    video.play().then(function(){stage.classList.add('motion-ready');button.hidden=false;button.textContent='Pause animation';}).catch(function(){stage.classList.remove('motion-ready');button.hidden=true;});
+    video.play().then(function(){
+      if(preference.matches){video.pause();showFallback();return;}
+      stage.classList.add('motion-ready');
+      button.hidden=false;
+      button.textContent='Pause animation';
+    }).catch(showFallback);
   }
   button.addEventListener('click',function(){
     if(video.paused){if(video.ended)video.currentTime=0;start();}
     else{video.pause();button.textContent='Play animation';}
   });
   video.addEventListener('ended',function(){button.textContent='Replay animation';});
-  video.addEventListener('error',function(){stage.classList.remove('motion-ready');button.hidden=true;});
-  preference.addEventListener('change',function(){if(preference.matches){video.pause();stage.classList.remove('motion-ready');button.hidden=true;}else start();});
+  video.addEventListener('error',showFallback);
+  preference.addEventListener('change',function(){if(preference.matches){video.pause();showFallback();}else start();});
   start();
 })();
 </script>
