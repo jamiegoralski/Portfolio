@@ -673,6 +673,16 @@ nav{flex-direction:row;justify-content:flex-start;align-items:center;padding:32p
 @media(max-width:700px){nav{padding:24px 0}.nav-links{gap:24px;flex-wrap:wrap}.nav-links a{font-size:14px}.motion-identity{min-height:260px;margin-bottom:28px}.hero{padding-bottom:48px}.hero-description{letter-spacing:-.6px}.hero-links{gap:24px}}
 @media(max-width:520px){.container{width:90%}nav{flex-direction:row;gap:0}.nav-links{flex:1;width:100%;justify-content:space-between;gap:10px}.nav-links a{font-size:12px}.motion-identity{min-height:220px}.identity-video{width:100%}.hero-links{font-size:14px;gap:20px}}
 @media(prefers-reduced-motion:reduce){.identity-video,.motion-control{display:none!important}.motion-ready h1{position:static;width:auto;height:auto;overflow:visible;clip-path:none}}
+
+/* Consistent navigation baselines and shared content alignment. */
+nav{width:100%;align-items:center}
+.nav-links{display:flex;align-items:center;justify-content:flex-start;flex-wrap:nowrap;gap:38px;width:auto}
+.nav-links a,.nav-links a:visited{display:inline-flex;align-items:center;min-height:44px;margin:0;padding:0;color:var(--text);font-family:inherit;font-size:16px;font-weight:600;line-height:1.25;white-space:nowrap;text-decoration:none;border:0}
+.nav-links a:hover{color:var(--accent);text-decoration:none}
+.hero-intro,.work{margin-inline:0}
+.hero-links{align-items:baseline}
+@media(max-width:700px){.nav-links{gap:24px}.nav-links a,.nav-links a:visited{font-size:14px}}
+@media(max-width:520px){.nav-links{width:100%;justify-content:space-between;gap:8px}.nav-links a,.nav-links a:visited{font-size:12px}.hero-links{flex-wrap:wrap}}
 </style>
 </head>
 
@@ -682,7 +692,7 @@ nav{flex-direction:row;justify-content:flex-start;align-items:center;padding:32p
       <nav aria-label="Main navigation">
         <div class="nav-links">
           <a href="#work">Selected Work</a>
-          <a href="https://jamiegoralski.myportfolio.com/work" target="_blank" rel="noopener noreferrer">Photography ↗</a>
+          <a href="https://jamiegoralski.myportfolio.com/work" target="_blank" rel="noopener noreferrer">Photography</a>
           <a href="#about">About</a>
           <a href="#contact">Connect</a>
         </div>
@@ -692,7 +702,7 @@ nav{flex-direction:row;justify-content:flex-start;align-items:center;padding:32p
         <div class="motion-identity">
           <h1>JAMIE GORALSKI</h1>
           <video class="identity-video" muted playsinline preload="metadata" aria-hidden="true">
-            <source src="images/jg-hero-motion.mp4" type="video/mp4">
+            <source src="images/jg-hero-motion-hq.mp4" type="video/mp4">
           </video>
           <button class="motion-control" type="button" hidden>Pause animation</button>
         </div>
