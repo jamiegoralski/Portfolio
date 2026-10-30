@@ -608,6 +608,10 @@ footer{border-top:1px solid #d7d8d0;padding:40px 0 20px}footer h2{font-size:clam
 .hero{padding-top:30px}
 .about-headshot{display:block;width:100%;max-width:420px;height:auto;border-radius:18px;margin:0 0 32px}
 @media(max-width:700px){.hero{padding-top:15px}.about-headshot{max-width:380px}}
+
+.headshot-crop{width:100%;max-width:420px;aspect-ratio:1;overflow:hidden;border-radius:18px;margin-bottom:32px;position:relative}
+.headshot-crop .about-headshot{position:absolute;width:100%;max-width:none;height:100%;object-fit:cover;object-position:50% 30%;transform:scale(1.08);margin:0;border-radius:0}
+@media(max-width:700px){.headshot-crop{max-width:380px}}
 </style>
 </head>
 
@@ -653,7 +657,7 @@ footer{border-top:1px solid #d7d8d0;padding:40px 0 20px}footer h2{font-size:clam
           </a>
 
           <h3>
-  <a href="digital-signage.html">Phoenix Digital Signage ↗</a>
+  <a href="digital-signage.html">Phoenix Convention Center Digital Signage ↗</a>
 </h3>
           <p class="project-category">55+ displays · Three venues · Design through deployment</p>
 
@@ -774,14 +778,11 @@ footer{border-top:1px solid #d7d8d0;padding:40px 0 20px}footer h2{font-size:clam
           follow-through to my work.
         </p>
 
-        <a class="button" href="https://jamiegoralski.myportfolio.com/"
-           target="_blank" rel="noopener noreferrer">
-          MORE ABOUT MY WORK ↗
-        </a>
+        <a class="button" href="#work">VIEW SELECTED PROJECTS ↗</a>
       </div>
 
       <aside class="expertise" aria-label="Portrait and areas of expertise">
-        <img class="about-headshot" src="images/jamie-goralski-headshot.jpg" alt="Jamie Goralski" width="1638" height="2048" loading="lazy">
+        <div class="headshot-crop"><img class="about-headshot" src="images/jamie-goralski-headshot.jpg" alt="Jamie Goralski" width="1638" height="2048" loading="lazy"></div>
         <p class="eyebrow">(What I bring)</p>
         <p>// Graphic design</p><p>// Digital signage</p><p>// Email &amp; communications</p><p>// Marketing operations</p>
         <div class="expertise-stat"><strong>55+</strong><span>Displays managed across three Phoenix venues</span></div>
@@ -798,11 +799,7 @@ footer{border-top:1px solid #d7d8d0;padding:40px 0 20px}footer h2{font-size:clam
            <a class="button" href="mailto:YOUR_EMAIL">GET IN TOUCH ↗</a>
       -->
 
-      <a class="button"
-         href="https://jamiegoralski.myportfolio.com/"
-         target="_blank" rel="noopener noreferrer">
-        EXPLORE MORE WORK ↗
-      </a>
+      
 
       <div class="footer-bottom">
         <div>
