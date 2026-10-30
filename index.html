@@ -652,7 +652,7 @@ nav{flex-direction:column;align-items:center;justify-content:center;gap:24px}
 }
 
 /* Homepage layout based on Jamie's supplied motion reference. */
-:root{--background:#fdfdfd;--surface:#fdfdfd;--text:#211f20}
+:root{--background:#ffffff;--surface:#ffffff;--text:#211f20}
 .container{width:min(1280px,86%)}
 nav{flex-direction:row;justify-content:flex-start;align-items:center;padding:32px 0;gap:0}
 .nav-links{flex:0 1 auto;width:auto;justify-content:flex-start;gap:38px}
@@ -663,7 +663,7 @@ nav{flex-direction:row;justify-content:flex-start;align-items:center;padding:32p
 .identity-video{display:none;width:min(850px,100%);height:auto;max-height:340px;object-fit:contain}
 .motion-ready .identity-video{display:block}
 .motion-ready h1{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
-.motion-control{position:absolute;right:0;bottom:0;border:1px solid #d7d8d0;border-radius:20px;background:#fdfdfd;color:#62645c;padding:7px 12px;font:inherit;font-size:11px;cursor:pointer}
+.motion-control{position:absolute;right:0;bottom:0;border:1px solid #d7d8d0;border-radius:20px;background:#ffffff;color:#62645c;padding:7px 12px;font:inherit;font-size:11px;cursor:pointer}
 .motion-control:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 .hero-intro{display:block}
 .hero-description{max-width:880px;font-size:clamp(23px,2.65vw,36px);line-height:1.4;letter-spacing:-1px}
@@ -683,6 +683,11 @@ nav{width:100%;align-items:center}
 .hero-links{align-items:baseline}
 @media(max-width:700px){.nav-links{gap:24px}.nav-links a,.nav-links a:visited{font-size:14px}}
 @media(max-width:520px){.nav-links{width:100%;justify-content:space-between;gap:8px}.nav-links a,.nav-links a:visited{font-size:12px}.hero-links{flex-wrap:wrap}}
+
+/* Pure white page canvas. */
+:root{--background:#ffffff;--surface:#ffffff}
+html,body,.top,footer{background-color:#ffffff}
+.identity-video{mix-blend-mode:multiply}
 </style>
 </head>
 
