@@ -127,7 +127,7 @@
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 44px 28px;
     }
 
@@ -140,7 +140,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      aspect-ratio: 1;
+      aspect-ratio: 4 / 3;
       overflow: hidden;
       padding: 28px;
       transition: transform 220ms ease;
@@ -152,7 +152,7 @@
 
     .project h3 {
       margin: 18px 0 8px;
-      font-size: 17px;
+      font-size: 22px;
       text-align: center;
       letter-spacing: -0.4px;
     }
@@ -161,11 +161,14 @@
       margin: 0;
       color: var(--muted);
       text-align: center;
-      font-size: 12px;
+      font-size: 15px;
       line-height: 1.6;
     }
 
-    /* Replace these visuals with your own project images later. */
+    .visual { text-decoration: none; }
+    .project-photo { padding: 0; background: #242424; }
+    .project-photo img { display: block; width: 100%; height: 100%; object-fit: contain; }
+    /* Illustrated previews for projects without uploaded cover images. */
     .email {
       background: #b9c7b0;
     }
@@ -382,7 +385,7 @@
     details {
       margin-top: 14px;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 16px;
       line-height: 1.7;
     }
 
@@ -603,59 +606,36 @@
   <main class="container">
     <section class="work" id="work" aria-labelledby="work-heading">
       <h2 class="section-heading" id="work-heading">
-        Selected Skills & Work
+        Selected Projects
       </h2>
 
       <div class="grid">
         <article class="project">
-          <div class="visual email" aria-hidden="true">
-            <div class="email-sheet">
-              <small>AVENTURA LIFE</small>
-              <strong>A little<br>inspiration.<br>Every week.</strong>
-              <div class="line"></div>
-              <div class="line"></div>
-              <div class="line short"></div>
-              <div class="email-button"></div>
-            </div>
-          </div>
+          <a class="visual signage project-photo" href="digital-signage.html">
+            <img src="images/phx-wok-tv-example.png"
+                 onerror="this.onerror=null;this.src='images/phx-wok-promo.png';"
+                 alt="PHX Wok digital signage preview at Phoenix Convention Center"
+                 fetchpriority="high">
+          </a>
 
-          <h3>Email & Communications</h3>
-          <p class="project-category">Newsletters · HTML email · Content</p>
+          <h3>
+  <a href="digital-signage.html">Phoenix Digital Signage ↗</a>
+</h3>
+          <p class="project-category">55+ displays · Three venues · Design through deployment</p>
 
           <details>
             <summary>About this work</summary>
             <p>
-              Branded email communications, including Aventura Life,
-              recruiting emails, and operational templates designed
-              to keep teams informed.
+              I design, schedule, publish, and maintain content across
+              55+ displays at Phoenix Convention Center, Symphony Hall,
+              and Orpheum Theatre—from the initial creative request
+              through final screen verification.
             </p>
           </details>
         </article>
 
         <article class="project">
-          <div class="visual design" aria-hidden="true">
-            <div class="poster">
-              <small>DESIGN WITH PURPOSE</small>
-              <strong>Make<br>every<br>detail<br>count.</strong>
-              <span>PRINT / DIGITAL / EXPERIENCES</span>
-            </div>
-          </div>
-
-          <h3>Graphic Design & Branding</h3>
-          <p class="project-category">Print collateral · Event materials</p>
-
-          <details>
-            <summary>About this work</summary>
-            <p>
-              Menus, promotional graphics, branded collateral,
-              and custom client gifts that carry a consistent
-              visual identity across different formats.
-            </p>
-          </details>
-        </article>
-
-        <article class="project">
-          <div class="visual web" aria-hidden="true">
+          <a class="visual web" href="https://aventuracateringmenustudio.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Explore the Menu Finder website">
             <div class="browser">
               <div class="browser-bar">● ● ●</div>
               <div class="browser-content">
@@ -667,9 +647,9 @@
                 </div>
               </div>
             </div>
-          </div>
+          </a>
 
-          <h3>Web & Digital Experiences</h3>
+          <h3><a href="https://aventuracateringmenustudio.vercel.app/" target="_blank" rel="noopener noreferrer">Menu Finder Website ↗</a></h3>
           <p class="project-category">Menu Finder · HTML/CSS · Content systems</p>
 
           <details>
@@ -689,72 +669,46 @@
         </article>
 
         <article class="project">
-          <div class="visual signage" aria-hidden="true">
-            <div class="screen">
-              <small>GOOD FOOD. GREAT EXPERIENCES.</small>
-              <strong>Fresh<br>perspectives.</strong>
+          <div class="visual email" aria-hidden="true">
+            <div class="email-sheet">
+              <small>ARAMARK</small>
+              <strong>Connect.<br>Engage.<br>Recruit.</strong>
+              <div class="line"></div>
               <div class="line"></div>
               <div class="line short"></div>
+              <div class="email-button"></div>
             </div>
           </div>
 
-          <h3>
-  <a href="digital-signage.html">Digital Signage &amp; Content Operations ↗</a>
-</h3>
-          <p class="project-category">55+ displays · Three venues · Design through deployment</p>
+          <h3>Aramark Email Campaign</h3>
+          <p class="project-category">Recruiting · HTML email · Branded communications</p>
 
           <details>
             <summary>About this work</summary>
             <p>
-              I design, schedule, publish, and maintain content across
-              55+ displays at Phoenix Convention Center, Symphony Hall,
-              and Orpheum Theatre—from the initial creative request
-              through final screen verification.
+              A branded recruiting email campaign for Aramark, combining
+              email design and clear messaging to connect with candidates.
             </p>
           </details>
         </article>
 
         <article class="project">
-          <div class="visual automation" aria-hidden="true">
-            <div class="workflow">
-              <span>Request received</span>
-              <i></i>
-              <span>Create & review</span>
-              <i></i>
-              <span>Ready to share ↗</span>
+          <div class="visual design" aria-hidden="true">
+            <div class="poster">
+              <small>ASU CATERING</small>
+              <strong>Catering.<br>Clearly<br>presented.</strong>
+              <span>CATERING / EVENT SIGNAGE</span>
             </div>
           </div>
 
-          <h3>Marketing Operations</h3>
-          <p class="project-category">Power Automate · SharePoint · Workflows</p>
+          <h3>ASU Catering Signage</h3>
+          <p class="project-category">Catering · Signage · Event materials</p>
 
           <details>
             <summary>About this work</summary>
             <p>
-              Request forms, automated notifications, and shared
-              content resources that help organize creative work
-              and keep projects moving.
-            </p>
-          </details>
-        </article>
-
-        <article class="project">
-          <div class="visual photography" aria-hidden="true">
-            <div class="photo-frame">
-              <div class="sun"></div>
-              <div class="mountain"></div>
-            </div>
-          </div>
-
-          <h3>Photography & Storytelling</h3>
-          <p class="project-category">Events · Hospitality · Brand imagery</p>
-
-          <details>
-            <summary>About this work</summary>
-            <p>
-              Photography that captures the people, details,
-              and experiences behind a brand, with editing
-              for use across marketing channels.
+              Catering signage created for ASU, bringing clear visual
+              communication to the event experience.
             </p>
           </details>
         </article>
