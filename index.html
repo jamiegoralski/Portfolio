@@ -634,8 +634,8 @@ footer{border-top:1px solid #d7d8d0;padding:40px 0 20px}footer h2{font-size:clam
 .footer-signature{display:flex;justify-content:center;margin-top:42px;padding:30px 0 10px;border-top:1px solid #d7d8d0}
 .footer-signature[hidden]{display:none}
 .footer-signature a{display:inline-flex;padding:8px}
-.signature-logo{display:block;width:76px;height:76px;object-fit:contain}
-@media(max-width:520px){.signature-logo{width:64px;height:64px}}
+.signature-logo{display:block;width:76px;height:auto;object-fit:contain}
+@media(max-width:520px){.signature-logo{width:64px;height:auto}}
 </style>
 </head>
 
@@ -823,7 +823,7 @@ footer{border-top:1px solid #d7d8d0;padding:40px 0 20px}footer h2{font-size:clam
 
         <a href="#home">Back to top ↑</a>
       </div>
-      <div class="footer-signature"><a href="#home" aria-label="Jamie Goralski — back to top"><img class="signature-logo" src="images/jg-logo.png" alt="JG monogram" width="76" height="76" loading="lazy" onerror="if (!this.dataset.retried) { this.dataset.retried = '1'; this.src = 'jg-logo.png'; } else { this.closest('.footer-signature').hidden = true; }"></a></div>
+      <div class="footer-signature"><a href="#home" aria-label="Jamie Goralski — back to top"><img class="signature-logo" src="images/jg-monogram.png" alt="JG monogram" width="76" height="80" loading="lazy"></a></div>
     </div>
   </footer>
 </body>
