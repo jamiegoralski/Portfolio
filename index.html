@@ -617,6 +617,18 @@ footer{border-top:1px solid #d7d8d0;padding:40px 0 20px}footer h2{font-size:clam
 .headshot-crop .about-headshot{object-fit:contain;object-position:center;transform:none;border-radius:50%}
 .menu-studio-preview{padding:0;background:#d5dbe0}
 .menu-studio-preview img{object-fit:cover;object-position:center}
+
+/* Preserve the original layout, with a compact logo and uncropped images. */
+.brand-home{display:inline-flex;align-items:center;gap:12px;flex-shrink:0}
+.brand-logo{display:block;width:52px;height:52px;object-fit:contain}
+.brand-logo[hidden]{display:none}
+.hero-intro{grid-template-columns:minmax(0,1fr)}
+.hero-intro>div{max-width:960px}
+.menu-studio-preview img{object-fit:contain}
+.headshot-crop{border-radius:50%;background:transparent}
+.headshot-crop .about-headshot{object-fit:contain;object-position:center}
+@media(max-width:700px){.brand-logo{width:40px;height:40px}.brand-home{gap:8px}}
+@media(max-width:520px){nav{flex-wrap:wrap;gap:18px}.nav-links{flex-basis:100%;justify-content:space-between}.brand-logo{width:38px;height:38px}}
 </style>
 </head>
 
@@ -624,7 +636,7 @@ footer{border-top:1px solid #d7d8d0;padding:40px 0 20px}footer h2{font-size:clam
   <div class="top">
     <div class="container">
       <nav aria-label="Main navigation">
-        <a class="name" href="#home">JAMIE GORALSKI</a>
+        <a class="name brand-home" href="#home" aria-label="Jamie Goralski — home"><img class="brand-logo" src="images/jg-logo.png" alt="" width="52" height="52" onerror="if (!this.dataset.retried) { this.dataset.retried = '1'; this.src = 'jg-logo.png'; } else { this.hidden = true; }"><span>JAMIE GORALSKI</span></a>
 
         <div class="nav-links">
           <a href="#work">Selected Work</a>
@@ -636,7 +648,6 @@ footer{border-top:1px solid #d7d8d0;padding:40px 0 20px}footer h2{font-size:clam
       <header class="hero">
         <h1>JAMIE GORALSKI</h1>
         <div class="hero-intro">
-          <p class="availability"><span aria-hidden="true">✳</span> Open to opportunities</p>
           <div>
             <p class="hero-description">I bring brands to life through graphic design, digital content, and the systems that keep marketing moving.</p>
             <div class="hero-links"><a href="#work">Explore my work ↗</a><span>// Phoenix, Arizona</span></div>
@@ -679,7 +690,7 @@ footer{border-top:1px solid #d7d8d0;padding:40px 0 20px}footer h2{font-size:clam
 
         <article class="project">
           <a class="visual web project-photo menu-studio-preview" href="https://aventuracateringmenustudio.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Explore the Menu Finder website">
-            <img src="images/menu-studio-display.png" alt="Aventura Menu Studio displayed on a laptop and iPhone" width="1448" height="1086" loading="lazy">
+            <img src="images/menu-studio-display.png?v=a108edac" alt="Aventura Menu Studio displayed on a laptop and iPhone" width="1600" height="1200" loading="lazy">
           </a>
 
           <h3><a href="https://aventuracateringmenustudio.vercel.app/" target="_blank" rel="noopener noreferrer">Menu Finder Website ↗</a></h3>
@@ -777,7 +788,7 @@ footer{border-top:1px solid #d7d8d0;padding:40px 0 20px}footer h2{font-size:clam
       </div>
 
       <aside class="expertise" aria-label="Portrait and areas of expertise">
-        <div class="headshot-crop"><img class="about-headshot" src="images/jamie-headshot-circle.png" alt="Jamie Goralski" width="2048" height="2048" loading="lazy"></div>
+        <div class="headshot-crop"><img class="about-headshot" src="images/jamie-headshot-circle.png?v=eb318917" alt="Jamie Goralski" width="1600" height="1600" loading="lazy"></div>
         <p class="eyebrow">(What I bring)</p>
         <p>// Graphic design</p><p>// Digital signage</p><p>// Email &amp; communications</p><p>// Marketing operations</p>
         <div class="expertise-stat"><strong>55+</strong><span>Displays managed across three Phoenix venues</span></div>
