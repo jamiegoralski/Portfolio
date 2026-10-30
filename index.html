@@ -650,6 +650,29 @@ nav{flex-direction:column;align-items:center;justify-content:center;gap:24px}
   nav{flex-direction:column;flex-wrap:nowrap;align-items:center;gap:20px}
   .nav-links{flex:0 1 auto;flex-basis:auto;width:100%;justify-content:space-around;gap:16px}
 }
+
+/* Homepage layout based on Jamie's supplied motion reference. */
+:root{--background:#fdfdfd;--surface:#fdfdfd;--text:#211f20}
+.container{width:min(1280px,86%)}
+nav{flex-direction:row;justify-content:flex-start;align-items:center;padding:32px 0;gap:0}
+.nav-links{flex:0 1 auto;width:auto;justify-content:flex-start;gap:38px}
+.nav-links a{font-size:16px;font-weight:600}
+.hero{padding:0 0 72px}
+.motion-identity{position:relative;display:grid;place-items:center;min-height:340px;margin:0 0 40px}
+.motion-identity h1{font-size:clamp(30px,4.5vw,64px);font-weight:700;letter-spacing:-.065em;white-space:normal;text-align:center;margin:0;line-height:1.1}
+.identity-video{display:none;width:min(850px,100%);height:auto;max-height:340px;object-fit:contain}
+.motion-ready .identity-video{display:block}
+.motion-ready h1{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.motion-control{position:absolute;right:0;bottom:0;border:1px solid #d7d8d0;border-radius:20px;background:#fdfdfd;color:#62645c;padding:7px 12px;font:inherit;font-size:11px;cursor:pointer}
+.motion-control:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.hero-intro{display:block}
+.hero-description{max-width:880px;font-size:clamp(23px,2.65vw,36px);line-height:1.4;letter-spacing:-1px}
+.hero-links{gap:48px;margin-top:30px;font-size:15px}
+.work{padding-top:28px}
+.section-heading{font-size:17px}
+@media(max-width:700px){nav{padding:24px 0}.nav-links{gap:24px;flex-wrap:wrap}.nav-links a{font-size:14px}.motion-identity{min-height:260px;margin-bottom:28px}.hero{padding-bottom:48px}.hero-description{letter-spacing:-.6px}.hero-links{gap:24px}}
+@media(max-width:520px){.container{width:90%}nav{flex-direction:row;gap:0}.nav-links{flex:1;width:100%;justify-content:space-between;gap:10px}.nav-links a{font-size:12px}.motion-identity{min-height:220px}.identity-video{width:100%}.hero-links{font-size:14px;gap:20px}}
+@media(prefers-reduced-motion:reduce){.identity-video,.motion-control{display:none!important}.motion-ready h1{position:static;width:auto;height:auto;overflow:visible;clip-path:none}}
 </style>
 </head>
 
@@ -657,17 +680,22 @@ nav{flex-direction:column;align-items:center;justify-content:center;gap:24px}
   <div class="top">
     <div class="container">
       <nav aria-label="Main navigation">
-        <a class="header-logo-link" href="#home" aria-label="Jamie Goralski — home"><img class="header-logo" src="images/jg-monogram.png" alt="" width="48" height="51"></a>
-
         <div class="nav-links">
           <a href="#work">Selected Work</a>
+          <a href="https://jamiegoralski.myportfolio.com/work" target="_blank" rel="noopener noreferrer">Photography ↗</a>
           <a href="#about">About</a>
           <a href="#contact">Connect</a>
         </div>
       </nav>
 
       <header class="hero">
-        <h1>JAMIE GORALSKI</h1>
+        <div class="motion-identity">
+          <h1>JAMIE GORALSKI</h1>
+          <video class="identity-video" muted playsinline preload="metadata" aria-hidden="true">
+            <source src="images/jg-hero-motion.mp4" type="video/mp4">
+          </video>
+          <button class="motion-control" type="button" hidden>Pause animation</button>
+        </div>
         <div class="hero-intro">
           <div>
             <p class="hero-description">I bring brands to life through graphic design, digital content, and the systems that keep marketing moving.</p>
@@ -681,7 +709,7 @@ nav{flex-direction:column;align-items:center;justify-content:center;gap:24px}
   <main class="container">
     <section class="work" id="work" aria-labelledby="work-heading">
       <h2 class="section-heading" id="work-heading">
-        (Selected Work)
+        Selected Work
       </h2>
 
       <div class="grid">
@@ -840,5 +868,26 @@ nav{flex-direction:column;align-items:center;justify-content:center;gap:24px}
       <div class="footer-signature"><a href="#home" aria-label="Jamie Goralski — back to top"><img class="signature-logo" src="images/jg-monogram.png" alt="JG monogram" width="76" height="80" loading="lazy"></a></div>
     </div>
   </footer>
+<script>
+(function(){
+  const stage=document.querySelector('.motion-identity');
+  const video=stage.querySelector('video');
+  const button=stage.querySelector('button');
+  const preference=window.matchMedia('(prefers-reduced-motion: reduce)');
+  function start(){
+    if(preference.matches)return;
+    video.muted=true;
+    video.play().then(function(){stage.classList.add('motion-ready');button.hidden=false;button.textContent='Pause animation';}).catch(function(){stage.classList.remove('motion-ready');button.hidden=true;});
+  }
+  button.addEventListener('click',function(){
+    if(video.paused){if(video.ended)video.currentTime=0;start();}
+    else{video.pause();button.textContent='Play animation';}
+  });
+  video.addEventListener('ended',function(){button.textContent='Replay animation';});
+  video.addEventListener('error',function(){stage.classList.remove('motion-ready');button.hidden=true;});
+  preference.addEventListener('change',function(){if(preference.matches){video.pause();stage.classList.remove('motion-ready');button.hidden=true;}else start();});
+  start();
+})();
+</script>
 </body>
 </html>
