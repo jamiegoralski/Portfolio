@@ -636,6 +636,11 @@ footer{border-top:1px solid #d7d8d0;padding:40px 0 20px}footer h2{font-size:clam
 .footer-signature a{display:inline-flex;padding:8px}
 .signature-logo{display:block;width:76px;height:auto;object-fit:contain}
 @media(max-width:520px){.signature-logo{width:64px;height:auto}}
+
+/* Standalone monogram balances the navigation without repeating the hero name. */
+.header-logo-link{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;text-decoration:none;padding:4px}
+.header-logo{display:block;width:48px;height:auto}
+@media(max-width:520px){nav{flex-wrap:nowrap;align-items:center;gap:18px}.header-logo{width:36px}.nav-links{flex:1;flex-basis:auto;justify-content:flex-end;gap:16px}}
 </style>
 </head>
 
@@ -643,7 +648,7 @@ footer{border-top:1px solid #d7d8d0;padding:40px 0 20px}footer h2{font-size:clam
   <div class="top">
     <div class="container">
       <nav aria-label="Main navigation">
-        <a class="name" href="#home">JAMIE GORALSKI</a>
+        <a class="header-logo-link" href="#home" aria-label="Jamie Goralski — home"><img class="header-logo" src="images/jg-monogram.png" alt="" width="48" height="51"></a>
 
         <div class="nav-links">
           <a href="#work">Selected Work</a>
