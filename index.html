@@ -612,6 +612,11 @@ footer{border-top:1px solid #d7d8d0;padding:40px 0 20px}footer h2{font-size:clam
 .headshot-crop{width:100%;max-width:420px;aspect-ratio:1;overflow:hidden;border-radius:18px;margin-bottom:32px;position:relative}
 .headshot-crop .about-headshot{position:absolute;width:100%;max-width:none;height:100%;object-fit:cover;object-position:50% 30%;transform:none;margin:0;border-radius:0}
 @media(max-width:700px){.headshot-crop{max-width:380px}}
+
+.headshot-crop{border-radius:50%;background:transparent}
+.headshot-crop .about-headshot{object-fit:contain;object-position:center;transform:none;border-radius:50%}
+.menu-studio-preview{padding:0;background:#d5dbe0}
+.menu-studio-preview img{object-fit:cover;object-position:center}
 </style>
 </head>
 
@@ -673,18 +678,8 @@ footer{border-top:1px solid #d7d8d0;padding:40px 0 20px}footer h2{font-size:clam
         </article>
 
         <article class="project">
-          <a class="visual web" href="https://aventuracateringmenustudio.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Explore the Menu Finder website">
-            <div class="browser">
-              <div class="browser-bar">● ● ●</div>
-              <div class="browser-content">
-                <strong>Menu Studio</strong>
-                <div class="search"></div>
-                <div class="mini-grid">
-                  <span></span><span></span><span></span>
-                  <span></span><span></span><span></span>
-                </div>
-              </div>
-            </div>
+          <a class="visual web project-photo menu-studio-preview" href="https://aventuracateringmenustudio.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Explore the Menu Finder website">
+            <img src="images/menu-studio-display.png" alt="Aventura Menu Studio displayed on a laptop and iPhone" width="1448" height="1086" loading="lazy">
           </a>
 
           <h3><a href="https://aventuracateringmenustudio.vercel.app/" target="_blank" rel="noopener noreferrer">Menu Finder Website ↗</a></h3>
@@ -782,7 +777,7 @@ footer{border-top:1px solid #d7d8d0;padding:40px 0 20px}footer h2{font-size:clam
       </div>
 
       <aside class="expertise" aria-label="Portrait and areas of expertise">
-        <div class="headshot-crop"><img class="about-headshot" src="images/jamie-goralski-headshot.jpg?v=original" alt="Jamie Goralski" width="1638" height="2048" loading="lazy"></div>
+        <div class="headshot-crop"><img class="about-headshot" src="images/jamie-headshot-circle.png" alt="Jamie Goralski" width="2048" height="2048" loading="lazy"></div>
         <p class="eyebrow">(What I bring)</p>
         <p>// Graphic design</p><p>// Digital signage</p><p>// Email &amp; communications</p><p>// Marketing operations</p>
         <div class="expertise-stat"><strong>55+</strong><span>Displays managed across three Phoenix venues</span></div>
