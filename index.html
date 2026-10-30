@@ -641,6 +641,15 @@ footer{border-top:1px solid #d7d8d0;padding:40px 0 20px}footer h2{font-size:clam
 .header-logo-link{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;text-decoration:none;padding:4px}
 .header-logo{display:block;width:48px;height:auto}
 @media(max-width:520px){nav{flex-wrap:nowrap;align-items:center;gap:18px}.header-logo{width:36px}.nav-links{flex:1;flex-basis:auto;justify-content:flex-end;gap:16px}}
+
+/* Center the monogram above navigation on desktop and mobile. */
+nav{flex-direction:column;align-items:center;justify-content:center;gap:24px}
+.header-logo-link{align-self:center}
+.nav-links{flex:0 1 auto;width:min(520px,100%);justify-content:space-between}
+@media(max-width:520px){
+  nav{flex-direction:column;flex-wrap:nowrap;align-items:center;gap:20px}
+  .nav-links{flex:0 1 auto;flex-basis:auto;width:100%;justify-content:space-around;gap:16px}
+}
 </style>
 </head>
 
