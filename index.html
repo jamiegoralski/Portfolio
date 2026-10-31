@@ -660,10 +660,10 @@ nav{flex-direction:row;justify-content:flex-start;align-items:center;padding:32p
 .hero{padding:0 0 72px}
 .motion-identity{position:relative;display:grid;place-items:center;min-height:340px;margin:0 0 40px}
 .motion-identity h1{font-size:clamp(30px,4.5vw,64px);font-weight:700;letter-spacing:-.065em;white-space:normal;text-align:center;margin:0;line-height:1.1}
-.identity-video{display:none;width:min(850px,100%);height:auto;max-height:340px;object-fit:contain}
-.motion-ready .identity-video{display:block}
 .motion-identity h1{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
-.motion-fallback h1{position:static;width:auto;height:auto;overflow:visible;clip-path:none}
+.identity-artwork{display:block;width:min(850px,100%);height:auto;max-height:340px;color:#231f20}
+.identity-mark{opacity:0;transform-box:view-box;transform-origin:50% 54.5%}
+.identity-wordmark{opacity:1;transform-box:view-box;transform-origin:center}
 .motion-control{position:absolute;right:0;bottom:0;border:1px solid #d7d8d0;border-radius:20px;background:#ffffff;color:#62645c;padding:7px 12px;font:inherit;font-size:11px;cursor:pointer}
 .motion-control:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 .hero-intro{display:block}
@@ -672,8 +672,8 @@ nav{flex-direction:row;justify-content:flex-start;align-items:center;padding:32p
 .work{padding-top:28px}
 .section-heading{font-size:17px}
 @media(max-width:700px){nav{padding:24px 0}.nav-links{gap:24px;flex-wrap:wrap}.nav-links a{font-size:14px}.motion-identity{min-height:260px;margin-bottom:28px}.hero{padding-bottom:48px}.hero-description{letter-spacing:-.6px}.hero-links{gap:24px}}
-@media(max-width:520px){.container{width:90%}nav{flex-direction:row;gap:0}.nav-links{flex:1;width:100%;justify-content:space-between;gap:10px}.nav-links a{font-size:12px}.motion-identity{min-height:220px}.identity-video{width:100%}.hero-links{font-size:14px;gap:20px}}
-@media(prefers-reduced-motion:reduce){.identity-video,.motion-control{display:none!important}.motion-identity h1{position:static;width:auto;height:auto;overflow:visible;clip-path:none}}
+@media(max-width:520px){.container{width:90%}nav{flex-direction:row;gap:0}.nav-links{flex:1;width:100%;justify-content:space-between;gap:10px}.nav-links a{font-size:12px}.motion-identity{min-height:220px}.identity-artwork{width:100%}.hero-links{font-size:14px;gap:20px}}
+@media(prefers-reduced-motion:reduce){.motion-control{display:none!important}}
 
 /* Consistent navigation baselines and shared content alignment. */
 nav{width:100%;align-items:center}
@@ -688,11 +688,9 @@ nav{width:100%;align-items:center}
 /* Pure white page canvas. */
 :root{--background:#ffffff;--surface:#ffffff}
 html,body,.top,footer{background-color:#ffffff}
-.identity-video{mix-blend-mode:multiply}
 /* Leave breathing room after the PHX Wok sign within the card crop. */
 .signage.project-photo img{object-position:60% center}
 </style>
-<noscript><style>.motion-identity h1{position:static;width:auto;height:auto;overflow:visible;clip-path:none}</style></noscript>
 </head>
 
 <body id="home">
@@ -710,9 +708,11 @@ html,body,.top,footer{background-color:#ffffff}
       <header class="hero">
         <div class="motion-identity">
           <h1>JAMIE GORALSKI</h1>
-          <video class="identity-video" muted playsinline preload="metadata" aria-hidden="true">
-            <source src="images/jg-hero-motion-hq.mp4" type="video/mp4">
-          </video>
+          <!-- Vector outlines traced from the original JG motion artwork. -->
+          <svg class="identity-artwork" viewBox="0 0 2100 850" aria-hidden="true" focusable="false">
+            <g class="identity-mark" fill="currentColor" fill-rule="evenodd"><path d="M1046,374 1046,655 866,476 989,475 989,496 927,496 968,538 1023,592 1023,329 1021,328 937,413 920,396 1044,272 1046,272Z M1050,375 1051,271 1176,396 1159,413 1073,328 1073,592 1127,539 1169,496 1107,496 1107,475 1230,475 1050,655Z"/></g>
+            <g class="identity-wordmark" fill="currentColor" fill-rule="evenodd"><path d="M683,499 683,519 656,519 655,398 615,518 591,519 554,403 551,400 551,519 531,519 525,519 525,371 572,372 603,477 605,477 609,465 637,373 639,371 683,371Z M697,500 697,371 724,371 724,390 724,519 697,519Z M1066,374 1093,368 1113,369 1127,373 1140,380 1154,393 1165,412 1170,434 1170,456 1164,480 1152,499 1141,509 1128,516 1102,522 1083,521 1068,517 1048,505 1039,495 1031,481 1026,466 1024,446 1028,417 1040,394 1051,383Z M1177,375 1177,371 1252,372 1270,377 1285,389 1291,402 1291,422 1289,428 1285,436 1275,446 1257,454 1270,459 1283,473 1289,487 1294,511 1347,371 1380,372 1411,457 1432,519 1403,519 1389,479 1334,479 1319,519 1265,519 1264,505 1256,482 1246,471 1231,465 1205,465 1204,467 1205,518 1177,519Z M902,500 896,494 888,477 884,456 884,438 887,420 894,402 911,382 924,374 940,369 961,368 982,372 997,380 1007,390 1016,407 1018,420 990,420 985,406 977,398 961,393 944,394 931,400 921,411 914,429 913,450 914,465 922,483 938,495 957,498 969,496 980,490 990,474 990,468 958,468 959,445 1019,445 1019,519 995,519 995,501 993,500 986,510 971,519 956,522 938,521 914,512Z M1433,375 1434,371 1461,371 1462,495 1525,495 1520,486 1517,471 1545,471 1552,488 1559,494 1567,497 1593,497 1603,492 1606,488 1609,481 1609,473 1603,465 1587,459 1572,457 1545,449 1532,441 1524,431 1521,421 1523,399 1529,388 1541,377 1554,371 1570,368 1599,371 1617,380 1626,389 1633,403 1636,414 1635,418 1608,418 1601,400 1586,392 1566,392 1560,394 1552,400 1549,406 1549,417 1555,424 1564,428 1613,439 1628,449 1633,456 1637,469 1635,490 1628,503 1617,513 1599,520 1569,521 1543,513 1528,500 1528,519 1434,519Z M1644,375 1644,371 1672,372 1673,447 1736,371 1765,371 1764,375 1718,429 1719,435 1746,481 1768,519 1738,519 1702,456 1697,452 1672,481 1672,518 1644,519Z M1772,375 1773,371 1800,371 1800,515 1800,519 1772,519Z M382,499 373,512 352,521 332,522 316,519 308,515 293,499 289,488 288,475 314,471 320,491 324,495 333,498 343,498 351,495 355,492 358,485 360,475 360,371 387,371 388,479Z M389,502 439,371 471,372 501,457 524,519 495,519 480,479 425,479 410,519 383,519Z M738,497 738,371 845,372 844,395 765,395 765,430 782,431 818,431 818,454 765,455 765,494 847,495 847,519 738,519Z M1083,496 1108,497 1122,491 1130,484 1139,466 1141,433 1138,420 1131,407 1124,400 1111,394 1093,392 1074,398 1064,407 1056,423 1054,457 1057,470 1064,483 1071,490Z M1207,393 1204,396 1205,443 1239,443 1254,436 1260,430 1264,416 1262,406 1257,399 1244,394Z M454,402 451,405 433,453 433,456 451,456 472,456Z M1362,402 1342,453 1342,456 1361,456 1381,456Z"/></g>
+          </svg>
           <button class="motion-control" type="button" hidden>Pause animation</button>
         </div>
         <div class="hero-intro">
@@ -888,34 +888,75 @@ html,body,.top,footer{background-color:#ffffff}
   </footer>
 <script>
 (function(){
-  const stage=document.querySelector('.motion-identity');
-  const video=stage.querySelector('video');
-  const button=stage.querySelector('button');
-  const preference=window.matchMedia('(prefers-reduced-motion: reduce)');
-  function showFallback(){
-    stage.classList.remove('motion-ready');
-    stage.classList.add('motion-fallback');
-    button.hidden=true;
+  const stage = document.querySelector('.motion-identity');
+  const mark = stage.querySelector('.identity-mark');
+  const wordmark = stage.querySelector('.identity-wordmark');
+  const button = stage.querySelector('.motion-control');
+  const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (!mark.animate || !wordmark.animate) return;
+
+  // Both vector layers share a five-second timeline matching the original film.
+  let animations = [];
+  let run = 0;
+  let state = 'finished';
+  function finish() {
+    state = 'finished';
+    button.textContent = 'Replay animation';
   }
-  function start(){
-    if(preference.matches){showFallback();return;}
-    stage.classList.remove('motion-fallback');
-    video.muted=true;
-    video.play().then(function(){
-      if(preference.matches){video.pause();showFallback();return;}
-      stage.classList.add('motion-ready');
-      button.hidden=false;
-      button.textContent='Pause animation';
-    }).catch(showFallback);
+  function stop() {
+    run += 1;
+    animations.forEach(function(animation){ animation.cancel(); });
+    animations = [];
+    finish();
   }
-  button.addEventListener('click',function(){
-    if(video.paused){if(video.ended)video.currentTime=0;start();}
-    else{video.pause();button.textContent='Play animation';}
+  function start() {
+    stop();
+    if (preference.matches) { button.hidden = true; return; }
+    const currentRun = run;
+    const timing = {duration: 5000, fill: 'both', easing: 'linear'};
+    animations = [
+      mark.animate([
+        {opacity: 0, transform: 'scale(.82)', offset: 0},
+        {opacity: 1, transform: 'scale(.92)', offset: .08},
+        {opacity: 1, transform: 'scale(1)', offset: .2},
+        {opacity: 1, transform: 'scale(1.04)', offset: .29},
+        {opacity: 0, transform: 'translateY(85px) scale(1.04)', offset: .39},
+        {opacity: 0, transform: 'translateY(85px) scale(1.04)', offset: 1}
+      ], timing),
+      wordmark.animate([
+        {opacity: 0, transform: 'translateY(-85px)', offset: 0},
+        {opacity: 0, transform: 'translateY(-85px)', offset: .30},
+        {opacity: 1, transform: 'translateY(0)', offset: .43},
+        {opacity: 1, transform: 'translateY(0)', offset: 1}
+      ], timing)
+    ];
+    const origin = document.timeline.currentTime;
+    animations.forEach(function(animation){ animation.startTime = origin; });
+    state = 'playing';
+    button.hidden = false;
+    button.textContent = 'Pause animation';
+    Promise.all(animations.map(function(animation){ return animation.finished; }))
+      .then(function(){ if (run === currentRun) finish(); })
+      .catch(function(){ /* Cancellation leaves the static wordmark visible. */ });
+  }
+  button.addEventListener('click', function(){
+    if (state === 'finished') { start(); return; }
+    if (state === 'playing') {
+      animations.forEach(function(animation){ animation.pause(); });
+      state = 'paused';
+      button.textContent = 'Play animation';
+    } else {
+      animations.forEach(function(animation){ animation.play(); });
+      state = 'playing';
+      button.textContent = 'Pause animation';
+    }
   });
-  video.addEventListener('ended',function(){button.textContent='Replay animation';});
-  video.addEventListener('error',showFallback);
-  preference.addEventListener('change',function(){if(preference.matches){video.pause();showFallback();}else start();});
-  start();
+  preference.addEventListener('change', function(){
+    if (preference.matches) { stop(); button.hidden = true; }
+    else start();
+  });
+  // Wait until the static artwork has a layout before starting the timeline.
+  requestAnimationFrame(start);
 })();
 </script>
 </body>
