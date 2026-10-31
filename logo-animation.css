@@ -1,0 +1,106 @@
+/* Self-host the licensed Halyard Display Medium webfont at this path. */
+@font-face {
+  font-family: "JG Halyard";
+  src: url("fonts/halyard-display-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+.motion-identity {
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+.identity-canvas {
+  position: relative;
+  width: min(850px, 100%);
+  aspect-ratio: 2100 / 850;
+  container-type: inline-size;
+  color: #231f20;
+}
+.identity-logo-position {
+  position: absolute;
+  top: 31.765%;
+  left: 41.19%;
+  width: 17.43%;
+}
+.identity-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+}
+.motion-identity .identity-wordmark {
+  position: absolute;
+  top: 38%;
+  left: 49.6%;
+  width: max-content;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  color: inherit;
+  font-family: "JG Halyard", "Halyard Display", Arial, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-synthesis: none;
+  font-size: 10.628cqi;
+  font-kerning: normal;
+  letter-spacing: -.058em;
+  line-height: 1;
+  white-space: nowrap;
+  text-align: center;
+  transform: translateX(-50%);
+}
+.identity-wordmark-text { display: block; }
+.motion-control {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border: 1px solid #d7d8d0;
+  border-radius: 20px;
+  background: #fff;
+  color: #62645c;
+  padding: 7px 12px;
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+.motion-control[hidden] { display: none; }
+.motion-control:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.motion-playing .identity-logo {
+  animation: jg-logo-exit 5s linear both;
+}
+.motion-playing .identity-wordmark-text {
+  animation: jg-name-enter 5s linear both;
+}
+.motion-paused .identity-logo,
+.motion-paused .identity-wordmark-text { animation-play-state: paused; }
+/* Measured from the original five-second export; movement uses the artwork's own size. */
+@keyframes jg-logo-exit {
+  0% { opacity: 0; transform: translateY(0); }
+  2% { opacity: .10; transform: translateY(0); }
+  4% { opacity: .33; transform: translateY(0); }
+  6% { opacity: .62; transform: translateY(0); }
+  8% { opacity: .89; transform: translateY(0); }
+  10%, 20% { opacity: 1; transform: translateY(0); }
+  22% { opacity: 1; transform: translateY(.26%); }
+  24% { opacity: 1; transform: translateY(.78%); }
+  26% { opacity: 1; transform: translateY(2.34%); }
+  28% { opacity: 1; transform: translateY(5.21%); }
+  30% { opacity: 1; transform: translateY(9.90%); }
+  32% { opacity: .75; transform: translateY(17.45%); }
+  34% { opacity: .38; transform: translateY(28.39%); }
+  36%, 100% { opacity: 0; transform: translateY(40%); }
+}
+@keyframes jg-name-enter {
+  0%, 32% { opacity: 0; transform: translateY(-15%); }
+  34% { opacity: .40; transform: translateY(-10%); }
+  36%, 100% { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-playing .identity-logo,
+  .motion-playing .identity-wordmark-text { animation: none; }
+  .identity-logo { opacity: 0; }
+  .identity-wordmark-text { opacity: 1; transform: none; }
+  .motion-control { display: none; }
+}
