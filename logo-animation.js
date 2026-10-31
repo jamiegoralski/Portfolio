@@ -7,9 +7,10 @@
   const button = stage.querySelector('.motion-control');
   const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
   let state = 'finished';
+  if (!preference.matches) stage.classList.add('motion-loading');
   function finish() {
     state = 'finished';
-    stage.classList.remove('motion-playing', 'motion-paused');
+    stage.classList.remove('motion-playing', 'motion-paused', 'motion-loading');
     button.textContent = 'Replay animation';
   }
   function start() {

@@ -1,11 +1,4 @@
-/* Self-host the licensed Halyard Display Medium webfont at this path. */
-@font-face {
-  font-family: "JG Halyard";
-  src: url("fonts/halyard-display-medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
+/* Halyard Display Medium (500) is loaded by the portfolio Adobe Fonts web project. */
 .motion-identity {
   position: relative;
   display: grid;
@@ -32,26 +25,27 @@
 }
 .motion-identity .identity-wordmark {
   position: absolute;
-  top: 38%;
-  left: 49.6%;
+  top: 37.82%;
+  left: 49.667%;
   width: max-content;
   max-width: none;
   margin: 0;
   padding: 0;
   color: inherit;
-  font-family: "JG Halyard", "Halyard Display", Arial, sans-serif;
+  font-family: "halyard-display", Arial, sans-serif;
   font-weight: 500;
   font-style: normal;
   font-synthesis: none;
-  font-size: 10.628cqi;
+  font-size: 10.55156cqi;
   font-kerning: normal;
-  letter-spacing: -.058em;
+  letter-spacing: -.0445em;
   line-height: 1;
   white-space: nowrap;
   text-align: center;
   transform: translateX(-50%);
 }
 .identity-wordmark-text { display: block; }
+.motion-loading .identity-wordmark-text { opacity: 0; }
 .motion-control {
   position: absolute;
   right: 0;
