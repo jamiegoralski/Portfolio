@@ -3,6 +3,7 @@
   position: relative;
   display: grid;
   place-items: center;
+  margin-bottom: 32px;
 }
 .identity-canvas {
   position: relative;
@@ -90,6 +91,9 @@
   0%, 32% { opacity: 0; transform: translateY(-15%); }
   34% { opacity: .40; transform: translateY(-10%); }
   36%, 100% { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 700px) {
+  .motion-identity { margin-bottom: 48px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .motion-playing .identity-logo,
