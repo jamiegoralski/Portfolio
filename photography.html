@@ -40,6 +40,14 @@ dialog{border:0;border-radius:16px;padding:62px 20px 20px;width:min(1500px,96vw)
 @media(max-width:520px){.collection-heading .rattlers-logo{width:90px;height:68px}}
 .travel-collection{border-top:1px solid #d7d8d0}
 .collection-links{display:flex;flex-wrap:wrap;column-gap:28px;row-gap:4px;margin-top:8px}.collection-links a{display:inline-flex;align-items:center;min-height:44px;font-size:16px;text-decoration-thickness:1px}.collection-links a:hover{color:#666}.collection{scroll-margin-top:24px}@media(max-width:520px){.collection-links{column-gap:22px}.collection-links a{font-size:14px}}
+
+/* Keep Phoenix Rising's six photographs aligned in two even rows. */
+.gallery.rising-gallery{display:grid;columns:auto;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,auto);grid-auto-flow:column;gap:18px;align-items:stretch}
+.gallery.rising-gallery figure{display:block;margin:0;min-width:0}
+.rising-gallery .photo-link{aspect-ratio:1/1}
+.gallery.rising-gallery .photo-link img{width:100%;height:100%;object-fit:cover;object-position:center}
+@media(max-width:850px){.gallery.rising-gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto;grid-auto-flow:row;gap:16px}}
+@media(max-width:520px){.gallery.rising-gallery{grid-template-columns:1fr}.rising-gallery .photo-link{aspect-ratio:auto}.gallery.rising-gallery .photo-link img{height:auto}}
 </style></head>
 <body id="top"><div class="container">
 <nav aria-label="Main navigation"><a href="index.html#work">Selected Work</a><a href="photography.html" aria-current="page">Photography</a><a href="index.html#about">About</a><a href="index.html#contact">Connect</a></nav>
