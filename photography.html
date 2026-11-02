@@ -48,6 +48,9 @@ dialog{border:0;border-radius:16px;padding:62px 20px 20px;width:min(1500px,96vw)
 .gallery.rising-gallery .photo-link img{width:100%;height:100%;object-fit:cover;object-position:center}
 @media(max-width:850px){.gallery.rising-gallery{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto;grid-auto-flow:row;gap:16px}}
 @media(max-width:520px){.gallery.rising-gallery{grid-template-columns:1fr}.rising-gallery .photo-link{aspect-ratio:auto}.gallery.rising-gallery .photo-link img{height:auto}}
+
+/* Center the players within this action photograph’s square preview. */
+.gallery.rising-gallery .photo-link[href$="dsc07182.webp"] img{object-position:center 25%}
 </style></head>
 <body id="top"><div class="container">
 <nav aria-label="Main navigation"><a href="index.html#work">Selected Work</a><a href="photography.html" aria-current="page">Photography</a><a href="index.html#about">About</a><a href="index.html#contact">Connect</a></nav>
