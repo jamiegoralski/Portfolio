@@ -22,6 +22,12 @@ dialog{border:0;border-radius:16px;padding:62px 20px 20px;width:min(1500px,96vw)
 @media(max-width:850px){.gallery{columns:2;column-gap:16px}.gallery figure{margin-bottom:16px}}
 @media(max-width:520px){.gallery{columns:1;max-width:420px}.gallery figure{margin-bottom:16px}}
 
+
+/* Match the final portrait's preview height to the adjacent gallery columns. */
+.gallery .photo-link[href$="dancer-motion.webp"]{aspect-ratio:4/5}
+.gallery .photo-link[href$="dancer-motion.webp"] img{height:100%;object-fit:cover;object-position:center 45%}
+@media(max-width:850px){.gallery .photo-link[href$="dancer-motion.webp"]{aspect-ratio:auto}.gallery .photo-link[href$="dancer-motion.webp"] img{height:auto}}
+
 </style></head>
 <body id="top"><div class="container">
 <nav aria-label="Main navigation"><a href="index.html#work">Selected Work</a><a href="photography.html" aria-current="page">Photography</a><a href="index.html#about">About</a><a href="index.html#contact">Connect</a></nav>
