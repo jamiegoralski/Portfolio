@@ -683,26 +683,23 @@ html,body,.top,footer{background-color:#ffffff}
 /* Leave breathing room after the PHX Wok sign within the card crop. */
 .signage.project-photo img{object-position:60% center}
 
-/* Hospitality marketing: a cloche reveal, a swaying drink, and an event invitation. */
+/* A guest-led hospitality story, from invitation to experience. */
 .footer-connect{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
 .footer-connect h2{font-size:clamp(32px,4.5vw,62px);letter-spacing:-2px;line-height:1.08}
 .operations-motion{position:relative;border:1px solid #e3e3e3;border-radius:20px;background:#f4f4f4;overflow:hidden}
 .operations-motion svg{display:block;width:100%;height:auto}
 .operations-motion .motion-caption{font:10px Arial,Helvetica,sans-serif;letter-spacing:1.3px;fill:#666}
-.operations-motion .motion-label{font:13px Arial,Helvetica,sans-serif;fill:#555}
-.hospitality-cloche{transform-origin:233px 180px;animation:cloche-reveal 7s ease-in-out infinite}
-.hospitality-drink{transform-origin:113px 211px;animation:drink-sway 7s ease-in-out infinite}
-.event-promo{transform-origin:374px 208px;animation:invitation-pop 7s ease-in-out infinite}
-.hospitality-sparkle{animation:hospitality-spark 7s ease-in-out infinite}
+.operations-motion .motion-label{font:14px Arial,Helvetica,sans-serif;fill:#444}
+.guest-scene{opacity:0;animation:guest-story 12s ease-in-out infinite}
+.scene-welcome{animation-delay:4s}.scene-experience{animation-delay:8s}
+.guest-delight{animation:guest-delight 2s ease-in-out infinite;transform-origin:260px 86px}
 .footer-motion-toggle{position:absolute;right:12px;top:12px;border:1px solid #ccc;border-radius:50%;width:32px;height:32px;background:#fff;color:#333;cursor:pointer;font-size:14px}
 .footer-motion-toggle:hover{background:#e3e3e3}.footer-motion-toggle:focus-visible{outline:2px solid #666;outline-offset:3px}
 .operations-motion.is-paused *{animation-play-state:paused!important}
-@keyframes cloche-reveal{0%,15%,88%,100%{transform:translateY(0) rotate(0)}35%,65%{transform:translate(-7px,-39px) rotate(-9deg)}}
-@keyframes drink-sway{0%,22%,65%,100%{transform:rotate(0)}35%{transform:rotate(-7deg)}48%{transform:rotate(4deg)}}
-@keyframes invitation-pop{0%,16%,90%,100%{transform:translateY(10px) rotate(3deg)}38%,68%{transform:translateY(-7px) rotate(-3deg)}}
-@keyframes hospitality-spark{0%,25%,78%,100%{opacity:0}38%,65%{opacity:1}}
+@keyframes guest-story{0%,29%{opacity:1;transform:translateY(0)}33%,96%{opacity:0;transform:translateY(5px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes guest-delight{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-3px) scale(1.08)}}
 @media(max-width:700px){.footer-connect{grid-template-columns:1fr;gap:32px}.operations-motion{max-width:580px;width:100%}.footer-connect h2{letter-spacing:-1.3px}}
-@media(prefers-reduced-motion:reduce){.operations-motion *{animation:none!important}.hospitality-cloche{transform:translate(-7px,-39px) rotate(-9deg)}.hospitality-sparkle{opacity:1}.footer-motion-toggle{display:none}}
+@media(prefers-reduced-motion:reduce){.operations-motion *{animation:none!important}.guest-scene{opacity:0}.scene-experience{opacity:1}.footer-motion-toggle{display:none}}
 </style>
   <link rel="preconnect" href="https://use.typekit.net" crossorigin>
   <link rel="stylesheet" href="https://use.typekit.net/ohi5vpe.css">
@@ -885,47 +882,51 @@ html,body,.top,footer{background-color:#ffffff}
 <div class="footer-connect">
         <div>
           <p class="eyebrow">(Let’s Connect)</p>
-          <h2>A little buzz.<br>A lasting impression.</h2>
+          <h2>Make every guest<br>feel expected.</h2>
         </div>
         <div class="operations-motion" id="footer-operations-motion">
           <svg viewBox="0 0 520 280" role="img" aria-labelledby="operations-title operations-desc">
-            <title id="operations-title">Hospitality marketing, served with a little flair</title>
-            <desc id="operations-desc">A serving cloche lifts to reveal a sparkling dish as a drink sways and event promotion cards pop into view.</desc>
-            <text x="28" y="35" class="motion-caption">FRESH IDEAS. MEMORABLE EXPERIENCES.</text>
-            <ellipse cx="249" cy="224" rx="179" ry="9" fill="#e3e3e3"/>
-            <g class="event-promo">
-              <rect x="322" y="82" width="117" height="130" rx="10" fill="#ddd" transform="rotate(8 380 147)"/>
-              <rect x="315" y="77" width="117" height="130" rx="10" fill="#fff" stroke="#aaa"/>
-              <rect x="326" y="89" width="95" height="47" rx="5" fill="#333"/>
-              <text x="373" y="109" text-anchor="middle" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="10" letter-spacing="1.2">YOU’RE</text>
-              <text x="373" y="124" text-anchor="middle" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="bold">INVITED</text>
-              <path d="M329 150h69m-69 12h83m-83 12h50" stroke="#ccc" stroke-width="4" stroke-linecap="round"/>
-              <rect x="329" y="186" width="54" height="7" rx="3.5" fill="#777"/>
-            </g>
-            <g class="hospitality-drink" stroke="#444" stroke-width="2.5" stroke-linejoin="round">
-              <path d="M89 125h48l-7 85H97Z" fill="#fff"/>
-              <path d="M96 159h34l-4 44h-26Z" fill="#bcbcbc" stroke="none"/>
-              <path d="m113 179 12-72 15-9" fill="none"/>
-              <path d="m101 144 9-3 4 10-10 3m13-8 10 3-3 10-10-3" fill="#eee" stroke="#aaa" stroke-width="1"/>
-              <circle cx="88" cy="128" r="13" fill="#eee"/><path d="m88 116 0 24m-11-12h22" stroke="#bbb" stroke-width="1"/>
-            </g>
-            <g class="dish-reveal">
-              <ellipse cx="233" cy="201" rx="47" ry="9" fill="#fff" stroke="#777" stroke-width="2"/>
-              <path d="M206 197q6-25 22-17 12-23 31 3l6 14Z" fill="#aaa"/>
-              <path d="m226 178 4-13 10 8" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round"/>
-            </g>
-            <g class="hospitality-cloche" stroke="#333" stroke-width="2.5" stroke-linecap="round">
-              <path d="M176 192a57 57 0 0 1 114 0Z" fill="#eee"/>
-              <path d="M182 193h102" stroke="#aaa"/>
-              <path d="M172 199h122" stroke-width="5"/>
-              <path d="M225 135q0-13 16-8l1 8" fill="#eee"/>
-              <path d="M190 179q5-22 22-29" fill="none" stroke="#fff" stroke-width="5"/>
-            </g>
-            <g class="hospitality-sparkle" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round">
-              <path d="m285 90 0 16m-8-8h16m-120-17v12m-6-6h12m100 57v10m-5-5h10"/>
-            </g>
-            <text x="28" y="258" class="motion-label">A little creativity, served fresh.</text>
-          </svg>
+<title id="operations-title">The guest at the center of the experience</title>
+<desc id="operations-desc">Three scenes follow a guest from receiving an event invitation to a personal welcome and enjoying a shared table.</desc>
+<text x="28" y="35" class="motion-caption">THOUGHTFUL AT EVERY TOUCHPOINT</text>
+<ellipse cx="260" cy="219" rx="138" ry="9" fill="#e4e4e4"/>
+<g class="guest-scene scene-invite">
+  <g transform="translate(162 71) rotate(-7 49 53)">
+    <rect width="98" height="118" rx="10" fill="#fff" stroke="#999" stroke-width="2"/>
+    <path d="M14 20h70M14 31h49" stroke="#ccc" stroke-width="4" stroke-linecap="round"/>
+    <rect x="14" y="48" width="70" height="47" rx="5" fill="#eee"/>
+    <path d="m16 52 33 24 33-24" fill="none" stroke="#777" stroke-width="2"/>
+    <path d="M41 106h16" stroke="#777" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(319 0)"><circle cx="0" cy="121" r="22" fill="#fff" stroke="#444" stroke-width="2.5"/><path d="M-35 213v-33q0-31 35-31t35 31v33" fill="#bbb" stroke="#444" stroke-width="2.5"/><path d="m-8 124q8 10 16 0" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round"/><path d="m-26 169-26-15" stroke="#444" stroke-width="8" stroke-linecap="round"/></g>
+  <text x="260" y="258" text-anchor="middle" class="motion-label">An invitation that connects.</text>
+</g>
+<g class="guest-scene scene-welcome">
+  <rect x="170" y="73" width="180" height="142" rx="12" fill="#fff" stroke="#ccc" stroke-width="2"/>
+  <rect x="182" y="85" width="156" height="34" rx="5" fill="#333"/>
+  <text x="260" y="107" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="14" fill="#fff" letter-spacing="2">WELCOME</text>
+  <path d="M189 128v71m142-71v71" stroke="#ddd" stroke-width="3"/>
+  <circle cx="260" cy="151" r="18" fill="#eee" stroke="#444" stroke-width="2.5"/>
+  <path d="M230 214v-20q0-23 30-23t30 23v20" fill="#aaa" stroke="#444" stroke-width="2.5"/>
+  <path d="m253 154q7 8 14 0" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round"/>
+  <path d="m204 150 5 5 10-12m87 0 5 5 10-12" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="260" y="258" text-anchor="middle" class="motion-label">A welcome that feels personal.</text>
+</g>
+<g class="guest-scene scene-experience">
+  <g fill="#fff" stroke="#444" stroke-width="2.5">
+    <circle cx="177" cy="121" r="20"/><circle cx="343" cy="121" r="20"/>
+    <path d="M145 198v-26q0-25 32-25t32 25v26" fill="#bbb"/>
+    <path d="M311 198v-26q0-25 32-25t32 25v26" fill="#bbb"/>
+  </g>
+  <path d="m170 124q7 9 14 0m152 0q7 9 14 0" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="260" cy="183" rx="92" ry="18" fill="#fff" stroke="#888" stroke-width="2"/>
+  <path d="M201 191v25m118-25v25" stroke="#888" stroke-width="3"/>
+  <ellipse cx="220" cy="181" rx="19" ry="5" fill="#eee" stroke="#bbb"/><ellipse cx="300" cy="181" rx="19" ry="5" fill="#eee" stroke="#bbb"/>
+  <path d="M260 180v-33m0 9q-16-16-19-4 3 11 19 12m0-15q15-18 20-5-1 10-20 14" fill="#aaa" stroke="#777" stroke-width="1.5"/>
+  <path class="guest-delight" d="m253 91 7 7 7-7q8-10 0-13-5-2-7 4-3-6-8-4-8 4 1 13Z" fill="#666"/>
+  <text x="260" y="258" text-anchor="middle" class="motion-label">An experience worth remembering.</text>
+</g>
+</svg>
           <button class="footer-motion-toggle" type="button" aria-label="Pause footer animation" aria-pressed="false" hidden>Ⅱ</button>
         </div>
       </div>
