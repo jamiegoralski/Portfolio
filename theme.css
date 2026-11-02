@@ -1,12 +1,6 @@
-/* Shared, opt-in theme. Photographs and project artwork retain their colors. */
-html{color-scheme:light}
+/* Permanent dark theme. Photographs and project artwork retain their colors. */
 nav[aria-label="Main navigation"]{display:flex;align-items:center;flex-wrap:wrap;gap:16px}
 nav[aria-label="Main navigation"] .nav-links{min-width:0}
-.theme-toggle{display:inline-flex;align-items:center;justify-content:center;flex:0 0 44px;width:44px;height:44px;margin-left:auto;padding:0;border:1px solid #d7d8d0;border-radius:50%;background:transparent;color:#211f20;cursor:pointer;font:26px/1 Arial,sans-serif}
-.theme-toggle[hidden]{display:none}
-.theme-toggle:hover{background:#eeeeeb}
-.theme-toggle:focus-visible{outline:2px solid currentColor;outline-offset:4px}
-.theme-icon{display:block;line-height:1;pointer-events:none}
 html[data-theme="dark"]{color-scheme:dark;--background:#171717;--surface:#232323;--text:#f5f3ef;--muted:#b5b3ad;--accent:#d0ceca;background:#171717}
 html[data-theme="dark"] :is(body,.top,footer){background:#171717;color:#f5f3ef}
 html[data-theme="dark"] :is(h1,h2,h3,h4,summary,dd,.identity-canvas,.hero-description,.intro strong,.detail-list strong,.tech-table td:first-child){color:#f5f3ef}
@@ -21,7 +15,8 @@ html[data-theme="dark"] :is(dialog,.image-lightbox,.lightbox-close,.close-lightb
 html[data-theme="dark"] dialog::backdrop{background:rgba(0,0,0,.88)}
 html[data-theme="dark"] :is(.button,#contact .footer-email){background:#f5f3ef;color:#171717}
 html[data-theme="dark"] :is(.button:hover,#contact .footer-email:hover){background:#d4d1cb;color:#171717}
-html[data-theme="dark"] .theme-toggle{color:#f5f3ef;border-color:#505050;background:transparent}
-html[data-theme="dark"] .theme-toggle:hover{background:#303030}
 html[data-theme="dark"] :is(.identity-logo,.signature-logo,.signature){filter:invert(1)}
-@media(max-width:520px){nav[aria-label="Main navigation"]{gap:10px}.theme-toggle{flex-basis:36px;width:36px;height:36px;font-size:23px}nav[aria-label="Main navigation"] .nav-links{flex:1 1 auto;width:auto;gap:12px}}
+/* Page titles share the Digital Signage title weight. */
+html[data-theme="dark"] h1,html[data-theme="dark"] .motion-identity .identity-wordmark{font-weight:700}
+.collection-heading .visit-phoenix-logo{width:210px;height:auto;object-fit:contain}
+@media(max-width:520px){.collection-heading .visit-phoenix-logo{width:180px;height:auto}}
