@@ -18,5 +18,8 @@ html[data-theme="dark"] :is(.button:hover,#contact .footer-email:hover){backgrou
 html[data-theme="dark"] :is(.identity-logo,.signature-logo,.signature){filter:invert(1)}
 /* Page titles share the Digital Signage title weight. */
 html[data-theme="dark"] h1,html[data-theme="dark"] .motion-identity .identity-wordmark{font-weight:700}
-.collection-heading .visit-phoenix-logo{display:block;width:234px;max-width:100%;height:auto;object-fit:contain;flex-shrink:0;padding:12px;background:#fff;border-radius:8px;box-sizing:border-box}
+.collection-heading .visit-phoenix-logo{display:block;width:234px;max-width:100%;height:auto;object-fit:contain;flex-shrink:0;padding:0;background:transparent;border-radius:0;box-sizing:border-box}
 @media(max-width:520px){.collection-heading .visit-phoenix-logo{width:204px;max-width:100%;height:auto}}
+
+/* Consistent top navigation weight on every portfolio page. */
+nav[aria-label="Main navigation"] a,nav[aria-label="Main navigation"] a:visited{font-weight:400}
