@@ -682,6 +682,28 @@ nav{width:100%;align-items:center}
 html,body,.top,footer{background-color:#ffffff}
 /* Leave breathing room after the PHX Wok sign within the card crop. */
 .signage.project-photo img{object-position:60% center}
+
+/* A contained vector loop: creative pieces become a coordinated campaign. */
+.footer-connect{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.footer-connect h2{font-size:clamp(32px,4.5vw,62px);letter-spacing:-2px;line-height:1.08}
+.footer-contact-link{display:inline-block;margin-top:24px;font-size:16px;text-underline-offset:5px}
+.operations-motion{position:relative;border:1px solid #e3e3e3;border-radius:20px;background:#f4f4f4;overflow:hidden}
+.operations-motion svg{display:block;width:100%;height:auto}
+.operations-motion .motion-caption{font:11px Arial,Helvetica,sans-serif;letter-spacing:1.5px;fill:#666}
+.operations-motion .motion-label{font:13px Arial,Helvetica,sans-serif;fill:#333}
+.operations-motion .design-piece{transform-box:fill-box;transform-origin:center;animation:design-to-system 7s cubic-bezier(.45,0,.2,1) infinite}
+.operations-motion .piece-two{animation-delay:.14s}.operations-motion .piece-three{animation-delay:.28s}
+.operations-motion .connection{stroke-dasharray:5 7;animation:workflow-dash 1.5s linear infinite}
+.operations-motion .delivery-check{animation:delivery-check 7s ease infinite;transform-origin:421px 190px}
+.footer-motion-toggle{position:absolute;right:12px;top:12px;border:1px solid #ccc;border-radius:50%;width:32px;height:32px;background:#fff;color:#333;cursor:pointer;font-size:14px}
+.footer-motion-toggle:hover{background:#e3e3e3}.footer-motion-toggle:focus-visible{outline:2px solid #666;outline-offset:3px}
+.operations-motion.is-paused *{animation-play-state:paused!important}
+@keyframes design-to-system{0%,12%,92%,100%{transform:translate(var(--move-x),var(--move-y)) rotate(var(--tilt))}40%,72%{transform:translate(0,0) rotate(0)}}
+@keyframes workflow-dash{to{stroke-dashoffset:-24}}
+@keyframes delivery-check{0%,32%,86%,100%{opacity:0;transform:scale(.7)}45%,74%{opacity:1;transform:scale(1)}}
+@media(max-width:700px){.footer-connect{grid-template-columns:1fr;gap:32px}.operations-motion{max-width:580px;width:100%}.footer-connect h2{letter-spacing:-1.3px}}
+@media(prefers-reduced-motion:reduce){.operations-motion *{animation:none!important}.footer-motion-toggle{display:none}.operations-motion .delivery-check{opacity:1}}
+
 </style>
   <link rel="preconnect" href="https://use.typekit.net" crossorigin>
   <link rel="stylesheet" href="https://use.typekit.net/ohi5vpe.css">
@@ -861,14 +883,37 @@ html,body,.top,footer{background-color:#ffffff}
 
   <footer id="contact">
     <div class="container">
-      <p class="eyebrow">(Let’s Connect)</p>
-      <h2>Let’s make<br>something matter.</h2>
-
-      <!-- Add your preferred email link here when ready:
-           <a class="button" href="mailto:YOUR_EMAIL">GET IN TOUCH ↗</a>
-      -->
-
-      
+<div class="footer-connect">
+        <div>
+          <p class="eyebrow">(Let’s Connect)</p>
+          <h2>Design meets<br>marketing operations.</h2>
+        </div>
+        <div class="operations-motion" id="footer-operations-motion">
+          <svg viewBox="0 0 520 280" role="img" aria-labelledby="operations-title operations-desc">
+            <title id="operations-title">Creative design becoming a coordinated campaign</title>
+            <desc id="operations-desc">A circle, a square, and a triangle move from a loose composition into three aligned campaign cards, followed by a completion check.</desc>
+            <text x="30" y="36" class="motion-caption">CREATIVE THINKING → CONNECTED EXECUTION</text>
+            <path class="connection" d="M66 221 H454" fill="none" stroke="#aaa" stroke-width="1.5"/>
+            <g fill="#fff" stroke="#d4d4d4">
+              <rect x="144" y="80" width="96" height="118" rx="10"/>
+              <rect x="252" y="80" width="96" height="118" rx="10"/>
+              <rect x="360" y="80" width="96" height="118" rx="10"/>
+            </g>
+            <g fill="#ddd">
+              <rect x="160" y="157" width="64" height="5" rx="2.5"/><rect x="160" y="170" width="44" height="5" rx="2.5"/>
+              <rect x="268" y="157" width="64" height="5" rx="2.5"/><rect x="268" y="170" width="44" height="5" rx="2.5"/>
+              <rect x="376" y="157" width="64" height="5" rx="2.5"/><rect x="376" y="170" width="44" height="5" rx="2.5"/>
+            </g>
+            <circle class="design-piece" style="--move-x:-125px;--move-y:-25px;--tilt:-20deg" cx="192" cy="119" r="23" fill="#262626"/>
+            <rect class="design-piece piece-two" style="--move-x:-235px;--move-y:42px;--tilt:25deg" x="278" y="97" width="44" height="44" rx="5" fill="#999"/>
+            <path class="design-piece piece-three" style="--move-x:-300px;--move-y:12px;--tilt:-25deg" d="M408 94 L433 140 H383 Z" fill="#bcbcbc" stroke="#777"/>
+            <g fill="#fff" stroke="#999"><circle cx="192" cy="221" r="5"/><circle cx="300" cy="221" r="5"/><circle cx="408" cy="221" r="5"/></g>
+            <g class="delivery-check"><circle cx="451" cy="190" r="15" fill="#262626"/><path d="m444 190 5 5 9-10" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g>
+            <text x="30" y="256" class="motion-label">Make it thoughtful.</text><text x="360" y="256" class="motion-label">Make it work.</text>
+          </svg>
+          <button class="footer-motion-toggle" type="button" aria-label="Pause footer animation" aria-pressed="false" hidden>Ⅱ</button>
+        </div>
+      </div>
 
       <div class="footer-bottom">
         <div>
@@ -882,5 +927,18 @@ html,body,.top,footer{background-color:#ffffff}
     </div>
   </footer>
 <script src="logo-animation.js" defer></script>
+<script>
+(() => {
+  const panel = document.getElementById('footer-operations-motion');
+  const button = panel.querySelector('.footer-motion-toggle');
+  button.hidden = false;
+  button.addEventListener('click', () => {
+    const paused = panel.classList.toggle('is-paused');
+    button.setAttribute('aria-pressed', String(paused));
+    button.setAttribute('aria-label', paused ? 'Play footer animation' : 'Pause footer animation');
+    button.textContent = paused ? '▶' : 'Ⅱ';
+  });
+})();
+</script>
 </body>
 </html>
