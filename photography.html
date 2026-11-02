@@ -13,6 +13,15 @@ dialog{border:0;border-radius:16px;padding:62px 20px 20px;width:min(1500px,96vw)
 @media(max-width:700px){.container{width:90%}nav{gap:24px;padding:24px 0}nav a{font-size:14px}header{padding:32px 0 40px}.collection-heading{align-items:flex-start}.client-logo{width:150px;height:55px}.gallery{gap:18px}header p:not(.eyebrow){font-size:18px}}
 @media(max-width:520px){nav{justify-content:space-between;gap:8px}nav a{font-size:12px}.collection-heading{flex-direction:column;gap:18px}.collection-heading .client-logo{order:-1;width:180px;height:65px}.gallery{grid-template-columns:1fr}.gallery .wide{grid-column:auto}.footer-row{flex-direction:column;align-items:flex-start!important}.collection-heading h2{font-size:28px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.photo-link img{transition:none}}
+
+/* Compact masonry gallery with the portfolio's rounded image cards. */
+.gallery{display:block;columns:3;column-gap:18px;max-width:1100px;margin-inline:auto}
+.gallery figure{display:inline-block;width:100%;margin:0 0 18px;break-inside:avoid;vertical-align:top}
+.gallery .photo-link{border-radius:16px}
+.gallery .photo-link img{display:block;width:100%;height:auto}
+@media(max-width:850px){.gallery{columns:2;column-gap:16px}.gallery figure{margin-bottom:16px}}
+@media(max-width:520px){.gallery{columns:1;max-width:420px}.gallery figure{margin-bottom:16px}}
+
 </style></head>
 <body id="top"><div class="container">
 <nav aria-label="Main navigation"><a href="index.html#work">Selected Work</a><a href="photography.html" aria-current="page">Photography</a><a href="index.html#about">About</a><a href="index.html#contact">Connect</a></nav>
