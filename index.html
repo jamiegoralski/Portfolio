@@ -683,23 +683,6 @@ html,body,.top,footer{background-color:#ffffff}
 /* Leave breathing room after the PHX Wok sign within the card crop. */
 .signage.project-photo img{object-position:60% center}
 
-/* A guest-led hospitality story, from invitation to experience. */
-.footer-connect{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
-.footer-connect h2{font-size:clamp(32px,4.5vw,62px);letter-spacing:-2px;line-height:1.08}
-.operations-motion{position:relative;border:1px solid #e3e3e3;border-radius:20px;background:#f4f4f4;overflow:hidden}
-.operations-motion svg{display:block;width:100%;height:auto}
-.operations-motion .motion-caption{font:10px Arial,Helvetica,sans-serif;letter-spacing:1.3px;fill:#666}
-.operations-motion .motion-label{font:14px Arial,Helvetica,sans-serif;fill:#444}
-.guest-scene{opacity:0;animation:guest-story 12s ease-in-out infinite}
-.scene-welcome{animation-delay:4s}.scene-experience{animation-delay:8s}
-.guest-delight{animation:guest-delight 2s ease-in-out infinite;transform-origin:260px 86px}
-.footer-motion-toggle{position:absolute;right:12px;top:12px;border:1px solid #ccc;border-radius:50%;width:32px;height:32px;background:#fff;color:#333;cursor:pointer;font-size:14px}
-.footer-motion-toggle:hover{background:#e3e3e3}.footer-motion-toggle:focus-visible{outline:2px solid #666;outline-offset:3px}
-.operations-motion.is-paused *{animation-play-state:paused!important}
-@keyframes guest-story{0%,29%{opacity:1;transform:translateY(0)}33%,96%{opacity:0;transform:translateY(5px)}100%{opacity:1;transform:translateY(0)}}
-@keyframes guest-delight{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-3px) scale(1.08)}}
-@media(max-width:700px){.footer-connect{grid-template-columns:1fr;gap:32px}.operations-motion{max-width:580px;width:100%}.footer-connect h2{letter-spacing:-1.3px}}
-@media(prefers-reduced-motion:reduce){.operations-motion *{animation:none!important}.guest-scene{opacity:0}.scene-experience{opacity:1}.footer-motion-toggle{display:none}}
 </style>
   <link rel="preconnect" href="https://use.typekit.net" crossorigin>
   <link rel="stylesheet" href="https://use.typekit.net/ohi5vpe.css">
@@ -879,57 +862,8 @@ html,body,.top,footer{background-color:#ffffff}
 
   <footer id="contact">
     <div class="container">
-<div class="footer-connect">
-        <div>
-          <p class="eyebrow">(Let’s Connect)</p>
-          <h2>Make every guest<br>feel expected.</h2>
-        </div>
-        <div class="operations-motion" id="footer-operations-motion">
-          <svg viewBox="0 0 520 280" role="img" aria-labelledby="operations-title operations-desc">
-<title id="operations-title">The guest at the center of the experience</title>
-<desc id="operations-desc">Three scenes follow a guest from receiving an event invitation to a personal welcome and enjoying a shared table.</desc>
-<text x="28" y="35" class="motion-caption">THOUGHTFUL AT EVERY TOUCHPOINT</text>
-<ellipse cx="260" cy="219" rx="138" ry="9" fill="#e4e4e4"/>
-<g class="guest-scene scene-invite">
-  <g transform="translate(162 71) rotate(-7 49 53)">
-    <rect width="98" height="118" rx="10" fill="#fff" stroke="#999" stroke-width="2"/>
-    <path d="M14 20h70M14 31h49" stroke="#ccc" stroke-width="4" stroke-linecap="round"/>
-    <rect x="14" y="48" width="70" height="47" rx="5" fill="#eee"/>
-    <path d="m16 52 33 24 33-24" fill="none" stroke="#777" stroke-width="2"/>
-    <path d="M41 106h16" stroke="#777" stroke-width="3" stroke-linecap="round"/>
-  </g>
-  <g transform="translate(319 0)"><circle cx="0" cy="121" r="22" fill="#fff" stroke="#444" stroke-width="2.5"/><path d="M-35 213v-33q0-31 35-31t35 31v33" fill="#bbb" stroke="#444" stroke-width="2.5"/><path d="m-8 124q8 10 16 0" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round"/><path d="m-26 169-26-15" stroke="#444" stroke-width="8" stroke-linecap="round"/></g>
-  <text x="260" y="258" text-anchor="middle" class="motion-label">An invitation that connects.</text>
-</g>
-<g class="guest-scene scene-welcome">
-  <rect x="170" y="73" width="180" height="142" rx="12" fill="#fff" stroke="#ccc" stroke-width="2"/>
-  <rect x="182" y="85" width="156" height="34" rx="5" fill="#333"/>
-  <text x="260" y="107" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="14" fill="#fff" letter-spacing="2">WELCOME</text>
-  <path d="M189 128v71m142-71v71" stroke="#ddd" stroke-width="3"/>
-  <circle cx="260" cy="151" r="18" fill="#eee" stroke="#444" stroke-width="2.5"/>
-  <path d="M230 214v-20q0-23 30-23t30 23v20" fill="#aaa" stroke="#444" stroke-width="2.5"/>
-  <path d="m253 154q7 8 14 0" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round"/>
-  <path d="m204 150 5 5 10-12m87 0 5 5 10-12" fill="none" stroke="#888" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="260" y="258" text-anchor="middle" class="motion-label">A welcome that feels personal.</text>
-</g>
-<g class="guest-scene scene-experience">
-  <g fill="#fff" stroke="#444" stroke-width="2.5">
-    <circle cx="177" cy="121" r="20"/><circle cx="343" cy="121" r="20"/>
-    <path d="M145 198v-26q0-25 32-25t32 25v26" fill="#bbb"/>
-    <path d="M311 198v-26q0-25 32-25t32 25v26" fill="#bbb"/>
-  </g>
-  <path d="m170 124q7 9 14 0m152 0q7 9 14 0" fill="none" stroke="#444" stroke-width="2" stroke-linecap="round"/>
-  <ellipse cx="260" cy="183" rx="92" ry="18" fill="#fff" stroke="#888" stroke-width="2"/>
-  <path d="M201 191v25m118-25v25" stroke="#888" stroke-width="3"/>
-  <ellipse cx="220" cy="181" rx="19" ry="5" fill="#eee" stroke="#bbb"/><ellipse cx="300" cy="181" rx="19" ry="5" fill="#eee" stroke="#bbb"/>
-  <path d="M260 180v-33m0 9q-16-16-19-4 3 11 19 12m0-15q15-18 20-5-1 10-20 14" fill="#aaa" stroke="#777" stroke-width="1.5"/>
-  <path class="guest-delight" d="m253 91 7 7 7-7q8-10 0-13-5-2-7 4-3-6-8-4-8 4 1 13Z" fill="#666"/>
-  <text x="260" y="258" text-anchor="middle" class="motion-label">An experience worth remembering.</text>
-</g>
-</svg>
-          <button class="footer-motion-toggle" type="button" aria-label="Pause footer animation" aria-pressed="false" hidden>Ⅱ</button>
-        </div>
-      </div>
+      <p class="eyebrow">(Marketing &amp; Design)</p>
+      <h2>Solving problems.<br>Finding marketing solutions.<br>Making it all look good.</h2>
 
       <div class="footer-bottom">
         <div>
@@ -943,18 +877,5 @@ html,body,.top,footer{background-color:#ffffff}
     </div>
   </footer>
 <script src="logo-animation.js" defer></script>
-<script>
-(() => {
-  const panel = document.getElementById('footer-operations-motion');
-  const button = panel.querySelector('.footer-motion-toggle');
-  button.hidden = false;
-  button.addEventListener('click', () => {
-    const paused = panel.classList.toggle('is-paused');
-    button.setAttribute('aria-pressed', String(paused));
-    button.setAttribute('aria-label', paused ? 'Play footer animation' : 'Pause footer animation');
-    button.textContent = paused ? '▶' : 'Ⅱ';
-  });
-})();
-</script>
 </body>
 </html>
