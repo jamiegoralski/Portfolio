@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Jamie Goralski is a Phoenix-based Marketing Operations Specialist combining branded content, digital signage, workflow automation, and web tools for hospitality and events.">
-  <title>Jamie Goralski | Marketing Operations &amp; Design</title>
+  <meta name="description" content="Jamie Goralski — Phoenix-based marketing, graphic design, and digital content portfolio.">
+  <title>Jamie Goralski | Marketing & Design</title>
 
   <style>
     :root {
@@ -715,28 +715,10 @@ html,body,.top,footer{background-color:#ffffff}
 #contact .footer-email{display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin-top:10px;padding:15px 24px;border-radius:30px;background:#211f20;color:#fff;font-size:16px;font-weight:500;line-height:1.3;text-decoration:none;letter-spacing:0}#contact .footer-email:hover{background:#555}#contact .footer-email:focus-visible{outline:2px solid #666;outline-offset:5px}
 .recruitment-preview{background:#242424;border-radius:0;clip-path:inset(0 round 16px)}.recruitment-preview img{object-fit:cover}
 .asu-catering-preview img{object-position:86% center;transform:scale(1.12)}
-
-/* Recruiter overview: role, scale, and contact before the project grid. */
-.recruiter-hero{padding:30px 0 40px}
-.recruiter-identity{display:flex;align-items:center;gap:22px;margin-bottom:20px}
-.recruiter-identity .identity-logo{display:block;opacity:1;width:48px;height:auto;flex-shrink:0}
-.recruiter-hero h1{margin:0;font-size:clamp(42px,5vw,72px);line-height:1.08;letter-spacing:-.045em;text-transform:none}
-.recruiter-hero .hero-role{color:var(--text);font-size:clamp(23px,2.3vw,30px);line-height:1.3;margin:0 0 14px}
-.recruiter-hero .hero-description{max-width:860px;font-size:clamp(20px,2vw,26px);line-height:1.5;letter-spacing:-.35px;margin:0 0 14px}
-.recruiter-hero .hero-context{font-size:15px;line-height:1.6;margin:0}
-.recruiter-hero .hero-links{margin-top:22px;gap:28px;font-size:15px}
-.career-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;list-style:none;padding:24px 0;margin:30px 0 0;border-top:1px solid #3d3d3d;border-bottom:0}
-.career-stats li{display:flex;flex-direction:column;gap:8px;min-width:0}
-.career-stats strong{font-size:clamp(38px,3.6vw,50px);line-height:1;letter-spacing:-.04em;font-weight:500;color:var(--text)}
-.career-stats span{font-size:15px;line-height:1.5;color:var(--text)}
-.career-stats small{display:block;font-size:13px;color:var(--muted);margin-top:2px}
-.project .project-summary{max-width:none;margin:8px 0 0;font-size:16px;line-height:1.65;text-align:left}
-.project .project-live-link{font-size:14px;margin:12px 0 0}
-@media(max-width:700px){.recruiter-hero{padding:20px 0 30px}.recruiter-identity{gap:16px}.recruiter-identity .identity-logo{width:36px}.career-stats{gap:18px}.career-stats span{font-size:14px}.career-stats small{font-size:12px}}
-@media(max-width:520px){.recruiter-identity{align-items:flex-start;gap:12px}.recruiter-hero h1{font-size:clamp(30px,8.2vw,42px)}.recruiter-identity .identity-logo{width:28px;margin-top:3px}.career-stats{grid-template-columns:1fr;gap:18px;padding:22px 0}.career-stats li{flex-direction:row;align-items:center;gap:20px}.career-stats strong{font-size:38px;min-width:100px}.career-stats span{font-size:14px}.recruiter-hero .hero-links{gap:18px;font-size:14px}}
 </style>
   <link rel="preconnect" href="https://use.typekit.net" crossorigin>
   <link rel="stylesheet" href="https://use.typekit.net/ohi5vpe.css">
+  <link rel="stylesheet" href="logo-animation.css">
 <link rel="stylesheet" href="theme.css">
 
 </head>
@@ -749,21 +731,26 @@ html,body,.top,footer{background-color:#ffffff}
           <a href="#work">Selected Work</a>
           <a href="photography.html">Photography</a>
           <a href="#about">About</a>
-          <a href="#contact">Contact</a>
+          <a href="#contact">Connect</a>
         </div>
       </nav>
 
-      <header class="hero recruiter-hero">
-        <div class="recruiter-identity"><img class="identity-logo" src="images/jg-monogram.svg" alt="" width="48" height="51" aria-hidden="true"><h1>Jamie Goralski</h1></div>
-        <p class="hero-role">Marketing Operations Specialist</p>
-        <p class="hero-description">I design branded content, manage digital signage, and build tools that help hospitality and events teams work more efficiently.</p>
-        <p class="hero-context">Phoenix, Arizona · Aventura Catering / Aramark</p>
-        <div class="hero-links"><a href="#work">View selected work ↗</a><a href="mailto:jamiegoralski25@gmail.com">Email Jamie ↗</a><a href="https://www.linkedin.com/in/jamie-goralski-b71742246/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
-        <ul class="career-stats" aria-label="Experience at a glance">
-          <li><strong>55+</strong><span>Digital displays managed<small>Across three Phoenix venues</small></span></li>
-          <li><strong>200+</strong><span>Annual events supported<small>Marketing &amp; content operations</small></span></li>
-          <li><strong>744+</strong><span>Approved menu items centralized<small>In Aventura Menu Studio</small></span></li>
-        </ul>
+      <header class="hero">
+        <div class="motion-identity">
+          <div class="identity-canvas">
+            <div class="identity-logo-position" aria-hidden="true">
+              <img class="identity-logo" src="images/jg-monogram.svg" alt="" width="1190" height="1254" fetchpriority="high">
+            </div>
+            <h1 class="identity-wordmark"><span class="identity-wordmark-text">JAMIE GORALSKI</span></h1>
+          </div>
+          <button class="motion-control" type="button" hidden>Pause animation</button>
+        </div>
+        <div class="hero-intro">
+          <div>
+            <p class="hero-description">Marketing and design professional creating branded content, building web tools, and automating workflows for hospitality and events.</p>
+            <div class="hero-links"><a href="#work">Explore my work ↗</a><span>// Phoenix, Arizona</span></div>
+          </div>
+        </div>
       </header>
     </div>
   </div>
@@ -775,20 +762,62 @@ html,body,.top,footer{background-color:#ffffff}
       </h2>
 
       <div class="grid">
-        <article class="project"><a class="visual signage project-photo" href="digital-signage.html">
+        <article class="project">
+          <a class="visual signage project-photo" href="digital-signage.html?v=20261030-nav">
             <img src="images/phx-wok-architectural-mockup.png"
                  onerror="this.onerror=null;this.src='images/phx-wok-promo.png';"
                  alt="PHX Wok architectural mockup with digital menu and promotional displays at Phoenix Convention Center"
                  fetchpriority="high">
-          </a><h3><a href="digital-signage.html">Digital Signage &amp; Content Operations ↗</a></h3><p class="project-summary">Design, scheduling, and deployment across 55+ displays at three Phoenix venues.</p></article>
+          </a>
 
-        <article class="project"><a class="visual web project-photo menu-studio-preview" href="menu-studio.html" aria-label="View the Aventura Menu Studio case study">
+          <h3>
+  <a href="digital-signage.html?v=20261030-nav">Phoenix Convention Center Digital Signage ↗</a>
+</h3>
+          <p class="project-category">55+ displays · Three venues · Design through deployment</p>
+
+          <details>
+            <summary>About this work</summary>
+            <p>
+              I design, schedule, publish, and maintain content across
+              55+ displays at Phoenix Convention Center, Symphony Hall,
+              and Orpheum Theatre—from the initial creative request
+              through final screen verification.
+            </p>
+          </details>
+        </article>
+
+        <article class="project">
+          <a class="visual web project-photo menu-studio-preview" href="menu-studio.html" aria-label="View the Aventura Menu Studio case study">
             <img src="images/menu-studio-light-grey.webp" alt="Aventura Menu Studio displayed on a laptop and iPhone" width="1600" height="1200" loading="lazy">
-          </a><h3><a href="menu-studio.html">Aventura Menu Studio ↗</a></h3><p class="project-summary">Designed and built a searchable resource for 744+ approved menu items, supporting four teams.</p><p class="project-live-link"><a href="https://aventuracateringmenustudio.vercel.app/" target="_blank" rel="noopener noreferrer">Open live Menu Studio ↗</a></p></article>
+          </a>
 
-        <article class="project"><a class="visual project-photo recruitment-preview" href="recruitment-campaign.html" aria-label="View the Aramark Recruitment Marketing Campaign case study"><img src="images/recruitment/campaign-cover.svg?v=clean-edges" alt="Aramark recruitment campaign with job fair messaging and application QR code" width="2000" height="1600" loading="lazy"></a><h3><a href="recruitment-campaign.html">Aramark Recruitment Campaign ↗</a></h3><p class="project-summary">Created coordinated HTML email, four signage variations, and print collateral for a hiring event.</p></article>
+          <h3><a href="menu-studio.html">Aventura Menu Studio ↗</a></h3>
+          <p class="project-category">UX design · Front-end development · Workflow automation</p>
 
-        <article class="project"><a class="visual project-photo asu-catering-preview" href="asu-catering.html" aria-label="View the ASU Football Season catering signage case study"><img src="images/asu-catering/signage-collection.png" alt="ASU catering menu signs in coordinated light and dark designs" width="3840" height="2400" loading="lazy"></a><h3><a href="asu-catering.html">ASU Catering Signage ↗</a></h3><p class="project-summary">Designed and produced menu signs and dietary-information cards for the 2025 football season.</p></article>
+          <details>
+            <summary>About this work</summary>
+            <p>
+              A searchable menu resource that helps teams find
+              menu descriptions, lifestyle labels, and allergen
+              information in one place.
+            </p>
+            <p>
+              <a href="https://aventuracateringmenustudio.vercel.app/"
+                 target="_blank" rel="noopener noreferrer">
+                Explore Menu Studio ↗
+              </a>
+            </p>
+          </details>
+        </article>
+
+        <article class="project"><a class="visual project-photo recruitment-preview" href="recruitment-campaign.html" aria-label="View the Aramark Recruitment Marketing Campaign case study"><img src="images/recruitment/campaign-cover.svg?v=clean-edges" alt="Aramark recruitment campaign with job fair messaging and application QR code" width="2000" height="1600" loading="lazy"></a><h3><a href="recruitment-campaign.html">Aramark Recruitment Marketing Campaign ↗</a></h3><p class="project-category">Recruitment marketing · HTML email · Print &amp; digital signage</p><details><summary>About this work</summary><p>A coordinated recruitment campaign for Aramark’s hiring event at Phoenix Convention Center, combining print collateral, four digital signage variations, and branded HTML email for desktop and mobile.</p></details></article>
+
+        <article class="project">
+          <a class="visual project-photo asu-catering-preview" href="asu-catering.html" aria-label="View the ASU Football Season catering signage case study"><img src="images/asu-catering/signage-collection.png" alt="ASU catering menu signs in coordinated light and dark designs" width="3840" height="2400" loading="lazy"></a>
+          <h3><a href="asu-catering.html">ASU Catering Signage ↗</a></h3>
+          <p class="project-category">Catering · Signage · Print production</p>
+          <details><summary>About this work</summary><p>Allergen-aware buffet signage, branded graphics, and individual buffet cards designed and produced for Aramark’s catering operations during the 2025 ASU football season.</p></details>
+        </article>
       </div>
     </section>
 
@@ -796,8 +825,9 @@ html,body,.top,footer{background-color:#ffffff}
       <div class="about-story">
         <p class="eyebrow">(About)</p>
         <h2 id="about-heading">Creative work.<br>Systems that make it happen.</h2>
-        <p>I connect creative production with the systems that keep content accurate, organized, and ready to publish. At Aventura Catering / Aramark, my work spans digital signage, branded materials, HTML email, and internal tools for Marketing, Sales, Culinary, and Operations.</p>
-        <p>I manage content across Phoenix Convention Center, Symphony Hall, and Orpheum Theatre, and build Power Automate workflows, SharePoint resources, and web tools that support the teams behind each event.</p>
+        <p>I’m Jamie, a Phoenix-based marketing and design professional who enjoys connecting creative ideas with the tools, people, and processes that bring them to life.</p>
+        <p>At Aventura Catering / Aramark Sports + Entertainment, I create branded content and manage digital signage across Phoenix Convention Center, Symphony Hall, and Orpheum Theatre. My work supports 200+ annual events and spans menu design, promotional materials, photography, HTML email, and internal communications.</p>
+        <p>I’m just as interested in how the work gets done. I build Power Automate workflows, organize SharePoint data, and develop web tools like the Aventura Menu Studio—a searchable resource for 744+ approved menu items. I enjoy making information easier to find and everyday tasks easier for the teams using it.</p>
         <div class="about-experience" aria-labelledby="experience-heading">
           <h3 id="experience-heading">My experience</h3>
           <div class="experience-entry"><p class="experience-dates">2024–Present</p><h4>Marketing Operations Specialist</h4><p class="experience-company">Aventura Catering / Aramark Sports + Entertainment</p><p>Creative production, digital content, and workflow coordination for hospitality and live events.</p></div>
@@ -810,25 +840,25 @@ html,body,.top,footer{background-color:#ffffff}
         <p class="eyebrow">(What I bring)</p>
         <p>// Brand &amp; content design</p><p>// Digital signage &amp; content operations</p><p>// HTML email &amp; communications</p><p>// Workflow automation &amp; web tools</p>
         <div class="about-tools"><h3>Tools I work with</h3><p>Adobe Illustrator, Photoshop &amp; Lightroom · Canva · OptiSigns · Power Automate · SharePoint · HTML, CSS &amp; JavaScript</p></div>
+        <div class="expertise-stat"><strong>55+</strong><span>Displays managed across three Phoenix venues</span></div>
       </aside>
       <div class="about-background">
 <figure class="college-photo"><img src="images/jamie-usd-soccer.webp" alt="Jamie Goralski competing for the University of San Diego women’s soccer team in a white number 3 jersey" width="2000" height="1125" loading="lazy"><figcaption>University of San Diego · NCAA Division I Women’s Soccer</figcaption></figure>
         
-        <div><p class="eyebrow">(Beyond the résumé)</p><h3>A team mindset.<br>On and off the field.</h3><p>I earned my B.A. in Communication at the University of San Diego, where I competed as a Division I soccer student-athlete. That experience shaped my approach to teamwork, preparation, and following through under pressure—qualities I bring to my work with Marketing, Sales, Culinary, and Operations.</p></div>
+        <div><p class="eyebrow">(Beyond the résumé)</p><h3>A team mindset.<br>On and off the field.</h3><p>I earned my B.A. in Communication at the University of San Diego, where I competed as a Division I soccer student-athlete. That experience shaped the way I approach collaboration, preparation, feedback, and following through when the pace picks up.</p><p>Today, that team mindset carries into my work with Marketing, Sales, Culinary, and Operations. Outside of work, I enjoy traveling and photographing the places, people, and details I find along the way.</p></div>
       </div>
     </section>
   </main>
 
   <footer id="contact">
     <div class="container">
-      <p class="eyebrow">(Marketing Operations &amp; Design)</p>
+      <p class="eyebrow">(Marketing &amp; Design)</p>
       <h2>JAMIE GORALSKI</h2>
 
       <div class="footer-bottom">
         <div>
-          <p>Marketing Operations &amp; Design · Phoenix, AZ</p>
-          <p><a class="footer-email button" href="mailto:jamiegoralski25@gmail.com" aria-label="Email Jamie Goralski">Email Jamie ↗</a></p>
-          <p><a href="https://www.linkedin.com/in/jamie-goralski-b71742246/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></p>
+          <p>Marketing & Design · Phoenix, AZ</p>
+          <p><a class="footer-email button" href="mailto:jamiegoralski25@gmail.com" aria-label="Let’s work together — email Jamie Goralski">Let’s work together ↗</a></p>
           <p>© 2026 Jamie Goralski</p>
         </div>
 
@@ -837,6 +867,6 @@ html,body,.top,footer{background-color:#ffffff}
       <div class="footer-signature"><a href="#home" aria-label="Jamie Goralski — back to top"><img class="signature-logo" src="images/jg-monogram.png" alt="JG monogram" width="76" height="80" loading="lazy"></a></div>
     </div>
   </footer>
-
+<script src="logo-animation.js" defer></script>
 </body>
 </html>
