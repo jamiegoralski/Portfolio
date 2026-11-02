@@ -691,6 +691,25 @@ html,body,.top,footer{background-color:#ffffff}
 #contact .footer-bottom p:last-child{margin-bottom:0}
 @media(max-width:520px){#contact h2{font-size:8.5vw;white-space:nowrap}#contact .footer-bottom{padding-top:16px;align-items:flex-start;gap:16px}}
 
+
+/* About: résumé context and a supporting personal story. */
+.about{row-gap:54px}
+.about h3{font-size:23px;line-height:1.25;letter-spacing:-.5px;font-weight:500;margin:0 0 18px}
+.about-experience{margin-top:34px;border-top:1px solid #d7d8d0;padding-top:26px}
+.experience-entry{padding:0 0 20px}
+.experience-entry:last-child{padding-bottom:0}
+.about .experience-dates{font-size:14px;color:#666;margin:0 0 5px}
+.experience-entry h4{font-size:18px;line-height:1.4;font-weight:600;margin:0 0 4px}
+.about .experience-company{font-size:16px;color:#211f20;margin:0 0 8px}
+.about .experience-entry p:last-child{font-size:16px;line-height:1.6;margin:0}
+.about-tools{padding-top:22px}
+.about-tools h3{font-size:18px;margin-bottom:10px}
+.about .about-tools p{font-size:16px;line-height:1.8;margin:0}
+.about-background{grid-column:1/-1;display:grid;grid-template-columns:1fr;align-items:center;gap:48px;border-top:1px solid #d7d8d0;padding-top:42px}
+.about-background .eyebrow{margin-top:0;margin-bottom:18px}
+.about-background h3{font-size:clamp(27px,3vw,38px);letter-spacing:-1px;margin-bottom:20px}
+.about-background p:last-child{margin-bottom:0}
+@media(max-width:700px){.about-background{grid-template-columns:1fr;gap:28px;padding-top:30px}.about{row-gap:38px}}
 </style>
   <link rel="preconnect" href="https://use.typekit.net" crossorigin>
   <link rel="stylesheet" href="https://use.typekit.net/ohi5vpe.css">
@@ -832,39 +851,30 @@ html,body,.top,footer{background-color:#ffffff}
     </section>
 
     <section class="about" id="about" aria-labelledby="about-heading">
-      <div>
+      <div class="about-story">
         <p class="eyebrow">(About)</p>
-        <h2 id="about-heading">Creative thinking.<br>Practical execution.</h2>
-
-        <p>
-          I’m a Phoenix-based marketing and design professional
-          who enjoys bringing creative ideas to life—and
-          building the processes that support them.
-        </p>
-
-        <p>
-          My work spans graphic design, digital signage,
-          email communications, photography, and marketing
-          automation. I connect the visual details with the
-          everyday needs of the people using them.
-        </p>
-
-        <p>
-          A University of San Diego graduate and former
-          Division I soccer student-athlete, I bring a
-          collaborative mindset and a strong sense of
-          follow-through to my work.
-        </p>
-
+        <h2 id="about-heading">Creative work.<br>Systems that make it happen.</h2>
+        <p>I’m Jamie, a Phoenix-based marketing and design professional who enjoys connecting creative ideas with the tools, people, and processes that bring them to life.</p>
+        <p>At Aventura Catering / Aramark Sports + Entertainment, I create branded content and manage digital signage across Phoenix Convention Center, Symphony Hall, and Orpheum Theatre. My work supports 200+ annual events and spans menu design, promotional materials, photography, HTML email, and internal communications.</p>
+        <p>I’m just as interested in how the work gets done. I build Power Automate workflows, organize SharePoint data, and develop web tools like the Aventura Menu Studio—a searchable resource for 744+ approved menu items. I enjoy making information easier to find and everyday tasks easier for the teams using it.</p>
+        <div class="about-experience" aria-labelledby="experience-heading">
+          <h3 id="experience-heading">My experience</h3>
+          <div class="experience-entry"><p class="experience-dates">2024–Present</p><h4>Marketing Operations Specialist</h4><p class="experience-company">Aventura Catering / Aramark Sports + Entertainment</p><p>Creative production, digital content, and workflow coordination for hospitality and live events.</p></div>
+          <div class="experience-entry"><p class="experience-dates">2023–2024</p><h4>Marketing &amp; Events Coordinator</h4><p class="experience-company">Spooner Physical Therapy</p><p>Digital content, promotional materials, branded events, and community partnerships.</p></div>
+        </div>
         <a class="button" href="#work">VIEW SELECTED PROJECTS ↗</a>
       </div>
-
       <aside class="expertise" aria-label="Portrait and areas of expertise">
         <div class="headshot-crop"><img class="about-headshot" src="images/jamie-headshot-circle.png?v=eb318917" alt="Jamie Goralski" width="1600" height="1600" loading="lazy"></div>
         <p class="eyebrow">(What I bring)</p>
-        <p>// Graphic design</p><p>// Digital signage</p><p>// Email &amp; communications</p><p>// Marketing operations</p>
+        <p>// Brand &amp; content design</p><p>// Digital signage &amp; content operations</p><p>// HTML email &amp; communications</p><p>// Workflow automation &amp; web tools</p>
+        <div class="about-tools"><h3>Tools I work with</h3><p>Adobe Illustrator, Photoshop &amp; Lightroom · Canva · OptiSigns · Power Automate · SharePoint · HTML, CSS &amp; JavaScript</p></div>
         <div class="expertise-stat"><strong>55+</strong><span>Displays managed across three Phoenix venues</span></div>
       </aside>
+      <div class="about-background">
+        
+        <div><p class="eyebrow">(Beyond the résumé)</p><h3>A team mindset.<br>On and off the field.</h3><p>I earned my B.A. in Communication at the University of San Diego, where I competed as a Division I soccer student-athlete. That experience shaped the way I approach collaboration, preparation, feedback, and following through when the pace picks up.</p><p>Today, that team mindset carries into my work with Marketing, Sales, Culinary, and Operations. Outside of work, I enjoy traveling and photographing the places, people, and details I find along the way.</p></div>
+      </div>
     </section>
   </main>
 
