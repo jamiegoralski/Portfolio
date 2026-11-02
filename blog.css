@@ -3,12 +3,12 @@
 
 /* Workflow artwork is native page content and stays crisp at any size. */
 .featured-post+.featured-post{margin-top:48px;padding-top:48px;border-top:1px solid #3d3d3d}
-.workflow-cover{display:flex;flex-direction:column;justify-content:center;min-width:0;aspect-ratio:4/3;padding:40px;text-decoration:none;background:linear-gradient(135deg,#303630,#1c201e);color:#f5f3ef}
-.cover-eyebrow{font-size:12px;letter-spacing:.08em;color:#bfc7bc}
+.workflow-cover{display:flex;flex-direction:column;justify-content:center;min-width:0;aspect-ratio:4/3;padding:40px;text-decoration:none;background:linear-gradient(135deg,#303030,#1c1c1c);color:#f5f3ef}
+.cover-eyebrow{font-size:12px;letter-spacing:.08em;color:#b5b3ad}
 .workflow-cover-title{display:block;font-size:clamp(36px,4.4vw,62px);font-weight:600;line-height:1.07;letter-spacing:-.045em;margin:30px 0 36px}
-.workflow-cover-steps{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:13px;color:#cbd1c8}
-.workflow-cover-steps>span:nth-child(odd){border:1px solid #52604f;border-radius:20px;padding:5px 10px}
-.workflow-figure{margin:0 0 48px}.workflow-diagram{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;list-style:none;margin:0;padding:40px;background:linear-gradient(135deg,#303630,#1c201e);border-radius:16px}
-.workflow-diagram li{display:flex;flex-direction:column;gap:12px;border-left:1px solid #65735f;padding-left:20px;min-width:0}.workflow-diagram li>span{font-size:13px;color:#bfc7bc}.workflow-diagram strong{font-size:clamp(24px,3vw,38px);font-weight:500;letter-spacing:-.035em;line-height:1.2;color:#f5f3ef}.workflow-diagram small{font-size:14px;color:#cbd1c8}
+.workflow-cover-steps{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:13px;color:#d0ceca}
+.workflow-cover-steps>span:nth-child(odd){border:1px solid #505050;border-radius:20px;padding:5px 10px}
+.workflow-figure{margin:0 0 48px}.workflow-diagram{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;list-style:none;margin:0;padding:40px;background:linear-gradient(135deg,#303030,#1c1c1c);border-radius:16px}
+.workflow-diagram li{display:flex;flex-direction:column;gap:12px;border-left:1px solid #626262;padding-left:20px;min-width:0}.workflow-diagram li>span{font-size:13px;color:#b5b3ad}.workflow-diagram strong{font-size:clamp(24px,3vw,38px);font-weight:500;letter-spacing:-.035em;line-height:1.2;color:#f5f3ef}.workflow-diagram small{font-size:14px;color:#d0ceca}
 @media(max-width:700px){.workflow-cover{padding:32px}.workflow-cover-title{font-size:clamp(36px,8vw,54px)}.workflow-diagram{grid-template-columns:repeat(2,minmax(0,1fr));padding:28px;gap:28px 20px}.workflow-figure{margin-bottom:32px}}
 @media(max-width:520px){.workflow-cover{padding:26px}.workflow-cover-title{font-size:42px;margin:24px 0 28px}.workflow-cover-steps{gap:5px;font-size:11px}.workflow-cover-steps>span:nth-child(odd){padding:5px 7px}.workflow-diagram{padding:24px;gap:28px 16px}.workflow-diagram li{padding-left:12px}.workflow-diagram small{font-size:12px}.featured-post+.featured-post{margin-top:36px;padding-top:36px}}
