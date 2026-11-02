@@ -1,7 +1,7 @@
 /* Permanent dark theme. Photographs and project artwork retain their colors. */
 nav[aria-label="Main navigation"]{display:flex;align-items:center;flex-wrap:wrap;gap:16px}
 nav[aria-label="Main navigation"] .nav-links{min-width:0}
-html[data-theme="dark"]{color-scheme:dark;--background:#171717;--surface:#232323;--text:#f5f3ef;--muted:#b5b3ad;--accent:#d0ceca;min-height:100%;background:linear-gradient(180deg,#171717 0%,#1d1d1d 50%,#2e2e2e 100%)}
+html[data-theme="dark"]{color-scheme:dark;--background:#171717;--surface:#232323;--text:#f5f3ef;--muted:#b5b3ad;--accent:#d0ceca;min-height:100%;background:linear-gradient(180deg,#171717 0%,#202020 30%,#303030 65%,#484848 100%)}
 /* Let the shared gradient continue smoothly through the footer. */
 html[data-theme="dark"] body{min-height:100vh}
 html[data-theme="dark"] :is(body,.top,footer){background:transparent;color:#f5f3ef}
