@@ -116,4 +116,5 @@ dialog.querySelector('button').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
 dialog.addEventListener('close',()=>{image.removeAttribute('src');if(opener)opener.focus();});
 })();
-</script></body></html>
+</script><script src="portfolio-mobile-navigation.js" defer></script>
+</body></html>
