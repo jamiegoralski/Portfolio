@@ -132,8 +132,9 @@
 <link rel="stylesheet" href="case-studies.css?v=20261103-cohesive">
 <style>
 .case-study .cover.recruitment-banner{width:100%;max-width:none;margin-inline:0}
-.case-study .recruitment-banner .image-preview{border:0;border-radius:0;box-shadow:none;background:transparent;overflow:hidden;clip-path:inset(1px)}
-.case-study .recruitment-banner .image-preview img{display:block;width:100%;height:auto;margin:0;padding:0;border:0;border-radius:0;box-shadow:none}
+/* Hide the SVG export seam inside the banner frame at every display size. */
+.case-study .recruitment-banner .image-preview{border:0;border-radius:0;box-shadow:none;background:transparent;overflow:hidden;clip-path:none;padding:0;line-height:0}
+.case-study .recruitment-banner .image-preview img{display:block;width:calc(100% + 6px);max-width:none;height:auto;margin:-3px;padding:0;border:0;border-radius:0;box-shadow:none}
 </style>
 </head>
 <body class="case-study" id="top">
