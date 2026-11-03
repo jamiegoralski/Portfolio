@@ -57,7 +57,7 @@ nav[aria-label="Main navigation"] .nav-links{display:flex;align-items:center;gap
 .nav-links a{margin:0;padding:0;font-weight:400;line-height:1.25;white-space:nowrap}
 @media(max-width:700px){nav[aria-label="Main navigation"] .nav-links{gap:24px}}
 @media(max-width:520px){nav[aria-label="Main navigation"] .nav-links{width:100%;justify-content:space-between;gap:8px}}
-</style><link rel="stylesheet" href="theme.css">
+</style><link rel="stylesheet" href="theme.css?v=20261103-mobile-nav-fix">
 
 </head>
 <body id="top"><div class="container">
@@ -116,5 +116,5 @@ dialog.querySelector('button').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
 dialog.addEventListener('close',()=>{image.removeAttribute('src');if(opener)opener.focus();});
 })();
-</script><script src="portfolio-mobile-navigation.js" defer></script>
+</script><script src="portfolio-mobile-navigation.js?v=20261103-mobile-nav-fix" defer></script>
 </body></html>
