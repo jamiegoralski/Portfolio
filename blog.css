@@ -15,3 +15,33 @@
 
 /* Keep the complete cover and its lettering visible at every screen size. */
 .post-image.workflow-artwork img,.article-image.workflow-artwork img{aspect-ratio:auto;height:auto;object-fit:contain}
+
+/* Article diagrams use live text and reflow on narrow screens. */
+.automation-visual{margin:30px 0 34px}
+.automation-lane{padding:24px 28px;border:1px solid #505050;border-radius:14px;background:#222;color:#f5f3ef}
+.automation-lane+.automation-lane{margin-top:14px}
+.automation-lane-improved{border-left:4px solid #ef770b}
+.article-body .automation-label{display:flex;justify-content:space-between;align-items:center;margin:0 0 20px;color:#f5f3ef;font-size:14px;line-height:1.4;font-weight:600}
+.automation-lane-improved .automation-label{color:#ff9a3b}
+.article-body .automation-path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;list-style:none;margin:0;padding:0}
+.article-body .automation-path li{display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;padding:0;margin:0;color:#f5f3ef;font-size:16px;line-height:1.4}
+.automation-step-label{max-width:13ch}
+.automation-arrow{flex:none;color:#aaa;font-size:22px}
+.automation-lane-improved .automation-arrow{color:#ff9a3b}
+.article-body .automation-start{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;list-style:none;margin:28px 0;padding:0}
+.article-body .automation-start li{margin:0;padding:22px 0 0;border-top:2px solid #ef770b;min-width:0}
+.automation-number{display:block;font-size:36px;line-height:1;color:#ff9a3b;font-weight:600;letter-spacing:-.04em;margin-bottom:18px}
+.automation-start h3{font-size:23px;line-height:1.2;font-weight:500;color:var(--text);margin:0 0 12px}
+.article-body .automation-start p{font-size:16px;line-height:1.7;margin:0;color:var(--muted)}
+.article-body .automation-resources{border-top:1px solid #505050;padding-top:22px;margin-top:32px;font-size:15px;line-height:1.7}
+@media(max-width:650px){
+.automation-lane{padding:22px}
+.article-body .automation-path{grid-template-columns:1fr;gap:0}
+.article-body .automation-path li{flex-direction:column;align-items:flex-start;gap:8px;font-size:17px}
+.automation-step-label{max-width:none}
+.automation-arrow{display:inline-block;transform:rotate(90deg);margin:0 0 8px 6px}
+.automation-path li:last-child .automation-arrow{transform:none;margin-bottom:0}
+.article-body .automation-start{grid-template-columns:1fr;gap:24px}
+.automation-number{font-size:30px;margin-bottom:12px}
+.automation-start h3{font-size:22px}
+}
