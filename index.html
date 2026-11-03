@@ -719,6 +719,25 @@ html,body,.top,footer{background-color:#ffffff}
 .project-about{margin-top:14px;border-top:1px solid #3d3d3d;padding-top:12px;font-size:16px;line-height:1.7;color:var(--muted)}
 .project-about h4{margin:0;font-size:16px;font-weight:500;line-height:1.7}
 .project-about p{max-width:60ch;margin:10px 0 0}
+
+/* Subtle home-page motion; artwork stays within its existing frame. */
+.project:hover .visual{transform:none}
+.project-photo img{transition:scale 400ms cubic-bezier(.2,.7,.3,1)}
+.nav-links a{position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:5px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform 250ms ease}
+.nav-links a:focus-visible::after{transform:scaleX(1)}
+.project h3 a{ text-decoration:none;background-image:linear-gradient(currentColor,currentColor);background-size:0% 1px;background-position:left bottom;background-repeat:no-repeat;transition:background-size 250ms ease}
+.project h3 a:focus-visible{background-size:100% 1px}
+.project .visual:focus-visible img{scale:1.025}
+@media(hover:hover) and (pointer:fine){
+  .project .visual:hover img{scale:1.025}
+  .nav-links a:hover::after{transform:scaleX(1)}
+  .project h3 a:hover{text-decoration:none;background-size:100% 1px}
+}
+@media(prefers-reduced-motion:reduce){
+  .project-photo img,.nav-links a::after,.project h3 a{transition:none!important}
+  .project .visual:hover img,.project .visual:focus-visible img{scale:1}
+}
 </style>
   <link rel="preconnect" href="https://use.typekit.net" crossorigin>
   <link rel="stylesheet" href="https://use.typekit.net/ohi5vpe.css">
@@ -875,5 +894,39 @@ html,body,.top,footer{background-color:#ffffff}
     </div>
   </footer>
 <script src="logo-animation.js" defer></script>
+<script>
+// Content remains visible if JavaScript or animation support is unavailable.
+(() => {
+  const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (preference.matches || !('IntersectionObserver' in window) || !Element.prototype.animate) return;
+  const animations = new Set();
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(({target, isIntersecting}) => {
+      if (!isIntersecting) return;
+      observer.unobserve(target);
+      if (preference.matches || target.contains(document.activeElement)) return;
+      const animation = target.animate(
+        [{opacity:0, transform:'translateY(12px)'}, {opacity:1, transform:'translateY(0)'}],
+        {duration:420, easing:'cubic-bezier(.2,.7,.3,1)'}
+      );
+      animations.add(animation);
+      animation.finished.then(() => animations.delete(animation), () => animations.delete(animation));
+    });
+  }, {threshold:0, rootMargin:'0px 0px -24px 0px'});
+  document.querySelectorAll('.work .project').forEach((card) => observer.observe(card));
+  const cancelAnimations = () => {
+    animations.forEach((animation) => animation.cancel());
+    animations.clear();
+  };
+  document.addEventListener('focusin', cancelAnimations);
+  const onPreferenceChange = () => {
+    if (preference.matches) {
+      observer.disconnect();
+      cancelAnimations();
+    }
+  };
+  if (preference.addEventListener) preference.addEventListener('change', onPreferenceChange);
+})();
+</script>
 </body>
 </html>
