@@ -739,11 +739,11 @@ html,body,.top,footer{background-color:#ffffff}
   .project .visual:hover img,.project .visual:focus-visible img{scale:1}
 }
 
-/* A quiet, generously spaced specialties strip beneath the home animation. */
-.creative-versatility{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 32px;list-style:none;margin:12px 0 40px;padding:26px 0;border-top:1px solid #3d3d3d;border-bottom:1px solid #3d3d3d}
-.creative-versatility li{margin:0;padding:0;color:var(--muted);font-size:15px;font-weight:400;line-height:1.6;letter-spacing:.1px}
-@media(max-width:900px){.creative-versatility{justify-content:flex-start;column-gap:32px}}
-@media(max-width:520px){.creative-versatility{margin:8px 0 32px;padding:22px 0;gap:16px 24px}.creative-versatility li{font-size:14px}}
+/* Compact specialties row beneath the home animation. */
+.creative-versatility{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:8px 14px;list-style:none;margin:0 0 28px;padding:0;border:0}
+.creative-versatility li{display:flex;align-items:center;gap:14px;margin:0;padding:0;color:var(--muted);font-size:14px;font-weight:400;line-height:1.6;letter-spacing:0}
+.creative-versatility li:not(:last-child)::after{content:"";display:block;width:3px;height:3px;border-radius:50%;background:currentColor;opacity:.55}
+@media(max-width:520px){.creative-versatility{margin-bottom:24px;gap:7px 10px}.creative-versatility li{font-size:13px;gap:10px}}
 </style>
   <link rel="preconnect" href="https://use.typekit.net" crossorigin>
   <link rel="stylesheet" href="https://use.typekit.net/ohi5vpe.css">
