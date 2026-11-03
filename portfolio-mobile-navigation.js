@@ -10,6 +10,8 @@
   links.id = links.id || 'portfolio-navigation-links';
   toggle.setAttribute('aria-controls', links.id);
   toggle.innerHTML = 'Menu <span aria-hidden="true">⌄</span>';
+  toggle.hidden = !mobile.matches;
+  toggle.style.display = mobile.matches ? '' : 'none';
   nav.insertBefore(toggle, links);
   nav.classList.add('mobile-menu-ready');
   const close = () => {
@@ -33,5 +35,9 @@
   document.addEventListener('click', (event) => {
     if (!nav.contains(event.target)) close();
   });
-  mobile.addEventListener('change', close);
+  mobile.addEventListener('change', () => {
+    close();
+    toggle.hidden = !mobile.matches;
+    toggle.style.display = mobile.matches ? '' : 'none';
+  });
 })();
