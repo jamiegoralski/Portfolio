@@ -744,6 +744,14 @@ html,body,.top,footer{background-color:#ffffff}
 .creative-versatility li{display:flex;align-items:center;gap:14px;margin:0;padding:0;color:var(--muted);font-size:14px;font-weight:400;line-height:1.6;letter-spacing:0}
 .creative-versatility li:not(:last-child)::after{content:"";display:block;width:3px;height:3px;border-radius:50%;background:currentColor;opacity:.55}
 @media(max-width:520px){.creative-versatility{margin-bottom:24px;gap:7px 10px}.creative-versatility li{font-size:13px;gap:10px}}
+
+/* Direct contact links near the introduction and in Connect. */
+.recruiter-contact{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-top:24px}
+.recruiter-contact .contact-action{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:11px 20px;border:1px solid #85837e;border-radius:30px;color:inherit;background:transparent;font-size:15px;font-weight:400;line-height:1.4;text-decoration:none;overflow-wrap:anywhere;max-width:100%}
+.recruiter-contact .contact-action:hover{background:rgba(255,255,255,.1);border-color:currentColor}
+.recruiter-contact .contact-action:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.footer-contact{margin:20px 0 24px}
+@media(max-width:520px){.recruiter-contact{gap:10px}.recruiter-contact .contact-action{font-size:14px;padding:11px 17px}}
 </style>
   <link rel="preconnect" href="https://use.typekit.net" crossorigin>
   <link rel="stylesheet" href="https://use.typekit.net/ohi5vpe.css">
@@ -785,6 +793,10 @@ html,body,.top,footer{background-color:#ffffff}
           <div>
             <p class="hero-description">Marketing and design professional creating branded content, building web tools, and automating workflows for hospitality and events.</p>
             <div class="hero-links"><a href="#work">Explore my work ↗</a><span>// Phoenix, Arizona</span></div>
+            <div class="recruiter-contact" aria-label="Contact Jamie">
+              <a class="contact-action" href="mailto:jamiegoralski25@gmail.com">Email me ↗</a>
+              <a class="contact-action" href="https://www.linkedin.com/in/jamie-goralski-b71742246/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            </div>
           </div>
         </div>
       </header>
@@ -897,7 +909,10 @@ html,body,.top,footer{background-color:#ffffff}
       <div class="footer-bottom">
         <div>
           <p>Marketing & Design · Phoenix, AZ</p>
-          <p><a class="footer-email button" href="mailto:jamiegoralski25@gmail.com" aria-label="Let’s work together — email Jamie Goralski">Let’s work together ↗</a></p>
+          <div class="recruiter-contact footer-contact" aria-label="Email and LinkedIn">
+            <a class="contact-action" href="mailto:jamiegoralski25@gmail.com">jamiegoralski25@gmail.com ↗</a>
+            <a class="contact-action" href="https://www.linkedin.com/in/jamie-goralski-b71742246/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          </div>
           <p>© 2026 Jamie Goralski</p>
         </div>
 
