@@ -837,7 +837,7 @@ html,body,.top,footer{background-color:#ffffff}
         <div class="motion-identity">
           <div class="identity-canvas">
             <div class="identity-logo-position" aria-hidden="true">
-              <img class="identity-logo" src="images/jg-monogram.svg" alt="" width="1190" height="1254" fetchpriority="high">
+              <img class="identity-logo" src="images/jg-monogram.svg" alt="" width="1190" height="1254">
             </div>
             <h1 class="identity-wordmark"><span class="identity-wordmark-text">JAMIE GORALSKI</span></h1>
           </div>
@@ -871,9 +871,9 @@ html,body,.top,footer{background-color:#ffffff}
         <article class="project">
           <a class="visual signage project-photo" href="digital-signage.html">
             <img srcset="images/optimized/phx-wok-640.webp 640w, images/optimized/phx-wok-1280.webp 1280w, images/optimized/phx-wok-1672.webp 1672w" sizes="(max-width: 700px) 90vw, (max-width: 1488px) 41vw, 610px" src="images/optimized/phx-wok-1280.webp"
-                 onerror="this.onerror=null;this.src='images/phx-wok-promo.png';"
+                 onerror="this.onerror=null;this.removeAttribute('srcset');this.src='images/phx-wok-promo.png';"
                  alt="PHX Wok architectural mockup with digital menu and promotional displays at Phoenix Convention Center"
-                 fetchpriority="high">
+                 width="1280" height="720" loading="eager" fetchpriority="high">
           </a>
 
           <h3>
@@ -895,7 +895,7 @@ html,body,.top,footer{background-color:#ffffff}
 
         <article class="project">
           <a class="visual web project-photo menu-studio-preview" href="menu-studio.html" aria-label="View the Aventura Menu Studio case study">
-            <img src="images/menu-studio-light-grey.webp" alt="Aventura Menu Studio displayed on a laptop and iPhone" width="1600" height="1200" loading="lazy">
+            <img src="images/menu-studio-light-grey.webp" alt="Aventura Menu Studio displayed on a laptop and iPhone" width="1600" height="1200" loading="lazy" decoding="async">
           </a>
 
           <h3><a href="menu-studio.html">Aventura Menu Studio ↗</a></h3>
@@ -917,11 +917,11 @@ html,body,.top,footer{background-color:#ffffff}
           </div>
         </article>
 
-        <article class="project"><a class="visual project-photo recruitment-preview" href="recruitment-campaign.html" aria-label="View the Aramark Recruitment Marketing Campaign case study"><img srcset="images/optimized/recruitment-cover-640.webp 640w, images/optimized/recruitment-cover-1280.webp 1280w, images/optimized/recruitment-cover-2000.webp 2000w" sizes="(max-width: 700px) 90vw, (max-width: 1488px) 41vw, 610px" src="images/optimized/recruitment-cover-1280.webp" alt="Aramark recruitment campaign with job fair messaging and application QR code" width="2000" height="1600" loading="lazy"></a><h3><a href="recruitment-campaign.html">Aramark Recruitment Marketing Campaign ↗</a></h3><p class="project-category">Recruitment marketing · HTML email · Print &amp; digital signage</p><div class="project-about">
+        <article class="project"><a class="visual project-photo recruitment-preview" href="recruitment-campaign.html" aria-label="View the Aramark Recruitment Marketing Campaign case study"><img srcset="images/optimized/recruitment-cover-640.webp 640w, images/optimized/recruitment-cover-1280.webp 1280w, images/optimized/recruitment-cover-2000.webp 2000w" sizes="(max-width: 700px) 90vw, (max-width: 1488px) 41vw, 610px" src="images/optimized/recruitment-cover-1280.webp" alt="Aramark recruitment campaign with job fair messaging and application QR code" width="2000" height="1600" loading="lazy" decoding="async"></a><h3><a href="recruitment-campaign.html">Aramark Recruitment Marketing Campaign ↗</a></h3><p class="project-category">Recruitment marketing · HTML email · Print &amp; digital signage</p><div class="project-about">
             <h4>About this work</h4><p>A coordinated recruitment campaign for Aramark’s hiring event at Phoenix Convention Center, combining print collateral, four digital signage variations, and branded HTML email for desktop and mobile.</p></div></article>
 
         <article class="project">
-          <a class="visual project-photo asu-catering-preview" href="asu-catering.html" aria-label="View the ASU Football Season catering signage case study"><img srcset="images/optimized/asu-catering-640.webp 640w, images/optimized/asu-catering-1280.webp 1280w, images/optimized/asu-catering-1920.webp 1920w" sizes="(max-width: 700px) 90vw, (max-width: 1488px) 41vw, 610px" src="images/optimized/asu-catering-1280.webp" alt="ASU catering menu signs in coordinated light and dark designs" width="3840" height="2400" loading="lazy"></a>
+          <a class="visual project-photo asu-catering-preview" href="asu-catering.html" aria-label="View the ASU Football Season catering signage case study"><img srcset="images/optimized/asu-catering-640.webp 640w, images/optimized/asu-catering-1280.webp 1280w, images/optimized/asu-catering-1920.webp 1920w" sizes="(max-width: 700px) 90vw, (max-width: 1488px) 41vw, 610px" src="images/optimized/asu-catering-1280.webp" alt="ASU catering menu signs in coordinated light and dark designs" width="3840" height="2400" loading="lazy" decoding="async"></a>
           <h3><a href="asu-catering.html">ASU Catering Signage ↗</a></h3>
           <p class="project-category">Catering · Signage · Print production</p>
           <div class="project-about">
@@ -945,14 +945,14 @@ html,body,.top,footer{background-color:#ffffff}
         <a class="button" href="#work">VIEW SELECTED PROJECTS ↗</a>
       </div>
       <aside class="expertise" aria-label="Portrait and areas of expertise">
-        <div class="headshot-crop"><img srcset="images/optimized/jamie-headshot-480.webp 480w, images/optimized/jamie-headshot-960.webp 960w, images/optimized/jamie-headshot-1600.webp 1600w" sizes="(max-width: 700px) 90vw, 420px" class="about-headshot" src="images/optimized/jamie-headshot-960.webp" alt="Jamie Goralski" width="1600" height="1600" loading="lazy"></div>
+        <div class="headshot-crop"><img srcset="images/optimized/jamie-headshot-480.webp 480w, images/optimized/jamie-headshot-960.webp 960w, images/optimized/jamie-headshot-1600.webp 1600w" sizes="(max-width: 700px) 90vw, 420px" class="about-headshot" src="images/optimized/jamie-headshot-960.webp" alt="Jamie Goralski" width="1600" height="1600" loading="lazy" decoding="async"></div>
         <p class="eyebrow">(What I bring)</p>
         <p>// Brand &amp; content design</p><p>// Digital signage &amp; content operations</p><p>// HTML email &amp; communications</p><p>// Workflow automation &amp; web tools</p>
         <div class="about-tools"><h3>Tools I work with</h3><p>Adobe Illustrator, Photoshop &amp; Lightroom · Canva · OptiSigns · Power Automate · SharePoint · HTML, CSS &amp; JavaScript</p></div>
         <div class="expertise-stat"><strong>55+</strong><span>Displays managed across three Phoenix venues</span></div>
       </aside>
       <div class="about-background">
-<figure class="college-photo"><img src="images/jamie-usd-soccer.webp" alt="Jamie Goralski competing for the University of San Diego women’s soccer team in a white number 3 jersey" width="2000" height="1125" loading="lazy"><figcaption>University of San Diego · NCAA Division I Women’s Soccer</figcaption></figure>
+<figure class="college-photo"><img src="images/jamie-usd-soccer.webp" alt="Jamie Goralski competing for the University of San Diego women’s soccer team in a white number 3 jersey" width="2000" height="1125" loading="lazy" decoding="async"><figcaption>University of San Diego · NCAA Division I Women’s Soccer</figcaption></figure>
         
         <div><p class="eyebrow">(Beyond the résumé)</p><h3>A team mindset.<br>On and off the field.</h3><p>I earned my B.A. in Communication at the University of San Diego, where I competed as a Division I soccer student-athlete. That experience shaped the way I approach collaboration, preparation, feedback, and following through when the pace picks up.</p><p>Today, that team mindset carries into my work with Marketing, Sales, Culinary, and Operations. Outside of work, I enjoy traveling and photographing the places, people, and details I find along the way.</p></div>
       </div>
@@ -976,7 +976,7 @@ html,body,.top,footer{background-color:#ffffff}
 
         <a href="#home">Back to top ↑</a>
       </div>
-      <div class="footer-signature"><a href="#home" aria-label="Jamie Goralski — back to top"><img class="signature-logo" src="images/jg-monogram.png" alt="JG monogram" width="76" height="80" loading="lazy"></a></div>
+      <div class="footer-signature"><a href="#home" aria-label="Jamie Goralski — back to top"><img class="signature-logo" src="images/jg-monogram.png" alt="JG monogram" width="76" height="80" loading="lazy" decoding="async"></a></div>
     </div>
   </footer>
 <script src="logo-animation.js" defer></script>
