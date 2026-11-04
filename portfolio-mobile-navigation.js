@@ -9,7 +9,7 @@
   toggle.setAttribute('aria-expanded', 'false');
   links.id = links.id || 'portfolio-navigation-links';
   toggle.setAttribute('aria-controls', links.id);
-  toggle.innerHTML = 'Menu <span aria-hidden="true">⌄</span>';
+  toggle.textContent = 'Menu';
   toggle.hidden = !mobile.matches;
   toggle.style.display = mobile.matches ? '' : 'none';
   nav.insertBefore(toggle, links);
@@ -17,11 +17,13 @@
   const close = () => {
     nav.removeAttribute('data-menu-open');
     toggle.setAttribute('aria-expanded', 'false');
+    toggle.textContent = 'Menu';
   };
   toggle.addEventListener('click', () => {
     const open = toggle.getAttribute('aria-expanded') !== 'true';
     nav.setAttribute('data-menu-open', String(open));
     toggle.setAttribute('aria-expanded', String(open));
+    toggle.textContent = open ? 'Close menu' : 'Menu';
   });
   links.addEventListener('click', (event) => {
     if (event.target.closest('a') && mobile.matches) close();
