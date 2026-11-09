@@ -71,3 +71,6 @@ nav[aria-label="Main navigation"] .mobile-nav-toggle{display:none}
   .collection-links{gap:4px 22px}
   .collection-links a{min-height:44px}
 }
+
+/* Six navigation links fit without wrapping on desktop. */
+@media(min-width:701px) and (max-width:900px){nav[aria-label="Main navigation"] .nav-links{gap:22px}}
