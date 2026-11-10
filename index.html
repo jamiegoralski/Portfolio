@@ -1068,9 +1068,9 @@ body#home{isolation:isolate}
     ctx.clearRect(0,0,width,height);
     const reveal=clamp((easedScroll+height-footerTop)/(Math.min(footerHeight,height)||1));
     const mobile=width<700;
-    const band=Math.min(mobile?32:150,width*.11);
-    const count=mobile?12:20;
-    const strength=mobile?.11:(.14+reveal*.045);
+    const band=Math.min(mobile?62:230,width*.18);
+    const count=mobile?16:26;
+    const strength=mobile?.30:(.38+reveal*.10);
     // Sparse edge constellations keep the central reading area clear.
     for(let side=0;side<2;side++){
       const points=[];
@@ -1083,22 +1083,22 @@ body#home{isolation:isolate}
         const wrap=height+100;
         const y=((i/count*wrap+Math.sin(i*2.4)*24+
           Math.sin(phase*.22+i)*7-easedScroll*.035+bounce*.3)%wrap+wrap)%wrap-50;
-        const alpha=strength*(1-inset/band)*(.8+.2*Math.sin(phase*.28+i));
+        const alpha=strength*(.25+.75*Math.pow(1-inset/band,1.4))*(.88+.12*Math.sin(phase*.28+i));
         points.push({x,y,alpha});
       }
-      if(!mobile){
+      {
         for(let i=0;i<points.length;i++){
           for(let j=i+1;j<Math.min(i+3,points.length);j++){
             const a=points[i],b=points[j],distance=Math.hypot(a.x-b.x,a.y-b.y);
-            if(distance>95)continue;
-            ctx.strokeStyle=`rgba(220,226,232,${Math.min(a.alpha,b.alpha)*.38*(1-distance/130)})`;
-            ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+            if(distance>(mobile?78:145))continue;
+            ctx.strokeStyle=`rgba(220,226,232,${Math.min(a.alpha,b.alpha)*.72*(1-distance/200)})`;
+            ctx.lineWidth=mobile?.75:1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
           }
         }
       }
       for(const point of points){
         ctx.fillStyle=`rgba(220,226,232,${point.alpha})`;
-        ctx.beginPath();ctx.arc(point.x,point.y,mobile?1:1.5,0,Math.PI*2);ctx.fill();
+        ctx.beginPath();ctx.arc(point.x,point.y,mobile?1.6:2.1,0,Math.PI*2);ctx.fill();
       }
     }
   }
