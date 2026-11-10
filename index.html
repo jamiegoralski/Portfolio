@@ -836,6 +836,20 @@ html,body,.top,footer{background-color:#ffffff}
 <meta name="twitter:description" content="Explore Jamie Goralski’s Phoenix-based portfolio of marketing operations, workflow automation, digital signage, HTML email, and graphic design projects.">
 <meta name="twitter:image" content="https://www.jamiegoralski.com/images/optimized/social-phx-wok.jpg">
 <meta name="twitter:image:alt" content="PHX Wok digital signage designed for Phoenix Convention Center">
+<style id="minimal-content-motion">
+/* Small interaction cues; the background and text stay still at rest. */
+#home .contact-action,#home .button{
+  transition:transform 200ms ease,background-color 200ms ease,border-color 200ms ease;
+}
+#home .signature-logo{transition:transform 300ms cubic-bezier(.22,1,.36,1)}
+@media(hover:hover) and (pointer:fine){
+  #home .contact-action:hover,#home .button:hover{transform:translateY(-2px)}
+  #home .footer-signature a:hover .signature-logo{transform:translateY(-3px) scale(1.035)}
+}
+@media(prefers-reduced-motion:reduce){
+  #home .contact-action,#home .button,#home .signature-logo{transition:none!important;transform:none!important}
+}
+</style>
 </head>
 
 <body id="home">
@@ -999,19 +1013,19 @@ html,body,.top,footer{background-color:#ffffff}
   if (preference.matches || !('IntersectionObserver' in window) || !Element.prototype.animate) return;
   const animations = new Set();
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(({target, isIntersecting}) => {
+    entries.forEach(({target, isIntersecting}, index) => {
       if (!isIntersecting) return;
       observer.unobserve(target);
       if (preference.matches || target.contains(document.activeElement)) return;
       const animation = target.animate(
-        [{opacity:0, transform:'translateY(12px)'}, {opacity:1, transform:'translateY(0)'}],
-        {duration:420, easing:'cubic-bezier(.2,.7,.3,1)'}
+        [{opacity:0, transform:'translateY(10px)'}, {opacity:1, transform:'translateY(0)'}],
+        {duration:520, delay:Math.min(index,2)*65, easing:'cubic-bezier(.22,1,.36,1)', fill:'backwards'}
       );
       animations.add(animation);
       animation.finished.then(() => animations.delete(animation), () => animations.delete(animation));
     });
   }, {threshold:0, rootMargin:'0px 0px -24px 0px'});
-  document.querySelectorAll('.work .project').forEach((card) => observer.observe(card));
+  document.querySelectorAll('.work .project, .section-heading, .about-story > h2, .about-story > p, .about-experience, .expertise, .about-background, #contact > .container').forEach((section) => observer.observe(section));
   const cancelAnimations = () => {
     animations.forEach((animation) => animation.cancel());
     animations.clear();
