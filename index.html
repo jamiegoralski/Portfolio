@@ -1072,10 +1072,14 @@ body#home{isolation:isolate}
     for(let layer=0;layer<3;layer++){
       const drift=Math.sin(phase*.35+layer*1.4)*18;
       const shift=Math.sin(easedScroll/900+layer)*42+bounce*[.45,.75,1][layer];
-      const center=width*(.5+Math.sin(phase*.13+easedScroll/1800)*.035);
+      // Broad traveling waves ripple across the line field at different speeds.
+      const travel=phase*(.48+layer*.07)+easedScroll/1500;
+      const amplitude=Math.min(height*.075,width*.10);
       for(let x=-spacing;x<width+spacing;x+=spacing){
-        const v=1-Math.abs(x-center)/(width*.5);
-        const y=height*(.27+layer*.12)+v*height*.25+shift+drift;
+        const across=x/width*Math.PI*2;
+        const wave=Math.sin(across*1.15-travel+layer*.65)*amplitude;
+        const ripple=Math.sin(across*2.1-travel*.65+layer)*amplitude*.25;
+        const y=height*(.39+layer*.12)+wave+ripple+shift+drift;
         const length=height*(.23+layer*.025);
         const edge=.35+.65*Math.pow(Math.abs(x-width*.5)/(width*.5),.7);
         const alpha=strength*[.45,.65,.9][layer]*edge;
