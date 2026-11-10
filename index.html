@@ -837,7 +837,7 @@ html,body,.top,footer{background-color:#ffffff}
 <meta name="twitter:image" content="https://www.jamiegoralski.com/images/optimized/social-phx-wok.jpg">
 <meta name="twitter:image:alt" content="PHX Wok digital signage designed for Phoenix Convention Center">
 <style id="portfolio-scroll-art-styles">
-/* Decorative chevrons follow the viewport beneath every homepage section. */
+/* Sparse network accents follow the viewport edges, leaving the reading area clear. */
 body#home{isolation:isolate}
 #home>.top,#home>main,#home>footer{position:relative;z-index:1}
 #portfolio-scroll-art{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;user-select:none}
@@ -1067,28 +1067,38 @@ body#home{isolation:isolate}
   function draw(){
     ctx.clearRect(0,0,width,height);
     const reveal=clamp((easedScroll+height-footerTop)/(Math.min(footerHeight,height)||1));
-    const strength=(.045+reveal*.09)*(width<700?.65:1);
-    const spacing=width<700?14:11;
-    for(let layer=0;layer<3;layer++){
-      const drift=Math.sin(phase*.35+layer*1.4)*18;
-      const shift=Math.sin(easedScroll/900+layer)*42+bounce*[.45,.75,1][layer];
-      // Broad traveling waves ripple across the line field at different speeds.
-      const travel=phase*(.48+layer*.07)+easedScroll/1500;
-      const amplitude=Math.min(height*.075,width*.10);
-      for(let x=-spacing;x<width+spacing;x+=spacing){
-        const across=x/width*Math.PI*2;
-        const wave=Math.sin(across*1.15-travel+layer*.65)*amplitude;
-        const ripple=Math.sin(across*2.1-travel*.65+layer)*amplitude*.25;
-        const y=height*(.39+layer*.12)+wave+ripple+shift+drift;
-        const length=height*(.23+layer*.025);
-        const edge=.35+.65*Math.pow(Math.abs(x-width*.5)/(width*.5),.7);
-        const alpha=strength*[.45,.65,.9][layer]*edge;
-        const gradient=ctx.createLinearGradient(0,y,0,y+length);
-        gradient.addColorStop(0,'rgba(245,243,239,0)');
-        gradient.addColorStop(.45,`rgba(245,243,239,${alpha})`);
-        gradient.addColorStop(1,'rgba(245,243,239,0)');
-        ctx.strokeStyle=gradient;ctx.lineWidth=layer===2?1.15:.8;
-        ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x,y+length);ctx.stroke();
+    const mobile=width<700;
+    const band=Math.min(mobile?32:150,width*.11);
+    const count=mobile?12:20;
+    const strength=mobile?.11:(.14+reveal*.045);
+    // Sparse edge constellations keep the central reading area clear.
+    for(let side=0;side<2;side++){
+      const points=[];
+      for(let i=0;i<count;i++){
+        const seed=Math.sin((i+1)*127.1+side*311.7)*43758.5453;
+        const fraction=seed-Math.floor(seed);
+        const inset=8+fraction*Math.max(0,band-16);
+        const sway=Math.sin(phase*.18+i*1.7+side)*4;
+        const x=side?width-inset-sway:inset+sway;
+        const wrap=height+100;
+        const y=((i/count*wrap+Math.sin(i*2.4)*24+
+          Math.sin(phase*.22+i)*7-easedScroll*.035+bounce*.3)%wrap+wrap)%wrap-50;
+        const alpha=strength*(1-inset/band)*(.8+.2*Math.sin(phase*.28+i));
+        points.push({x,y,alpha});
+      }
+      if(!mobile){
+        for(let i=0;i<points.length;i++){
+          for(let j=i+1;j<Math.min(i+3,points.length);j++){
+            const a=points[i],b=points[j],distance=Math.hypot(a.x-b.x,a.y-b.y);
+            if(distance>95)continue;
+            ctx.strokeStyle=`rgba(220,226,232,${Math.min(a.alpha,b.alpha)*.38*(1-distance/130)})`;
+            ctx.lineWidth=.7;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
+          }
+        }
+      }
+      for(const point of points){
+        ctx.fillStyle=`rgba(220,226,232,${point.alpha})`;
+        ctx.beginPath();ctx.arc(point.x,point.y,mobile?1:1.5,0,Math.PI*2);ctx.fill();
       }
     }
   }
