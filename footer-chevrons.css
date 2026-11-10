@@ -1,0 +1,5 @@
+/* Quiet outlined chevrons behind the homepage footer. */
+#home #contact{position:relative;isolation:isolate;overflow:hidden}
+#home #contact::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:url("images/footer-chevron-lines.svg");background-size:cover;background-position:center;opacity:.17;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 40%),linear-gradient(110deg,rgba(0,0,0,.1),#000 90%);-webkit-mask-composite:source-in;mask-image:linear-gradient(to bottom,transparent,#000 40%),linear-gradient(110deg,rgba(0,0,0,.1),#000 90%);mask-composite:intersect}
+#home #contact>.container{position:relative}
+@media(max-width:700px){#home #contact::before{background-size:auto 100%;background-position:65% center;opacity:.13}}
