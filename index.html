@@ -836,6 +836,17 @@ html,body,.top,footer{background-color:#ffffff}
 <meta name="twitter:description" content="Explore Jamie Goralski’s Phoenix-based portfolio of marketing operations, workflow automation, digital signage, HTML email, and graphic design projects.">
 <meta name="twitter:image" content="https://www.jamiegoralski.com/images/optimized/social-phx-wok.jpg">
 <meta name="twitter:image:alt" content="PHX Wok digital signage designed for Phoenix Convention Center">
+<style id="portfolio-scroll-art-styles">
+/* Decorative chevrons follow the viewport beneath every homepage section. */
+body#home{isolation:isolate}
+#home>.top,#home>main,#home>footer{position:relative;z-index:1}
+#portfolio-scroll-art{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;user-select:none}
+#contact .contact-action{background:rgba(60,60,60,.85);backdrop-filter:blur(8px)}
+#contact .background-motion-control{display:block;margin:18px 0 0 auto;padding:8px 12px;min-height:44px;border:1px solid #777;border-radius:24px;background:rgba(55,55,55,.9);color:#e6e4df;font:inherit;font-size:12px;cursor:pointer}
+#contact .background-motion-control:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+#contact .background-motion-control[hidden]{display:none}
+@media(prefers-reduced-motion:reduce){#portfolio-scroll-art{display:none}#contact .background-motion-control{display:none}}
+</style>
 </head>
 
 <body id="home">
@@ -1027,5 +1038,90 @@ html,body,.top,footer{background-color:#ffffff}
 })();
 </script>
 <script src="portfolio-mobile-navigation.js?v=20261104-mobile-clean" defer></script>
+<script id="portfolio-scroll-art-script">
+/* Ambient movement plus eased scroll parallax; no interactive content is covered. */
+(() => {
+  const footer=document.getElementById('contact');
+  if(!footer || document.getElementById('portfolio-scroll-art')) return;
+  const canvas=document.createElement('canvas');
+  canvas.id='portfolio-scroll-art';canvas.setAttribute('aria-hidden','true');
+  const ctx=canvas.getContext('2d');if(!ctx)return;
+  document.body.prepend(canvas);
+  const control=document.createElement('button');
+  control.type='button';control.className='background-motion-control';
+  control.textContent='Pause background motion';
+  footer.querySelector('.container').append(control);
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  let width=0,height=0,frame=0,last=0,phase=0,paused=false;
+  let targetScroll=scrollY,easedScroll=scrollY,footerTop=0,footerHeight=0;
+  let bounce=0,bounceVelocity=0;
+  const clamp=(n)=>Math.max(0,Math.min(1,n));
+  function measure(){
+    width=document.documentElement.clientWidth;height=innerHeight;
+    const dpr=Math.min(devicePixelRatio||1,2);
+    canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    const rect=footer.getBoundingClientRect();footerTop=rect.top+scrollY;footerHeight=rect.height;
+    if(paused)draw();
+  }
+  function draw(){
+    ctx.clearRect(0,0,width,height);
+    const reveal=clamp((easedScroll+height-footerTop)/(Math.min(footerHeight,height)||1));
+    const strength=(.045+reveal*.09)*(width<700?.65:1);
+    const spacing=width<700?14:11;
+    for(let layer=0;layer<3;layer++){
+      const drift=Math.sin(phase*.35+layer*1.4)*18;
+      const shift=Math.sin(easedScroll/900+layer)*42+bounce*[.45,.75,1][layer];
+      const center=width*(.5+Math.sin(phase*.13+easedScroll/1800)*.035);
+      for(let x=-spacing;x<width+spacing;x+=spacing){
+        const v=1-Math.abs(x-center)/(width*.5);
+        const y=height*(.27+layer*.12)+v*height*.25+shift+drift;
+        const length=height*(.23+layer*.025);
+        const edge=.35+.65*Math.pow(Math.abs(x-width*.5)/(width*.5),.7);
+        const alpha=strength*[.45,.65,.9][layer]*edge;
+        const gradient=ctx.createLinearGradient(0,y,0,y+length);
+        gradient.addColorStop(0,'rgba(245,243,239,0)');
+        gradient.addColorStop(.45,`rgba(245,243,239,${alpha})`);
+        gradient.addColorStop(1,'rgba(245,243,239,0)');
+        ctx.strokeStyle=gradient;ctx.lineWidth=layer===2?1.15:.8;
+        ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x,y+length);ctx.stroke();
+      }
+    }
+  }
+  function tick(now){
+    frame=0;
+    if(paused||reduced.matches||document.hidden)return;
+    if(!last||now-last>=32){
+      const delta=last?Math.min(now-last,64):32;last=now;phase+=delta/1000;
+      easedScroll+=(targetScroll-easedScroll)*.16;
+      // A damped spring gives each scroll a small overshoot, then settles.
+      const step=delta/32;
+      bounceVelocity=(bounceVelocity-bounce*.13*step)*Math.pow(.72,step);
+      bounce=Math.max(-18,Math.min(18,bounce+bounceVelocity*step));
+      if(Math.abs(bounce)<.02&&Math.abs(bounceVelocity)<.02){bounce=0;bounceVelocity=0;}
+      draw();
+    }
+    frame=requestAnimationFrame(tick);
+  }
+  function sync(){
+    cancelAnimationFrame(frame);frame=0;last=0;
+    control.hidden=reduced.matches;
+    if(reduced.matches){ctx.clearRect(0,0,width,height);return;}
+    if(!paused&&!document.hidden)frame=requestAnimationFrame(tick);
+  }
+  control.addEventListener('click',()=>{paused=!paused;control.textContent=paused?'Play background motion':'Pause background motion';sync();});
+  addEventListener('scroll',()=>{
+    const change=scrollY-targetScroll;targetScroll=scrollY;
+    if(paused||reduced.matches||document.hidden)return;
+    const impulse=Math.max(-100,Math.min(100,change))*.065;
+    bounceVelocity=Math.max(-8,Math.min(8,bounceVelocity+impulse));
+  },{passive:true});
+  addEventListener('resize',measure,{passive:true});
+  document.addEventListener('visibilitychange',sync);
+  reduced.addEventListener('change',sync);
+  new ResizeObserver(measure).observe(document.body);
+  measure();sync();
+})();
+</script>
 </body>
 </html>
