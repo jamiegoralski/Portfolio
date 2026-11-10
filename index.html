@@ -836,17 +836,6 @@ html,body,.top,footer{background-color:#ffffff}
 <meta name="twitter:description" content="Explore Jamie Goralski’s Phoenix-based portfolio of marketing operations, workflow automation, digital signage, HTML email, and graphic design projects.">
 <meta name="twitter:image" content="https://www.jamiegoralski.com/images/optimized/social-phx-wok.jpg">
 <meta name="twitter:image:alt" content="PHX Wok digital signage designed for Phoenix Convention Center">
-<style id="portfolio-scroll-art-styles">
-/* Sparse network accents follow the viewport edges, leaving the reading area clear. */
-body#home{isolation:isolate}
-#home>.top,#home>main,#home>footer{position:relative;z-index:1}
-#portfolio-scroll-art{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;user-select:none}
-#contact .contact-action{background:rgba(60,60,60,.85);backdrop-filter:blur(8px)}
-#contact .background-motion-control{display:block;margin:18px 0 0 auto;padding:8px 12px;min-height:44px;border:1px solid #777;border-radius:24px;background:rgba(55,55,55,.9);color:#e6e4df;font:inherit;font-size:12px;cursor:pointer}
-#contact .background-motion-control:focus-visible{outline:2px solid currentColor;outline-offset:4px}
-#contact .background-motion-control[hidden]{display:none}
-@media(prefers-reduced-motion:reduce){#portfolio-scroll-art{display:none}#contact .background-motion-control{display:none}}
-</style>
 </head>
 
 <body id="home">
@@ -1038,104 +1027,5 @@ body#home{isolation:isolate}
 })();
 </script>
 <script src="portfolio-mobile-navigation.js?v=20261104-mobile-clean" defer></script>
-<script id="portfolio-scroll-art-script">
-/* Ambient movement plus eased scroll parallax; no interactive content is covered. */
-(() => {
-  const footer=document.getElementById('contact');
-  if(!footer || document.getElementById('portfolio-scroll-art')) return;
-  const canvas=document.createElement('canvas');
-  canvas.id='portfolio-scroll-art';canvas.setAttribute('aria-hidden','true');
-  const ctx=canvas.getContext('2d');if(!ctx)return;
-  document.body.prepend(canvas);
-  const control=document.createElement('button');
-  control.type='button';control.className='background-motion-control';
-  control.textContent='Pause background motion';
-  footer.querySelector('.container').append(control);
-  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-  let width=0,height=0,frame=0,last=0,phase=0,paused=false;
-  let targetScroll=scrollY,easedScroll=scrollY,footerTop=0,footerHeight=0;
-  let bounce=0,bounceVelocity=0;
-  const clamp=(n)=>Math.max(0,Math.min(1,n));
-  function measure(){
-    width=document.documentElement.clientWidth;height=innerHeight;
-    const dpr=Math.min(devicePixelRatio||1,2);
-    canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-    const rect=footer.getBoundingClientRect();footerTop=rect.top+scrollY;footerHeight=rect.height;
-    if(paused)draw();
-  }
-  function draw(){
-    ctx.clearRect(0,0,width,height);
-    const reveal=clamp((easedScroll+height-footerTop)/(Math.min(footerHeight,height)||1));
-    const mobile=width<700;
-    const band=Math.min(mobile?62:230,width*.18);
-    const count=mobile?16:26;
-    const strength=mobile?.30:(.38+reveal*.10);
-    // Sparse edge constellations keep the central reading area clear.
-    for(let side=0;side<2;side++){
-      const points=[];
-      for(let i=0;i<count;i++){
-        const seed=Math.sin((i+1)*127.1+side*311.7)*43758.5453;
-        const fraction=seed-Math.floor(seed);
-        const inset=8+fraction*Math.max(0,band-16);
-        const sway=Math.sin(phase*.18+i*1.7+side)*4;
-        const x=side?width-inset-sway:inset+sway;
-        const wrap=height+100;
-        const y=((i/count*wrap+Math.sin(i*2.4)*24+
-          Math.sin(phase*.22+i)*7-easedScroll*.035+bounce*.3)%wrap+wrap)%wrap-50;
-        const alpha=strength*(.25+.75*Math.pow(1-inset/band,1.4))*(.88+.12*Math.sin(phase*.28+i));
-        points.push({x,y,alpha});
-      }
-      {
-        for(let i=0;i<points.length;i++){
-          for(let j=i+1;j<Math.min(i+3,points.length);j++){
-            const a=points[i],b=points[j],distance=Math.hypot(a.x-b.x,a.y-b.y);
-            if(distance>(mobile?78:145))continue;
-            ctx.strokeStyle=`rgba(220,226,232,${Math.min(a.alpha,b.alpha)*.72*(1-distance/200)})`;
-            ctx.lineWidth=mobile?.75:1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();
-          }
-        }
-      }
-      for(const point of points){
-        ctx.fillStyle=`rgba(220,226,232,${point.alpha})`;
-        ctx.beginPath();ctx.arc(point.x,point.y,mobile?1.6:2.1,0,Math.PI*2);ctx.fill();
-      }
-    }
-  }
-  function tick(now){
-    frame=0;
-    if(paused||reduced.matches||document.hidden)return;
-    if(!last||now-last>=32){
-      const delta=last?Math.min(now-last,64):32;last=now;phase+=delta/1000;
-      easedScroll+=(targetScroll-easedScroll)*.16;
-      // A damped spring gives each scroll a small overshoot, then settles.
-      const step=delta/32;
-      bounceVelocity=(bounceVelocity-bounce*.13*step)*Math.pow(.72,step);
-      bounce=Math.max(-18,Math.min(18,bounce+bounceVelocity*step));
-      if(Math.abs(bounce)<.02&&Math.abs(bounceVelocity)<.02){bounce=0;bounceVelocity=0;}
-      draw();
-    }
-    frame=requestAnimationFrame(tick);
-  }
-  function sync(){
-    cancelAnimationFrame(frame);frame=0;last=0;
-    control.hidden=reduced.matches;
-    if(reduced.matches){ctx.clearRect(0,0,width,height);return;}
-    if(!paused&&!document.hidden)frame=requestAnimationFrame(tick);
-  }
-  control.addEventListener('click',()=>{paused=!paused;control.textContent=paused?'Play background motion':'Pause background motion';sync();});
-  addEventListener('scroll',()=>{
-    const change=scrollY-targetScroll;targetScroll=scrollY;
-    if(paused||reduced.matches||document.hidden)return;
-    const impulse=Math.max(-100,Math.min(100,change))*.065;
-    bounceVelocity=Math.max(-8,Math.min(8,bounceVelocity+impulse));
-  },{passive:true});
-  addEventListener('resize',measure,{passive:true});
-  document.addEventListener('visibilitychange',sync);
-  reduced.addEventListener('change',sync);
-  new ResizeObserver(measure).observe(document.body);
-  measure();sync();
-})();
-</script>
 </body>
 </html>
