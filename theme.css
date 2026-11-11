@@ -76,10 +76,10 @@ nav[aria-label="Main navigation"] .mobile-nav-toggle{display:none}
 #home #contact{position:relative;isolation:isolate;overflow:hidden}
 #home #contact::before{
   content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background:url("images/footer-geometric-pattern.jpg") center bottom / 640px auto repeat;
-  filter:grayscale(1) invert(1);mix-blend-mode:screen;opacity:.11;
-  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.25) 35%,#000 100%);
-  mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.25) 35%,#000 100%);
+  background:url("images/footer-geometric-pattern.svg") center bottom / 640px auto repeat;
+  opacity:.045;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,transparent 15%,rgba(0,0,0,.15) 50%,#000 100%);
+  mask-image:linear-gradient(to bottom,transparent 0%,transparent 15%,rgba(0,0,0,.15) 50%,#000 100%);
 }
 #home #contact>.container{position:relative}
-@media(max-width:700px){#home #contact::before{background-size:480px auto;opacity:.09}}
+@media(max-width:700px){#home #contact::before{background-size:480px auto;opacity:.035}}
