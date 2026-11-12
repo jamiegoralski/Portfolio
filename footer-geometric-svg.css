@@ -1,11 +1,17 @@
-/* Original geometric pattern, softly fading into the homepage footer. */
+/* Original geometric pattern revealed in soft, scattered footer patches. */
 #home #contact{position:relative;isolation:isolate;overflow:hidden}
 #home #contact::before{
   content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
   background:url("images/footer-geometric-pattern.svg") center bottom / 640px auto repeat;
   opacity:.045;
-  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,transparent 15%,rgba(0,0,0,.15) 50%,#000 100%);
-  mask-image:linear-gradient(to bottom,transparent 0%,transparent 15%,rgba(0,0,0,.15) 50%,#000 100%);
+  --pattern-patches:
+    radial-gradient(ellipse 23% 44% at 7% 82%,#000 8%,rgba(0,0,0,.65) 36%,transparent 100%),
+    radial-gradient(ellipse 16% 30% at 35% 59%,rgba(0,0,0,.7) 5%,transparent 100%),
+    radial-gradient(ellipse 21% 35% at 55% 102%,#000 12%,transparent 100%),
+    radial-gradient(ellipse 19% 39% at 79% 72%,rgba(0,0,0,.85) 10%,transparent 100%),
+    radial-gradient(ellipse 11% 23% at 99% 98%,#000 8%,transparent 100%);
+  -webkit-mask-image:var(--pattern-patches);
+  mask-image:var(--pattern-patches);
 }
 #home #contact>.container{position:relative}
 @media(max-width:700px){#home #contact::before{background-size:480px auto;opacity:.035}}
