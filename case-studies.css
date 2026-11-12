@@ -66,3 +66,24 @@
 .case-study .signature-logo{width:64px}
 .case-study .case-nav{gap:4px 22px}
 }
+
+/* Responsive text flow: keep paragraph endings and short headings together. */
+.case-study :is(p,li,dd,figcaption){text-wrap:pretty}
+.case-study :is(h1,h2,h3){text-wrap:balance}
+.case-study :is(.story-grid,.feature,.production,.print-layout,.hero-grid)>*{min-width:0}
+.case-study .hero .intro{max-width:38ch}
+.case-study .detail-list li{line-height:1.65}
+.case-study .campaign-results{margin:28px 0 30px;padding:24px 0 28px;border-block:1px solid #505050}
+.case-study .campaign-results h2{font-size:13px;line-height:1.5;font-weight:400;letter-spacing:.045em;margin:0 0 16px}
+.case-study .results-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;max-width:650px;margin:0}
+.case-study .results-grid>div{display:flex;flex-direction:column;min-width:0}
+.case-study .results-grid dt{order:1;font-size:15px;line-height:1.5;margin:8px 0 0}
+.case-study .results-grid dd{font-size:clamp(44px,6vw,72px);line-height:1.05;letter-spacing:-.045em;font-weight:500;margin:0}
+@media(min-width:1001px){
+.case-study .brand,.case-study .brand.john{grid-template-columns:minmax(280px,.8fr) minmax(0,2fr);gap:40px}
+}
+@media(max-width:700px){
+.case-study .campaign-results{margin:24px 0;padding:22px 0}
+.case-study .results-grid{gap:16px}
+.case-study .results-grid dt{font-size:14px}
+}
