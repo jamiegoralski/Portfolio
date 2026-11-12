@@ -87,3 +87,11 @@
 .case-study .results-grid{gap:16px}
 .case-study .results-grid dt{font-size:14px}
 }
+
+/* Compact project openings keep the work close to the top. */
+.case-study .compact-hero{padding:22px 0 24px}
+.case-study .compact-hero>.eyebrow{margin-bottom:14px}
+.case-study .compact-hero h1{font-size:clamp(32px,3.8vw,52px);line-height:1.12;max-width:1000px}
+.case-study .compact-hero>.intro{font-size:clamp(18px,1.6vw,21px);line-height:1.5;max-width:70ch;margin:16px 0 0;letter-spacing:-.015em}
+.case-study .compact-hero .button{margin-top:18px}
+@media(max-width:700px){.case-study .compact-hero{padding:16px 0 18px}}
