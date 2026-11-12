@@ -907,6 +907,30 @@ html,body,.top,footer{background-color:#ffffff}
 }
 </style>
 <link rel="stylesheet" href="portfolio-footer.css?v=20261112">
+<style id="team-testimonial-style">
+#home #about .team-testimonial{
+  grid-column:1 / -1;width:100%;margin:48px 0 0;padding:40px 0 0;
+  border-top:1px solid rgba(255,255,255,.12);
+}
+#home #about .testimonial-label{
+  margin:0 0 22px;font-family:var(--label-font,ui-monospace,Consolas,monospace);
+  font-size:11px;font-weight:400;line-height:1.6;letter-spacing:.1em;text-transform:uppercase;color:#b5b3ad;
+}
+#home #about .team-testimonial blockquote{margin:0;max-width:960px}
+#home #about .team-testimonial blockquote p{
+  margin:0;font-size:clamp(22px,2.4vw,32px);line-height:1.5;
+  letter-spacing:-.025em;font-weight:400;color:#f5f3ef;text-wrap:pretty;
+}
+#home #about .team-testimonial figcaption{
+  display:flex;flex-direction:column;gap:3px;margin:24px 0 0;padding:0;
+  font-size:14px;line-height:1.6;color:#b5b3ad;
+}
+#home #about .team-testimonial figcaption strong{font-size:15px;font-weight:500;color:#f5f3ef}
+@media(max-width:700px){
+  #home #about .team-testimonial{margin-top:8px;padding-top:28px}
+  #home #about .team-testimonial blockquote p{font-size:22px}
+}
+</style>
 </head>
 
 <body id="home">
@@ -1045,6 +1069,13 @@ html,body,.top,footer{background-color:#ffffff}
         
         <div><p class="eyebrow">Beyond the resume</p><h3>A team mindset.<br>On and off the field.</h3><p>I earned my B.A. in Communication at the University of San Diego, where I competed as a Division I soccer student-athlete. That experience shaped the way I approach collaboration, preparation, feedback, and following through when the pace picks up.</p><p>Today, that team mindset carries into my work with Marketing, Sales, Culinary, and Operations. Outside of work, I enjoy traveling and photographing the places, people, and details I find along the way.</p></div>
       </div>
+      <figure class="team-testimonial" aria-labelledby="team-testimonial-label">
+        <p class="testimonial-label" id="team-testimonial-label">From my team</p>
+        <blockquote>
+          <p>“You consistently meet every deadline, go above and beyond to get things done right, and you do it all with a positive attitude. That kind of reliability and effort really makes a difference.”</p>
+        </blockquote>
+        <figcaption><strong>Sandy Brown</strong><span>Sales &amp; Marketing Director</span><span>Aramark Sports + Entertainment</span></figcaption>
+      </figure>
     </section>
   </main>
 
