@@ -40,31 +40,6 @@
   #home #contact::before,#home #contact::after{animation:none}
 }
 
-/* A faint companion patch along the About portrait and focus panel. */
-#home #about .expertise{position:relative;isolation:isolate}
-#home #about .expertise::before{
-  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
-  border-radius:inherit;
-  background:url("images/footer-geometric-pattern.svg") right center / 640px auto repeat;
-  --about-patches:
-    radial-gradient(ellipse 62% 29% at 100% 25%,#000 6%,transparent 100%),
-    radial-gradient(ellipse 48% 24% at 85% 76%,rgba(0,0,0,.7) 5%,transparent 100%);
-  -webkit-mask-image:var(--about-patches);
-  mask-image:var(--about-patches);
-  opacity:.03;
-  animation:about-patches-breathe 19s ease-in-out -7s infinite;
-}
-@keyframes about-patches-breathe{
-  0%,100%{opacity:.004}
-  45%,55%{opacity:.03}
-}
-@media(max-width:700px){
-  #home #about .expertise::before{background-size:480px auto}
-}
-@media(prefers-reduced-motion:reduce){
-  #home #about .expertise::before{animation:none}
-}
-
 /* The opening pattern bleeds vertically beyond the name, fading at its outer edges. */
 #home .motion-identity{isolation:isolate;overflow:visible}
 #home .motion-identity::before{
