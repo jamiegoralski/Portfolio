@@ -107,24 +107,17 @@ nav[aria-label="Main navigation"] .mobile-nav-toggle{display:none}
 #home #about .expertise h3,
 #home #about .about-background .eyebrow,
 #home .experience-dates{font-size:12px;letter-spacing:.06em}
-#home .project .visual::after{
-  content:"";position:absolute;inset:0;z-index:1;
-  border:1px solid rgba(255,255,255,.16);border-radius:inherit;
-  pointer-events:none;transition:border-color 220ms ease;
-}
 #home .project h3 .link-arrow{
   display:inline-block;transition:transform 220ms ease;
 }
-#home .project:focus-within .visual::after{border-color:rgba(255,255,255,.65)}
 #home .project h3 a:focus-visible{outline:2px solid #d0ceca;outline-offset:5px}
 @media(hover:hover) and (pointer:fine){
-  #home .project:hover .visual::after{border-color:rgba(255,255,255,.58)}
   #home .project:hover h3 .link-arrow{transform:translate(3px,-3px)}
 }
 @media(max-width:700px){
   #home .project h3 .link-arrow{display:none}
 }
 @media(prefers-reduced-motion:reduce){
-  #home .project .visual::after,#home .project h3 .link-arrow{transition:none}
+  #home .project h3 .link-arrow{transition:none}
   #home .project:hover h3 .link-arrow{transform:none}
 }
