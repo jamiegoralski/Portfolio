@@ -76,8 +76,8 @@
 #contact.portfolio-footer::before,
 #contact.portfolio-footer::after{
   content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background:url("images/footer-geometric-pattern.svg") center bottom / 640px auto repeat;
-  opacity:.045;
+  background:url("images/jg-faded-pattern.webp") center bottom / max(100%, 1400px) auto no-repeat;
+  opacity:.14;
   -webkit-mask-image:var(--pattern-patches);
   mask-image:var(--pattern-patches);
 }
@@ -97,17 +97,17 @@
 #contact.portfolio-footer>.container{position:relative}
 @keyframes footer-patches-breathe{
   0%,100%{opacity:0}
-  45%,55%{opacity:.045}
+  45%,55%{opacity:.14}
 }
 @media(max-width:700px){
   #contact.portfolio-footer::before,#contact.portfolio-footer::after{
-    background-size:480px auto;opacity:.035;
+    background-size:1000px auto;opacity:.11;
     animation-name:footer-patches-breathe-mobile;
   }
 }
 @keyframes footer-patches-breathe-mobile{
   0%,100%{opacity:0}
-  45%,55%{opacity:.035}
+  45%,55%{opacity:.11}
 }
 @media(prefers-reduced-motion:reduce){
   #contact.portfolio-footer::before,#contact.portfolio-footer::after{animation:none}

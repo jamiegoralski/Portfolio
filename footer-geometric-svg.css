@@ -3,8 +3,8 @@
 #home #contact::before,
 #home #contact::after{
   content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background:url("images/footer-geometric-pattern.svg") center bottom / 640px auto repeat;
-  opacity:.045;
+  background:url("images/jg-faded-pattern.webp") center bottom / max(100%, 1400px) auto no-repeat;
+  opacity:.14;
   -webkit-mask-image:var(--pattern-patches);
   mask-image:var(--pattern-patches);
 }
@@ -24,17 +24,17 @@
 #home #contact>.container{position:relative}
 @keyframes footer-patches-breathe{
   0%,100%{opacity:0}
-  45%,55%{opacity:.045}
+  45%,55%{opacity:.14}
 }
 @media(max-width:700px){
   #home #contact::before,#home #contact::after{
-    background-size:480px auto;opacity:.035;
+    background-size:1000px auto;opacity:.11;
     animation-name:footer-patches-breathe-mobile;
   }
 }
 @keyframes footer-patches-breathe-mobile{
   0%,100%{opacity:0}
-  45%,55%{opacity:.035}
+  45%,55%{opacity:.11}
 }
 @media(prefers-reduced-motion:reduce){
   #home #contact::before,#home #contact::after{animation:none}
@@ -46,21 +46,21 @@
   content:"";position:absolute;top:clamp(-120px,-8vw,-60px);bottom:clamp(-120px,-8vw,-60px);
   left:50%;width:calc(100vw - 32px);transform:translateX(-50%);
   z-index:-1;pointer-events:none;
-  background:url("images/footer-geometric-pattern.svg") center / 640px auto repeat;
+  background:url("images/jg-faded-pattern.webp") center / max(100%, 1400px) auto no-repeat;
   --hero-patches:
     radial-gradient(ellipse 28% 44% at 70% 54%,#000 5%,transparent 100%),
     radial-gradient(ellipse 24% 34% at 26% 38%,rgba(0,0,0,.55) 5%,transparent 100%);
   -webkit-mask-image:var(--hero-patches);
   mask-image:var(--hero-patches);
-  opacity:.028;
+  opacity:.12;
   animation:hero-patches-breathe 17s ease-in-out -5s infinite;
 }
 @keyframes hero-patches-breathe{
-  0%,100%{opacity:.003}
-  45%,55%{opacity:.028}
+  0%,100%{opacity:.015}
+  45%,55%{opacity:.12}
 }
 @media(max-width:700px){
-  #home .motion-identity::before{background-size:480px auto}
+  #home .motion-identity::before{background-size:1000px auto}
 }
 @media(prefers-reduced-motion:reduce){
   #home .motion-identity::before{animation:none}
