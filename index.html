@@ -1044,25 +1044,43 @@ html,body,.top,footer{background-color:#ffffff}
   </footer>
 <script src="logo-animation.js" defer></script>
 <script>
-// Content remains visible if JavaScript or animation support is unavailable.
+// Reveal individual text blocks as they enter view; content stays readable without JS.
 (() => {
   const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (preference.matches || !('IntersectionObserver' in window) || !Element.prototype.animate) return;
   const animations = new Set();
+  const selector = [
+    '.hero-description', '.creative-versatility li', '.section-heading',
+    '.project > h3', '.project-category', '.project-about > p',
+    '.about-story > h2', '.about-story > p', '.about-experience > h3',
+    '.experience-entry', '.expertise-details > h3', '.focus-list > li',
+    '.about-tools > h3', '.about-tools > p', '.about-metrics > div',
+    '.about-background > div > p', '.about-background > div > h3',
+    '#contact > .container > h2', '.footer-bottom > div > p',
+    '.footer-contact', '.footer-bottom > a'
+  ].join(', ');
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(({target, isIntersecting}, index) => {
+    let stagger = 0;
+    entries.forEach(({target, isIntersecting}) => {
       if (!isIntersecting) return;
       observer.unobserve(target);
       if (preference.matches || target.contains(document.activeElement)) return;
-      const animation = target.animate(
-        [{opacity:0, transform:'translateY(10px)'}, {opacity:1, transform:'translateY(0)'}],
-        {duration:520, delay:Math.min(index,2)*65, easing:'cubic-bezier(.22,1,.36,1)', fill:'backwards'}
-      );
+      const heading = target.matches('h2, h3');
+      const distance = heading ? 36 : 24;
+      const animation = target.animate([
+        {opacity:0, transform:'translateY(' + distance + 'px)'},
+        {opacity:1, transform:'translateY(0)'}
+      ], {
+        duration:heading ? 1000 : 800,
+        delay:Math.min(stagger++, 3) * 90,
+        easing:'cubic-bezier(.16,1,.3,1)',
+        fill:'backwards'
+      });
       animations.add(animation);
       animation.finished.then(() => animations.delete(animation), () => animations.delete(animation));
     });
-  }, {threshold:0, rootMargin:'0px 0px -24px 0px'});
-  document.querySelectorAll('.work .project, .section-heading, .about-story > h2, .about-story > p, .about-experience, .expertise, .about-background, #contact > .container').forEach((section) => observer.observe(section));
+  }, {threshold:0, rootMargin:'0px 0px -48px 0px'});
+  document.querySelectorAll(selector).forEach((element) => observer.observe(element));
   const cancelAnimations = () => {
     animations.forEach((animation) => animation.cancel());
     animations.clear();
