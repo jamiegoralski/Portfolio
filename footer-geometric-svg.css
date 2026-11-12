@@ -65,13 +65,13 @@
   #home #about .expertise::before{animation:none}
 }
 
-/* A quiet patch behind the opening name animation. */
-#home .motion-identity{isolation:isolate}
+/* The opening pattern bleeds vertically beyond the name, fading at its outer edges. */
+#home .motion-identity{isolation:isolate;overflow:visible}
 #home .motion-identity::before{
-  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  content:"";position:absolute;inset:clamp(-120px,-8vw,-60px) 0;z-index:-1;pointer-events:none;
   background:url("images/footer-geometric-pattern.svg") center / 640px auto repeat;
   --hero-patches:
-    radial-gradient(ellipse 35% 48% at 78% 58%,#000 5%,transparent 100%),
+    radial-gradient(ellipse 35% 44% at 78% 54%,#000 5%,transparent 100%),
     radial-gradient(ellipse 22% 34% at 24% 38%,rgba(0,0,0,.55) 5%,transparent 100%);
   -webkit-mask-image:var(--hero-patches);
   mask-image:var(--hero-patches);
