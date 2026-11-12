@@ -83,3 +83,48 @@ nav[aria-label="Main navigation"] .mobile-nav-toggle{display:none}
 }
 #home #contact>.container{position:relative}
 @media(max-width:700px){#home #contact::before{background-size:480px auto;opacity:.035}}
+
+/* Technical accents: quiet monospace labels and precise project interactions. */
+#home{
+  --label-font:ui-monospace,"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+}
+#home .section-heading,
+#home .project-category,
+#home .creative-versatility li,
+#home #about .expertise h3,
+#home #about .about-background .eyebrow,
+#home .experience-dates{
+  font-family:var(--label-font);
+  font-weight:400;
+}
+#home .section-heading{
+  font-size:13px;line-height:1.6;letter-spacing:.1em;text-transform:uppercase;
+}
+#home .project-category{
+  font-size:12px;line-height:1.8;letter-spacing:.015em;text-wrap:pretty;
+}
+#home .creative-versatility li{font-size:12px;line-height:1.7;letter-spacing:.015em}
+#home #about .expertise h3,
+#home #about .about-background .eyebrow,
+#home .experience-dates{font-size:12px;letter-spacing:.06em}
+#home .project .visual::after{
+  content:"";position:absolute;inset:0;z-index:1;
+  border:1px solid rgba(255,255,255,.16);border-radius:inherit;
+  pointer-events:none;transition:border-color 220ms ease;
+}
+#home .project h3 .link-arrow{
+  display:inline-block;transition:transform 220ms ease;
+}
+#home .project:focus-within .visual::after{border-color:rgba(255,255,255,.65)}
+#home .project h3 a:focus-visible{outline:2px solid #d0ceca;outline-offset:5px}
+@media(hover:hover) and (pointer:fine){
+  #home .project:hover .visual::after{border-color:rgba(255,255,255,.58)}
+  #home .project:hover h3 .link-arrow{transform:translate(3px,-3px)}
+}
+@media(max-width:700px){
+  #home .project h3 .link-arrow{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  #home .project .visual::after,#home .project h3 .link-arrow{transition:none}
+  #home .project:hover h3 .link-arrow{transform:none}
+}
