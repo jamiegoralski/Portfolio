@@ -65,3 +65,6 @@
 @media(prefers-reduced-motion:reduce){
   #home .motion-identity::before{animation:none}
 }
+
+/* Decorative patterns removed. */
+#home .motion-identity::before,#home #contact::before,#home #contact::after,#contact.portfolio-footer::before,#contact.portfolio-footer::after{content:none!important;display:none!important;animation:none!important}
