@@ -1,6 +1,6 @@
 /* Pure vector waves: transparency fades, no raster images or blur filters. */
 #home .motion-identity { isolation: isolate; overflow: visible; }
-.wave-pattern { position:absolute; pointer-events:none; z-index:-1; background: url("images/waves-faded.svg?v=2") center / 100% auto no-repeat; }
+.wave-pattern { position:absolute; pointer-events:none; z-index:-1; background: url("images/waves-faded.svg?v=3") center / 100% auto no-repeat; }
 #home .motion-identity > .wave-pattern { left:50%; top:50%; width:calc(100vw - 32px); height:100%; min-height:clamp(220px,22vw,900px); transform:translate(-50%,-50%); opacity:.12; }
 #contact.portfolio-footer { position:relative; isolation:isolate; overflow:hidden; }
 #contact.portfolio-footer > .wave-pattern { inset:0; opacity:.10; background-position:center 65%; }
@@ -11,12 +11,8 @@
 }
 @media print { .wave-pattern { display:none; } }
 
-/* Slow opacity-only motion keeps all four lines aligned and sharp. */
-#home .motion-identity > .wave-pattern { --wave-min:.055; --wave-max:.12; animation:wave-breathe 14s ease-in-out infinite; }
-#contact.portfolio-footer > .wave-pattern { --wave-min:.045; --wave-max:.10; animation:wave-breathe 18s ease-in-out -6s infinite; }
-@keyframes wave-breathe { 0%,100% { opacity:var(--wave-min); } 50% { opacity:var(--wave-max); } }
-@media(max-width:700px) {
- #home .motion-identity > .wave-pattern { --wave-max:.10; }
- #contact.portfolio-footer > .wave-pattern { --wave-max:.08; }
+/* Keep the animated name clear while the individual SVG lines fade in sequence. */
+#home .motion-identity > .wave-pattern {
+ -webkit-mask-image:radial-gradient(ellipse 32% 58% at 50% 48%,rgba(0,0,0,.18) 0%,rgba(0,0,0,.32) 45%,#000 100%);
+ mask-image:radial-gradient(ellipse 32% 58% at 50% 48%,rgba(0,0,0,.18) 0%,rgba(0,0,0,.32) 45%,#000 100%);
 }
-@media(prefers-reduced-motion:reduce) { #home .motion-identity > .wave-pattern, #contact.portfolio-footer > .wave-pattern { animation:none; } }
