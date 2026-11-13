@@ -1,0 +1,12 @@
+/* Pure vector waves: transparency fades, no raster images or blur filters. */
+#home .motion-identity { isolation: isolate; overflow: visible; }
+.wave-pattern { position:absolute; pointer-events:none; z-index:-1; background: url("images/waves-faded.svg") center / 100% auto no-repeat; }
+#home .motion-identity > .wave-pattern { left:50%; top:50%; width:calc(100vw - 32px); height:100%; min-height:clamp(220px,22vw,900px); transform:translate(-50%,-50%); opacity:.22; }
+#contact.portfolio-footer { position:relative; isolation:isolate; overflow:hidden; }
+#contact.portfolio-footer > .wave-pattern { inset:0; opacity:.19; background-position:center 65%; }
+#contact.portfolio-footer > .container { position:relative; z-index:1; }
+@media(max-width:700px) {
+ #home .motion-identity > .wave-pattern { background-size:auto 180px; opacity:.18; }
+ #contact.portfolio-footer > .wave-pattern { background-size:auto 260px; opacity:.16; }
+}
+@media print { .wave-pattern { display:none; } }
