@@ -1,24 +1,14 @@
-/* Pure vector dots: transparency fades, no raster images or blur filters. */
-#home .motion-identity { isolation: isolate; overflow: visible; }
-.wave-pattern { position:absolute; pointer-events:none; z-index:-1; background: url("images/dotted-wave-pattern.svg?v=1") center / 100% auto no-repeat; }
-#home .motion-identity > .wave-pattern { left:50%; top:50%; width:calc(100vw - 32px); height:100%; min-height:clamp(220px,22vw,900px); transform:translate(-50%,-50%); opacity:.12; }
+/* User-supplied vector artwork cropped around one complete row of peaks. */
+#home .motion-identity { isolation:isolate; overflow:visible; }
+.wave-pattern { position:absolute; pointer-events:none; z-index:-1; background:url("images/dotted-wave-pattern.svg?v=2") center / 100% auto no-repeat; -webkit-mask-image:radial-gradient(ellipse at center,#000 30%,transparent 74%); mask-image:radial-gradient(ellipse at center,#000 30%,transparent 74%); }
+#home .motion-identity > .wave-pattern { left:50%; top:50%; width:calc(100vw - 32px); height:max(100%,32vw); transform:translate(-50%,-50%); opacity:.14; animation:dot-fade 18s ease-in-out infinite; }
 #contact.portfolio-footer { position:relative; isolation:isolate; overflow:hidden; }
-#contact.portfolio-footer > .wave-pattern { inset:0; opacity:.10; background-position:center 65%; }
+#contact.portfolio-footer > .wave-pattern { inset:0; opacity:.12; background-size:max(100%,1000px) auto; animation:dot-fade 22s ease-in-out -7s infinite; }
 #contact.portfolio-footer > .container { position:relative; z-index:1; }
+@keyframes dot-fade { 0%,100% { opacity:.09; } 50% { opacity:.16; } }
 @media(max-width:700px) {
- #home .motion-identity > .wave-pattern { background-size:auto 180px; opacity:.10; }
- #contact.portfolio-footer > .wave-pattern { background-size:auto 260px; opacity:.08; }
+ #home .motion-identity > .wave-pattern { height:300px; background-size:850px auto; }
+ #contact.portfolio-footer > .wave-pattern { background-size:950px auto; }
 }
-@media print { .wave-pattern { display:none; } }
-
-/* Keep the animated name clear while the dotted SVG pattern fades gently. */
-#home .motion-identity > .wave-pattern {
- -webkit-mask-image:radial-gradient(ellipse 32% 58% at 50% 48%,rgba(0,0,0,.18) 0%,rgba(0,0,0,.32) 45%,#000 100%);
- mask-image:radial-gradient(ellipse 32% 58% at 50% 48%,rgba(0,0,0,.18) 0%,rgba(0,0,0,.32) 45%,#000 100%);
-}
-
-/* Gentle movement in opacity keeps the EPS dot geometry stationary and crisp. */
-#home .motion-identity > .wave-pattern { animation:dot-fade 18s ease-in-out infinite; }
-#contact.portfolio-footer > .wave-pattern { animation:dot-fade 22s ease-in-out -7s infinite; }
-@keyframes dot-fade { 0%,100% { opacity:.065; } 50% { opacity:.12; } }
 @media(prefers-reduced-motion:reduce) { #home .motion-identity > .wave-pattern, #contact.portfolio-footer > .wave-pattern { animation:none; } }
+@media print { .wave-pattern { display:none; } }
