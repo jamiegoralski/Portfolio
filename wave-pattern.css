@@ -1,6 +1,6 @@
 /* Original dot geometry with transparent boundaries and uneven fade patches. */
 #home .motion-identity { isolation:isolate; overflow:visible; }
-.wave-pattern { position:absolute; pointer-events:none; z-index:-1; background:url("images/halftone-wave-traced.svg?v=3") center / 100% auto no-repeat; filter:invert(1); }
+.wave-pattern { position:absolute; pointer-events:none; z-index:-1; background:url("images/halftone-wave-traced.svg?v=4") center / 100% auto no-repeat; filter:invert(1); }
 #home .motion-identity > .wave-pattern { left:50%; top:50%; width:calc(100vw - 2px); height:calc((100vw - 2px) * .64946); transform:translate(-50%,-50%); opacity:.05; animation:dot-fade 18s ease-in-out infinite; }
 #contact.portfolio-footer { position:relative; isolation:isolate; overflow:hidden; }
 #contact.portfolio-footer > .wave-pattern { inset:0; opacity:.045; background-size:100% auto; animation:dot-fade 22s ease-in-out -7s infinite; }
@@ -18,3 +18,8 @@
  -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.12) 18%,rgba(0,0,0,.55) 38%,#000 62%,rgba(0,0,0,.7) 84%,transparent 100%);
  mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.12) 18%,rgba(0,0,0,.55) 38%,#000 62%,rgba(0,0,0,.7) 84%,transparent 100%);
 }
+
+/* Inline SVG enhancement preserves fallback artwork and ignores all pointer input. */
+#home .motion-identity > .wave-pattern.is-interactive,
+#contact.portfolio-footer > .wave-pattern.is-interactive { background:none; opacity:.22; animation:none; }
+.wave-pattern > svg { display:block; position:absolute; inset:0; width:100%; height:100%; overflow:hidden; pointer-events:none; }
