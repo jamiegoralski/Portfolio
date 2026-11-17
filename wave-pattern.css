@@ -23,3 +23,6 @@
 #home .motion-identity > .wave-pattern.is-interactive,
 #contact.portfolio-footer > .wave-pattern.is-interactive { background:none; opacity:.22; animation:none; }
 .wave-pattern > svg { display:block; position:absolute; inset:0; width:100%; height:100%; overflow:hidden; pointer-events:none; }
+
+/* Use the static fallback immediately when motion or a fine pointer is unavailable. */
+.wave-pattern:not(.is-interactive) > svg { display:none; }
