@@ -28,7 +28,7 @@
     }
     if (changing) schedule();
   }
-  fetch('images/halftone-wave-traced.svg?v=7').then(r => { if (!r.ok) throw Error('Pattern unavailable'); return r.text(); }).then(text => {
+  fetch('images/halftone-wave-traced.svg?v=8').then(r => { if (!r.ok) throw Error('Pattern unavailable'); return r.text(); }).then(text => {
     document.querySelectorAll('.wave-pattern').forEach((layer, index) => {
       const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
       if (doc.querySelector('parsererror')) return;
