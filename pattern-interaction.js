@@ -20,15 +20,15 @@
         const opacity = .19 + influence * .81;
         if (Math.abs(tx-d.cx) + Math.abs(ty-d.cy) + Math.abs(opacity-d.o)*10 < .015) continue;
         d.cx += (tx-d.cx)*.16; d.cy += (ty-d.cy)*.16; d.o += (opacity-d.o)*.16;
-        d.node.setAttribute('cx', d.cx.toFixed(3));
-        d.node.setAttribute('cy', d.cy.toFixed(3));
+        d.node.setAttribute('x', (d.cx-d.half).toFixed(3));
+        d.node.setAttribute('y', (d.cy-d.half).toFixed(3));
         d.node.setAttribute('fill-opacity', d.o.toFixed(3));
         changing = true;
       }
     }
     if (changing) schedule();
   }
-  fetch('images/halftone-wave-traced.svg?v=6').then(r => { if (!r.ok) throw Error('Pattern unavailable'); return r.text(); }).then(text => {
+  fetch('images/halftone-wave-traced.svg?v=7').then(r => { if (!r.ok) throw Error('Pattern unavailable'); return r.text(); }).then(text => {
     document.querySelectorAll('.wave-pattern').forEach((layer, index) => {
       const doc = new DOMParser().parseFromString(text, 'image/svg+xml');
       if (doc.querySelector('parsererror')) return;
@@ -43,10 +43,11 @@
       }
       for (const n of svg.querySelectorAll('[id]')) n.id = `dots-${index}-${n.id}`;
       svg.setAttribute('aria-hidden','true');
-      const dots = [...svg.querySelectorAll('circle')].map(node => {
-        const x = +node.getAttribute('cx'), y = +node.getAttribute('cy');
+      const dots = [...svg.querySelectorAll('rect.pattern-dot')].map(node => {
+        const half = +node.getAttribute('width') / 2;
+        const x = +node.getAttribute('x') + half, y = +node.getAttribute('y') + half;
         node.setAttribute('fill-opacity','.19');
-        return {node,x,y,cx:x,cy:y,o:.19};
+        return {node,x,y,half,cx:x,cy:y,o:.19};
       });
       layer.append(svg); layer.classList.add('is-interactive'); layers.push({svg,dots});
     });
